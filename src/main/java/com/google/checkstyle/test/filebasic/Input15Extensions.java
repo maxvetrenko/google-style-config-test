@@ -1,0 +1,38 @@
+package com.google.checkstyle.test.filebasic;
+
+
+@interface MyAnnotation1 {
+    String name();
+    int version();
+}
+
+@MyAnnotation1(name = "ABC", version = 1)
+public class Input15Extensions
+{
+
+}
+
+enum Enum1
+{
+    A, B, C;
+    Enum1() {}
+    public String toString() {
+        return ""; //some custom implementation
+    }
+}
+
+interface TestRequireThisEnum
+{
+    enum DAY_OF_WEEK
+    {
+        SUNDAY,
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY
+    }
+}
+
+
