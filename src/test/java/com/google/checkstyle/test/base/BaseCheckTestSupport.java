@@ -162,5 +162,4 @@ public abstract class BaseCheckTestSupport
         }
         return pr.getProperty(messageKey);
     }
-
 }
