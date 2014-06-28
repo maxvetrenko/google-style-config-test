@@ -15,9 +15,6 @@ import com.puppycrawl.tools.checkstyle.api.Configuration;
 
 public class InputSimpleTest extends BaseCheckTestSupport{
 	
-	 /** the underlying Properties object. */
-	Properties mProperties;
-	
     public Configuration getConfigurationFromXML(String aConfigName, Properties aProps) throws CheckstyleException {
     	try {
             return ConfigurationLoader.loadConfiguration(
@@ -39,7 +36,7 @@ public class InputSimpleTest extends BaseCheckTestSupport{
         
     	Configuration conf = getConfigurationFromXML("checkstyle_google_style.xml", System.getProperties());
     	
-    	List<File> files = new ArrayList();
+    	List<File> files = new ArrayList<File>();
         listFiles(files, ROOT, "java");
         System.out.println("Found " + files.size() + " Java source files.");
 
@@ -58,7 +55,6 @@ public class InputSimpleTest extends BaseCheckTestSupport{
         	String rootPath = ROOT.getAbsolutePath().substring(0, ROOT.getAbsolutePath().lastIndexOf("src"));
             String path = rootPath + getFilePath(files, "InputFallThrough");
 			verify(getCheckConfig(conf, "FallThrough"), path, expected);
-        
     }
 
     private Configuration getCheckConfig(Configuration aConfig, String aCheckName) {
