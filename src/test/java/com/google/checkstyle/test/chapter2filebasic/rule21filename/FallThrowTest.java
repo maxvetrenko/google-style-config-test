@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration; 
-import com.puppycrawl.tools.checkstyle.BaseCheckTestSupport; //java.lang.NoClassDefFoundError: com/puppycrawl/tools/checkstyle/BaseCheckTestSupport
+import com.google.checkstyle.test.base.BaseCheckTestSupport;
 
 public class FallThrowTest extends BaseCheckTestSupport{
     
@@ -24,11 +24,13 @@ public class FallThrowTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-        String msg = getCheckMessage("fall.through");
+//        String msg = getCheckMessage("fall.through");
+    	String msg =
+    			"Fall through from previous branch of the switch statement.";
 
         final String[] expected = {
                 "14:13: " + msg,
-                "38:13: " + msg,
+                "38:13: " + msg, 
                 "53:13: " + msg,
                 "70:13: " + msg,
                 "87:13: " + msg,
