@@ -24,7 +24,6 @@ public class FallThrowTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-//        String msg = getCheckMessage("fall.through");
     	String msg =
     			"Fall through from previous branch of the switch statement.";
 
