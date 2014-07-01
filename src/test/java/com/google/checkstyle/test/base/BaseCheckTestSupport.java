@@ -1,5 +1,6 @@
 package com.google.checkstyle.test.base;
 
+import static java.text.MessageFormat.format;
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
@@ -150,15 +151,24 @@ public abstract class BaseCheckTestSupport
      * @param messageKey
      *            the key of message in 'messages.properties' file.
      */
-    public String getCheckMessage(String messageKey)
+    public String getCheckMessage(Class aClass, String messageKey)
     {
         Properties pr = new Properties();
         try {
-            pr.load(getClass().getResourceAsStream("messages.properties"));
+        	pr.load(aClass.getResourceAsStream("messages.properties"));
         }
         catch (IOException e) {
             return null;
         }
         return pr.getProperty(messageKey);
     }
+
+	/**
+	 * Gets the check message 'as is' from appropriate 'messages.properties' file.
+	 * @param messageKey the key of message in 'messages.properties' file.
+	 * @param arguments the arguments of message in 'messages.properties' file.
+	 */
+	public String getCheckMessage(Class aClass, String messageKey, Object ... arguments) {
+		return format(getCheckMessage(aClass, messageKey), arguments);
+	}
 }
