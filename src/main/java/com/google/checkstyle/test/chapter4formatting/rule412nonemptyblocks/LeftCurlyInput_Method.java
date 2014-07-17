@@ -1,0 +1,90 @@
+////////////////////////////////////////////////////////////////////////////////
+// Test case file for checkstyle.
+// Created: 2001
+////////////////////////////////////////////////////////////////////////////////
+package com.google.checkstyle.test.chapter4formatting.rule412nonemptyblocks;
+
+/**
+ * Test case for correct use of braces.
+ * @author Oliver Burn
+ **/
+class LeftCurlyInput_Method
+{
+    LeftCurlyInput_Method() {}
+    LeftCurlyInput_Method(String aOne) {
+    }
+    LeftCurlyInput_Method(int aOne)
+    {
+    }
+
+    void method1() {}
+    void method2() {
+    }
+    void method3()
+    {
+    }
+    void                                                               method4()
+    {
+    }
+    void method5(String aOne,
+                 String aTwo)
+    {
+    }
+    void method6(String aOne,
+                 String aTwo) {
+    }
+}
+
+enum InputLeftCurlyMethodEnum
+{
+    CONSTANT1("hello")
+    {
+        void method1() {}
+        void method2() {
+        }
+        void method3()
+        {
+        }
+        void                                                               method4()
+        {
+        }
+        void method5(String aOne,
+                     String aTwo)
+        {
+        }
+        void method6(String aOne,
+                     String aTwo) {
+        }
+    },
+
+    CONSTANT2("hello") {
+
+    },
+    
+    CONSTANT3("hellohellohellohellohellohellohellohellohellohellohellohellohellohello")
+    {
+    };
+
+    private InputLeftCurlyMethodEnum(String value)
+    {
+
+    }
+
+    void method1() {}
+    void method2() {
+    }
+    void method3()
+    {
+    }
+    void                                                               method4()
+    {
+    }
+    void method5(String aOne,
+                 String aTwo)
+    {
+    }
+    void method6(String aOne,
+                 String aTwo) {
+    }
+}
+

@@ -58,8 +58,17 @@
         
         <!-- Checks for Formatting -->
         <!-- See http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s4-formatting -->
+        <module name="EmptyBlock">
+            <property name="tokens" value="LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_DO, LITERAL_IF, LITERAL_ELSE, INSTANCE_INIT, STATIC_INIT"/>
+        </module>
         <module name="NeedBraces"/>
-        <module name="LeftCurly"/>
+        <module name="LeftCurly">
+            <property name="option" value="nlow"/>
+        </module>
+        <module name="RightCurly">
+            <property name="option" value="alone"/>
+            <property name="tokens" value="CLASS_DEF, METHOD_DEF, CTOR_DEF"/>
+        </module>
         <module name="WhitespaceAround">
             <property name="allowEmptyConstructors" value="true"/>
             <property name="allowEmptyMethods" value="true"/>
@@ -74,6 +83,15 @@
         <module name="FallThrough"/>
         <module name="UpperEll"/>
         <module name="ModifierOrder"/>
+        <module name="EmptyLineSeparator"/>
+        <module name="SeparatorWrap">
+            <property name="tokens" value="DOT"/>
+            <property name="option" value="nl"/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="tokens" value="COMMA"/>
+            <property name="option" value="EOL"/>
+        </module>
         
         <!-- Checks for Naming -->
         <!-- See http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s5-naming-->
@@ -86,6 +104,10 @@
         </module>
         <module name="ParameterName">
             <property name="format" value="^[a-z]{2,}[a-zA-Z0-9]*$"/>
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z]{2,}[a-zA-Z0-9]*$"/>
+            <property name="allowOneCharVarInForLoop" value="true"/>
         </module>
         <module name="ClassTypeParameterName">
             <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
