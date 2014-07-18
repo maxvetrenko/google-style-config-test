@@ -39,7 +39,7 @@ public class ConfigurationBuilder extends BaseCheckTestSupport{
             return null;
         }
     }
-	
+
 	 public Configuration getCheckConfig(String aCheckName) {
 	    	for(Configuration config : mConfig.getChildren()) {
 	    	    if("TreeWalker".equals(config.getName())) {
