@@ -23,16 +23,39 @@ public class NoFinalizerTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void defaultTest() throws IOException, Exception {
         
     	String msg = getCheckMessage(NoFinalizerCheck.class, "avoid.finalizer.method");
 
         final String[] expected = {
-                "5: " + msg,
-                };
+            "5: " + msg,
+        };
 
         Configuration checkConfig = builder.getCheckConfig("NoFinalizer");
         String filePath = builder.getFilePath("NoFinalizerInput");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void extendedTest() throws IOException, Exception {
+        
+    	String msg = getCheckMessage(NoFinalizerCheck.class, "avoid.finalizer.method");
+
+        final String[] expected = {
+            "9: " + msg,
+            "21: " + msg,
+            "33: " + msg,
+            "45: " + msg,
+            "57: " + msg,
+            "69: " + msg,
+            "79: " + msg,
+            "119: " + msg,
+            "136: " + msg,
+        };
+
+        Configuration checkConfig = builder.getCheckConfig("NoFinalizer");
+        String filePath = builder.getFilePath("NoFinalizeExtendInput");
         
         verify(checkConfig, filePath, expected);
     }
