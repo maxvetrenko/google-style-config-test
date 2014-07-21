@@ -30,7 +30,7 @@ public class NoFinalizerTest extends BaseCheckTestSupport{
         final String[] expected = {
                 "5: " + msg,
                 };
-        
+
         Configuration checkConfig = builder.getCheckConfig("NoFinalizer");
         String filePath = builder.getFilePath("NoFinalizerInput");
         
