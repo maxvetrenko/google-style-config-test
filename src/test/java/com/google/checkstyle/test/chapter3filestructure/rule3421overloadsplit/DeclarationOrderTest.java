@@ -27,36 +27,44 @@ public class DeclarationOrderTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
     	
         
-        final String[] expected = {
-        	"8:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"13:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"18:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"21:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"27:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.static"),
-        	"27:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"34:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"45:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.static"),
-        	"45:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"54:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.constructor"),
+        Class<DeclarationOrderCheck> clazz = DeclarationOrderCheck.class;
+
+		String msgAccess = getCheckMessage(clazz, "declaration.order.access");
+		String msgStatic = getCheckMessage(clazz, "declaration.order.static");
+		String msgCtor = getCheckMessage(clazz, "declaration.order.constructor");
+		String msgInstance = getCheckMessage(clazz, "declaration.order.instance");
+		String msgOverloads = getCheckMessage(clazz, "declaration.order.overloads");
+
+		final String[] expected = {
+        	"8:5: " + msgAccess,
+        	"13:5: " + msgAccess,
+        	"18:5: " + msgAccess,
+        	"21:5: " + msgAccess,
+        	"27:5: " + msgStatic,
+        	"27:5: " + msgAccess,
+        	"34:9: " + msgAccess,
+        	"45:9: " + msgStatic,
+        	"45:9: " + msgAccess,
+        	"54:5: " + msgCtor,
         	
-        	"80:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.instance"),
-        	"92:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"100:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.static"),
-        	"100:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"106:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"111:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"116:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"119:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"125:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.static"),
-        	"125:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
+        	"80:5: " + msgInstance,
+        	"92:9: " + msgAccess,
+        	"100:9: " + msgStatic,
+        	"100:9: " + msgAccess,
+        	"106:5: " + msgAccess,
+        	"111:5: " + msgAccess,
+        	"116:5: " + msgAccess,
+        	"119:5: " + msgAccess,
+        	"125:5: " + msgStatic,
+        	"125:5: " + msgAccess,
         	
-        	"132:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"143:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.static"),
-        	"143:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.access"),
-        	"152:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.constructor"),
-        	"178:5: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.instance"),
-        	"203:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.overloads"),
-        	"215:9: " + getCheckMessage(DeclarationOrderCheck.class, "declaration.order.overloads"),
+        	"132:9: " + msgAccess,
+        	"143:9: " + msgStatic,
+        	"143:9: " + msgAccess,
+        	"152:5: " + msgCtor,
+        	"178:5: " + msgInstance,
+        	"203:9: " + msgOverloads,
+        	"215:9: " + msgOverloads,
         };
         
         Configuration checkConfig = builder.getCheckConfig("DeclarationOrder");

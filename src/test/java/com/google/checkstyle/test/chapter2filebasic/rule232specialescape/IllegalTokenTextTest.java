@@ -25,10 +25,8 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(IllegalTokenTextCheck.class, "illegal.token.text");
 
-        final String[] expected = {
-                };
+        final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("IllegalTokenText");
         String filePath = builder.getFilePath("IllegalTokenTextInput");

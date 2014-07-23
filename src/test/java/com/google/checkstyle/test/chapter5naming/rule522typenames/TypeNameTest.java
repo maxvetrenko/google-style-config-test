@@ -25,12 +25,14 @@ public class TypeNameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
     	
-    	String msg = getCheckMessage(TypeNameCheck.class, "name.invalidPattern");
-        
-        final String[] expected = {
-        	"3:7: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "inputHeaderClass", "^[A-Z][a-zA-Z0-9]*$"),
-        	"5:22: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "inputHeaderInterface", "^[A-Z][a-zA-Z0-9]*$"),
-        	"7:17: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "inputHeaderEnum", "^[A-Z][a-zA-Z0-9]*$"),
+    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
+        String msgKey = "name.invalidPattern";
+		String format = "^[A-Z][a-zA-Z0-9]*$";
+
+		final String[] expected = {
+        	"3:7: " + getCheckMessage(clazz, msgKey, "inputHeaderClass", format),
+        	"5:22: " + getCheckMessage(clazz, msgKey, "inputHeaderInterface", format),
+        	"7:17: " + getCheckMessage(clazz, msgKey, "inputHeaderEnum", format),
             };
         
         Configuration checkConfig = builder.getCheckConfig("TypeName");

@@ -25,24 +25,27 @@ public class NeedBracesTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-        final String[] expected = {
-        	"29: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "do"),
-        	"41: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "while"),
-        	"42: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "while"),
-        	"44: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "while"),
-        	"45: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"58: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "for"),
-        	"59: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "for"),
-        	"61: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "for"),
-        	"63: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"82: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"83: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"85: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"87: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "else"),
-        	"89: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"97: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "else"),
-        	"99: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
-        	"100: " + getCheckMessage(NeedBracesCheck.class, "needBraces", "if"),
+        Class<NeedBracesCheck> clazz = NeedBracesCheck.class;
+		String messageKey = "needBraces";
+
+		final String[] expected = {
+        	"29: " + getCheckMessage(clazz, messageKey, "do"),
+        	"41: " + getCheckMessage(clazz, messageKey, "while"),
+        	"42: " + getCheckMessage(clazz, messageKey, "while"),
+        	"44: " + getCheckMessage(clazz, messageKey, "while"),
+        	"45: " + getCheckMessage(clazz, messageKey, "if"),
+        	"58: " + getCheckMessage(clazz, messageKey, "for"),
+        	"59: " + getCheckMessage(clazz, messageKey, "for"),
+        	"61: " + getCheckMessage(clazz, messageKey, "for"),
+        	"63: " + getCheckMessage(clazz, messageKey, "if"),
+        	"82: " + getCheckMessage(clazz, messageKey, "if"),
+        	"83: " + getCheckMessage(clazz, messageKey, "if"),
+        	"85: " + getCheckMessage(clazz, messageKey, "if"),
+        	"87: " + getCheckMessage(clazz, messageKey, "else"),
+        	"89: " + getCheckMessage(clazz, messageKey, "if"),
+        	"97: " + getCheckMessage(clazz, messageKey, "else"),
+        	"99: " + getCheckMessage(clazz, messageKey, "if"),
+        	"100: " + getCheckMessage(clazz, messageKey, "if"),
                 };
 
         Configuration checkConfig = builder.getCheckConfig("NeedBraces");

@@ -25,11 +25,15 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
 
-        final String[] expected = {
-        	"119:13: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "ABC", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"130:18: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "I", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"132:20: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "InnerBlockVariable", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"207:21: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "O", "^[a-z]{2,}[a-zA-Z0-9]*$"),
+        Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
+		String msgKey = "name.invalidPattern";
+		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+
+		final String[] expected = {
+        	"119:13: " + getCheckMessage(clazz, msgKey, "ABC", format),
+        	"130:18: " + getCheckMessage(clazz, msgKey, "I", format),
+        	"132:20: " + getCheckMessage(clazz, msgKey, "InnerBlockVariable", format),
+        	"207:21: " + getCheckMessage(clazz, msgKey, "O", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("LocalVariableName");
@@ -41,9 +45,13 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     @Test
     public void oneCharTest() throws IOException, Exception {
 
-        final String[] expected = {
-        	"19:21: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "i", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"25:17: " + getCheckMessage(LocalVariableNameCheck.class, "name.invalidPattern", "Index", "^[a-z]{2,}[a-zA-Z0-9]*$"),
+        Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
+		String msgKey = "name.invalidPattern";
+		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+
+		final String[] expected = {
+        	"19:21: " + getCheckMessage(clazz, msgKey, "i", format),
+        	"25:17: " + getCheckMessage(clazz, msgKey, "Index", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("LocalVariableName");

@@ -25,16 +25,20 @@ public class ParameterNameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
 
-        final String[] expected = {
-        	"194:25: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg1", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"194:36: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg2", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"194:47: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg3", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"194:58: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg4", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"194:69: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg5", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"195:25: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg6", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"195:36: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg7", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"195:47: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg8", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"195:58: " + getCheckMessage(ParameterNameCheck.class, "name.invalidPattern", "aArg9", "^[a-z]{2,}[a-zA-Z0-9]*$"),
+        Class<ParameterNameCheck> clazz = ParameterNameCheck.class;
+		String msgKey = "name.invalidPattern";
+		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+
+		final String[] expected = {
+        	"194:25: " + getCheckMessage(clazz, msgKey, "aArg1", format),
+        	"194:36: " + getCheckMessage(clazz, msgKey, "aArg2", format),
+        	"194:47: " + getCheckMessage(clazz, msgKey, "aArg3", format),
+        	"194:58: " + getCheckMessage(clazz, msgKey, "aArg4", format),
+        	"194:69: " + getCheckMessage(clazz, msgKey, "aArg5", format),
+        	"195:25: " + getCheckMessage(clazz, msgKey, "aArg6", format),
+        	"195:36: " + getCheckMessage(clazz, msgKey, "aArg7", format),
+        	"195:47: " + getCheckMessage(clazz, msgKey, "aArg8", format),
+        	"195:58: " + getCheckMessage(clazz, msgKey, "aArg9", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("ParameterName");

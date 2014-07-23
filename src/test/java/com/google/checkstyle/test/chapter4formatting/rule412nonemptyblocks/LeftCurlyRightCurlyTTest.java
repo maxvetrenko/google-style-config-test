@@ -26,14 +26,15 @@ public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-        final String[] expected = {
-            "12:1: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "15:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "21:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "34:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "51:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "69:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
-            "105:5: " + getCheckMessage(LeftCurlyCheck.class, "line.previous", "{"),
+        String checkMessage = getCheckMessage(LeftCurlyCheck.class, "line.previous", "{");
+		final String[] expected = {
+            "12:1: " + checkMessage,
+            "15:5: " + checkMessage,
+            "21:5: " + checkMessage,
+            "34:5: " + checkMessage,
+            "51:5: " + checkMessage,
+            "69:5: " + checkMessage,
+            "105:5: " + checkMessage,
             };
         
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");

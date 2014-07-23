@@ -25,10 +25,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
     	
-    	String msg = getCheckMessage(PackageNameCheck.class, "name.invalidPattern");
         
-        final String[] expected = {
-            };
+        final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("PackageName");
         String filePath = builder.getFilePath("PackageNameInput");

@@ -25,17 +25,20 @@ public class MemberNameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
     	
-    	String msg = getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "", "^[a-z]{2,}[a-zA-Z0-9]*$");
+    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
         
-        final String[] expected = {
-        	"5:16: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mPublic", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"6:19: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mProtected", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"7:9: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mPackage", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"8:17: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mPrivate", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"10:16: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "_public", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"11:19: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "_protected", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"12:9: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "_package", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-        	"13:17: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "_private", "^[a-z]{2,}[a-zA-Z0-9]*$"),
+        String msgKey = "name.invalidPattern";
+		String foramt = "^[a-z]{2,}[a-zA-Z0-9]*$";
+
+		final String[] expected = {
+        	"5:16: " + getCheckMessage(clazz, msgKey, "mPublic", foramt),
+        	"6:19: " + getCheckMessage(clazz, msgKey, "mProtected", foramt),
+        	"7:9: " + getCheckMessage(clazz, msgKey, "mPackage", foramt),
+        	"8:17: " + getCheckMessage(clazz, msgKey, "mPrivate", foramt),
+        	"10:16: " + getCheckMessage(clazz, msgKey, "_public", foramt),
+        	"11:19: " + getCheckMessage(clazz, msgKey, "_protected", foramt),
+        	"12:9: " + getCheckMessage(clazz, msgKey, "_package", foramt),
+        	"13:17: " + getCheckMessage(clazz, msgKey, "_private", foramt),
         };
         
         Configuration checkConfig = builder.getCheckConfig("MemberName");
@@ -47,14 +50,16 @@ public class MemberNameTest extends BaseCheckTestSupport{
     @Test
     public void simpleTest() throws IOException, Exception {
     	
-    	String msg = getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "", "^[a-z]{2,}[a-zA-Z0-9]*$");
-        
-        final String[] expected = {
-            "37:17: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mNumCreated1", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-            "39:19: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mNumCreated2", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-            "42:19: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mInts", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-            "56:9: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mTest1", "^[a-z]{2,}[a-zA-Z0-9]*$"),
-            "58:16: " + getCheckMessage(TypeNameCheck.class, "name.invalidPattern", "mTest2", "^[a-z]{2,}[a-zA-Z0-9]*$"),
+    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
+        String msgKey = "name.invalidPattern";
+		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+
+		final String[] expected = {
+            "37:17: " + getCheckMessage(clazz, msgKey, "mNumCreated1", format),
+            "39:19: " + getCheckMessage(clazz, msgKey, "mNumCreated2", format),
+            "42:19: " + getCheckMessage(clazz, msgKey, "mInts", format),
+            "56:9: " + getCheckMessage(clazz, msgKey, "mTest1", format),
+            "58:16: " + getCheckMessage(clazz, msgKey, "mTest2", format),
         };
         
         Configuration checkConfig = builder.getCheckConfig("MemberName");

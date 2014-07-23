@@ -26,13 +26,16 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
     	
         
-        final String[] expected = {
-        	"25: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "NoSuperClone"),
-        	"33: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "InnerClone"),
-        	"50: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "CloneWithTypeArguments"),
-        	"55: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "CloneWithTypeArgumentsAndNoSuper"),
-        	"60: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "MyClassWithGenericSuperMethod"),
-        	"77: " + getCheckMessage(OneTopLevelClassCheck.class, "one.top.level.class", "AnotherClass"),
+        Class<OneTopLevelClassCheck> clazz = OneTopLevelClassCheck.class;
+		String messageKey = "one.top.level.class";
+
+		final String[] expected = {
+        	"25: " + getCheckMessage(clazz, messageKey, "NoSuperClone"),
+        	"33: " + getCheckMessage(clazz, messageKey, "InnerClone"),
+        	"50: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArguments"),
+        	"55: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArgumentsAndNoSuper"),
+        	"60: " + getCheckMessage(clazz, messageKey, "MyClassWithGenericSuperMethod"),
+        	"77: " + getCheckMessage(clazz, messageKey, "AnotherClass"),
         };
         
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");

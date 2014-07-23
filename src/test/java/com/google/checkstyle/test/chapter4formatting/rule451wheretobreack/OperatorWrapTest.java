@@ -25,11 +25,14 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-        final String[] expected = {
-        	"15:19: " + getCheckMessage(OperatorWrapCheck.class, "line.new", "+"),
-        	"16:15: " + getCheckMessage(OperatorWrapCheck.class, "line.new", "-"),
-        	"24:18: " + getCheckMessage(OperatorWrapCheck.class, "line.new", "&&"),
-        	"39:30: " + getCheckMessage(OperatorWrapCheck.class, "line.new", "&"),
+        Class<OperatorWrapCheck> clazz = OperatorWrapCheck.class;
+		String messageKey = "line.new";
+
+		final String[] expected = {
+        	"15:19: " + getCheckMessage(clazz, messageKey, "+"),
+        	"16:15: " + getCheckMessage(clazz, messageKey, "-"),
+        	"24:18: " + getCheckMessage(clazz, messageKey, "&&"),
+        	"39:30: " + getCheckMessage(clazz, messageKey, "&"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("OperatorWrap");

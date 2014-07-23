@@ -25,8 +25,6 @@ public class LineLengthTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(LineLengthCheck.class, "maxLineLen");
-
         final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("LineLength");

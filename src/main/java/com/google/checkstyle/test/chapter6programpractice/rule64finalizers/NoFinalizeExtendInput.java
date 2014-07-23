@@ -87,15 +87,15 @@ class StaticFinalizer {
 }
 
 class WithoutFinalize {
-	public static void doStuff() {
+	public void doStuff() {
 		// This method do some stuff
 	}
 
-	public static void finalizeMe() {
+	public void finalizeMe() {
 		// This method do some stuff
 	}
 
-	public static void doFinalize() {
+	public void doFinalize() {
 		// This method do some stuff
 	}
 }

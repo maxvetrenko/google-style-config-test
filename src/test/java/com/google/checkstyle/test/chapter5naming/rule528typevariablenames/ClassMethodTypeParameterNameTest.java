@@ -26,10 +26,14 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     @Test
     public void testClassDefault() throws IOException, Exception {
 
-        final String[] expected = {
-        	"5:38: " + getCheckMessage(ClassTypeParameterNameCheck.class, "name.invalidPattern", "t", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
-        	"13:14: " + getCheckMessage(ClassTypeParameterNameCheck.class, "name.invalidPattern", "foo", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
-        	"27:24: " + getCheckMessage(ClassTypeParameterNameCheck.class, "name.invalidPattern", "foo", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
+        Class<ClassTypeParameterNameCheck> clazz = ClassTypeParameterNameCheck.class;
+		String msgKey = "name.invalidPattern";
+		String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
+
+		final String[] expected = {
+        	"5:31: " + getCheckMessage(clazz, msgKey, "t", format),
+        	"13:14: " + getCheckMessage(clazz, msgKey, "foo", format),
+        	"27:24: " + getCheckMessage(clazz, msgKey, "foo", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("ClassTypeParameterName");
@@ -41,11 +45,15 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     @Test
     public void testMethodDefault() throws IOException, Exception {
 
-        final String[] expected = {
-        	"9:6: " + getCheckMessage(MethodTypeParameterNameCheck.class, "name.invalidPattern", "e_e", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
-        	"19:6: " + getCheckMessage(MethodTypeParameterNameCheck.class, "name.invalidPattern", "Tfo$o2T", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
-        	"23:6: " + getCheckMessage(MethodTypeParameterNameCheck.class, "name.invalidPattern", "foo", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
-        	"28:10: " + getCheckMessage(MethodTypeParameterNameCheck.class, "name.invalidPattern", "_fo", "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"),
+        Class<MethodTypeParameterNameCheck> clazz = MethodTypeParameterNameCheck.class;
+		String msgKey = "name.invalidPattern";
+		String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
+
+		final String[] expected = {
+        	"9:6: " + getCheckMessage(clazz, msgKey, "e_e", format),
+        	"19:6: " + getCheckMessage(clazz, msgKey, "Tfo$o2T", format),
+        	"23:6: " + getCheckMessage(clazz, msgKey, "foo", format),
+        	"28:10: " + getCheckMessage(clazz, msgKey, "_fo", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("MethodTypeParameterName");
