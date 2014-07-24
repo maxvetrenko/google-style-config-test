@@ -16,7 +16,7 @@ import java.io.*;
 final class FileTabCharacterInput
 {
     // Long line ----------------------------------------------------------------
-    // Contains a tab ->	<-
+    // Contains a tab ->	<- //warn
     // Contains trailing whitespace ->
 
     // Name format tests

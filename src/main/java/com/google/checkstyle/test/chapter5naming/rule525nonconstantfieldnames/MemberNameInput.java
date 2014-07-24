@@ -2,13 +2,13 @@ package com.google.checkstyle.test.chapter5naming.rule525nonconstantfieldnames;
 
 public class MemberNameInput
 {
-    public int mPublic;
-    protected int mProtected;
-    int mPackage;
-    private int mPrivate;
+    public int mPublic; //warn
+    protected int mProtected; //warn
+    int mPackage; //warn
+    private int mPrivate; //warn
 
-    public int _public;
-    protected int _protected;
-    int _package;
-    private int _private;
+    public int _public; //warn
+    protected int _protected; //warn
+    int _package; //warn
+    private int _private; //warn
 }

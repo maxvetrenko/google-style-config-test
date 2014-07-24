@@ -11,7 +11,7 @@ package com.google.checkstyle.test.chapter4formatting.rule4832nocstylearray;
 public class ArrayTypeStyleInput
 {
     private int[] javaStyle = new int[0];
-    private int cStyle[] = new int[0];
+    private int cStyle[] = new int[0]; //warn
 
     public static void mainJava(String[] aJavaStyle)
     {

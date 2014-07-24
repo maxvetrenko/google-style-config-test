@@ -12,8 +12,8 @@ class OperatorWrapInput
 {
     void test()
     {
-        int x = 1 +
-            2 -
+        int x = 1 + //warn
+            2 - //warn
             3
             -
             4;
@@ -21,7 +21,7 @@ class OperatorWrapInput
         boolean y = true
             &&
             false;
-        y = true &&
+        y = true && //warn
             false;
         y = false
             && true;
@@ -36,7 +36,7 @@ class OperatorWrapInput
     }
     
     <
-        T extends Comparable &
+        T extends Comparable & //warn
         java.io.Serializable
     >
     void testGenerics1()

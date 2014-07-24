@@ -55,7 +55,7 @@ class EmptyLineSeparatorInput
     {
         return 666;
     }
-    interface IntEnum {
+    interface IntEnum { //warn
     }
     //separator blank line
     class InnerClass {

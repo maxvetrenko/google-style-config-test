@@ -13,15 +13,15 @@ class myFoo
 	{
 		int i = 0;
 		String[][] x = {{"foo"}};
-		for (int first = 0; first < 5; first++) {}
+		for (int first = 0; first < 5; first++) {} //ok
 		int j = 0;
-		while (j == 1) {}
-		do {} while (i == 1);
+		while (j == 1) {} //ok
+		do {} while (i == 1); //ok
 	}
 }
 
-interface SupplierFunction<T> extends Function<Supplier<T>, T> {}
+interface SupplierFunction<T> extends Function<Supplier<T>, T> {} //ok
 
-class EmptyFoo {}
+class EmptyFoo {} //ok
 
-enum EmptyFooEnum {}
+enum EmptyFooEnum {} //ok

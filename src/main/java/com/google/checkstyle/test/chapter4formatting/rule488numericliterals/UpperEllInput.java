@@ -89,7 +89,7 @@ class UpperEllInput
     }
 
     /** test **/
-    private static final long IGNORE = 666l + 666L;
+    private static final long IGNORE = 666l + 666L; //warn
 
 
 

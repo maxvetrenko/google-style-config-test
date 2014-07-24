@@ -1,10 +1,10 @@
-package com.google.checkstyle.test.chapter3filestructure.rule332nolinewrap;
+package com.google.checkstyle.test.chapter3filestructure.rule332nolinewrap; //ok
 
-import com.google.common.annotations.Beta;
+import com.google.common.annotations.Beta; //ok
 
 import javax.accessibility.
-    AccessibleAttributeSequence;
-import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
+    AccessibleAttributeSequence; //warn
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; //ok
 
 public class
     NoLineWrap_Bad {

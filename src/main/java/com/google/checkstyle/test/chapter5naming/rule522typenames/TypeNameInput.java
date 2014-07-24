@@ -1,9 +1,9 @@
 package com.google.checkstyle.test.chapter5naming.rule522typenames;
 
-class inputHeaderClass {
+class inputHeaderClass { //warn
 
-    public interface inputHeaderInterface {};
+    public interface inputHeaderInterface {}; //warn
 
-    public enum inputHeaderEnum { one, two };
+    public enum inputHeaderEnum { one, two }; //warn
 
 }

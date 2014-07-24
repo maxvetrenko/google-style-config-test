@@ -1,5 +1,5 @@
 package com.google.checkstyle.test.chapter3filestructure.rule341onetoplevel;
-public class OneTopLevelClassInput
+public class OneTopLevelClassInput //ok
 {
     public OneTopLevelClassInput() throws CloneNotSupportedException
     {
@@ -22,7 +22,7 @@ public class OneTopLevelClassInput
     }
 }
 
-class NoSuperClone
+class NoSuperClone //warn
 {
     public Object clone()
     {
@@ -30,7 +30,7 @@ class NoSuperClone
     }
 }
 
-class InnerClone
+class InnerClone //warn
 {
     public Object clone()
     {
@@ -47,17 +47,17 @@ class InnerClone
 
 // This could not pass as valid semantically but tests that
 // type arguments are ignored when checking super calls
-class CloneWithTypeArguments
+class CloneWithTypeArguments //warn
 {
 	//Some code
 }
 
-class CloneWithTypeArgumentsAndNoSuper
+class CloneWithTypeArgumentsAndNoSuper //warn
 {
 }
 
 //Check that super keword isn't snagged here
-class MyClassWithGenericSuperMethod
+class MyClassWithGenericSuperMethod //warn
 {
     void someMethod(java.util.List<? super java.util.Map> l)
     {
@@ -74,7 +74,7 @@ class MyClassWithGenericSuperMethod
     }
 }
 
-class AnotherClass {
+class AnotherClass { //warn
     
     /**
      * Not a valid clone override. Should not get flagged.

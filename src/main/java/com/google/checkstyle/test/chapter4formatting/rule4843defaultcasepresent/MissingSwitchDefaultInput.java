@@ -16,7 +16,7 @@ class bad_test {
         int i = 1;
         switch (i) {
         case 1: i++; break;
-        case 2: i--; break;
+        case 2: i--; break; 
         }
     }
 }

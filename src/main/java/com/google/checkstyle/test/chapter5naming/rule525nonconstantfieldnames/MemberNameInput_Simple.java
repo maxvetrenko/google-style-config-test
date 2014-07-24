@@ -34,12 +34,12 @@ final class InputSimple
     /** Invalid format **/
     private int badMember = 2;
     /** Valid format **/
-    private int mNumCreated1 = 0;
+    private int mNumCreated1 = 0; //warn
     /** Valid format **/
-    protected int mNumCreated2 = 0;
+    protected int mNumCreated2 = 0; //warn
 
     /** commas are wrong **/
-    private int[] mInts = new int[] {1,2, 3,
+    private int[] mInts = new int[] {1,2, 3, //warn
                                      4};
 
     //
@@ -53,9 +53,9 @@ final class InputSimple
     static int sTest2;
 
     /** should be private **/
-    int mTest1;
+    int mTest1; //warn
     /** should be private **/
-    public int mTest2;
+    public int mTest2; //warn
 
     //
     // Parameter name format tests

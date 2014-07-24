@@ -1,4 +1,4 @@
-package com.google.checkstyle.test.chapter3filestructure.rule32packagestate;
+package com.google.checkstyle.test.chapter3filestructure.rule32packagestate; //ok
 
 import java.io.File;
 import java.io.IOException;

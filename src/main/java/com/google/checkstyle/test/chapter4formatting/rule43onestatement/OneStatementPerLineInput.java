@@ -96,7 +96,7 @@ public class OneStatementPerLineInput {
    * Simplest form a an illegal layout.
    */
   public void doIllegal() {
-    one = 1; two = 2;
+    one = 1; two = 2; //warn
   }
 
   
@@ -124,7 +124,7 @@ public class OneStatementPerLineInput {
    */
   public void doIllegal2() {
     one = 1
-    ; two = 2;
+    ; two = 2; //warn
   }
   
   /**

@@ -3,7 +3,7 @@
 // Created: Feb-2001
 // Ignore error
 ////////////////////////////////////////////////////////////////////////////////
-package com.google.checkstyle.test.chapter5naming.rule521packagenames;
+package com.google.checkstyle.test.chapter5naming.rule521packagenames; //ok
 import java.io.*;
 /**
  * Contains simple mistakes:

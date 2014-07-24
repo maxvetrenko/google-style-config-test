@@ -6,7 +6,7 @@ class NormalFinalizer {
 		// This method do some stuff
 	}
 
-	protected void finalize() throws Throwable {
+	protected void finalize() throws Throwable { //warn
 		try {
 			doStuff();
 		} finally {
@@ -18,7 +18,7 @@ class NormalFinalizer {
 // negates effect of superclass finalizer
 class EmptyFinalizer {
 
-	protected void finalize() throws Throwable {
+	protected void finalize() throws Throwable { //warn
 		// empty finalize ()
 	}
 }
@@ -30,7 +30,7 @@ class WithoutTryCatchFinalizer {
 		// This method do some stuff
 	}
 
-	protected void finalize() throws Throwable {
+	protected void finalize() throws Throwable { //warn
 		doStuff();
 	}
 }
@@ -42,7 +42,7 @@ class PublicFinalizer {
 		// This method do some stuff
 	}
 
-	public void finalize() throws Throwable {
+	public void finalize() throws Throwable { //warn
 		try {
 			doStuff();
 		} finally {
@@ -54,7 +54,7 @@ class PublicFinalizer {
 // unless (or worse) finalizer
 class SuperFinalizer {
 
-	protected void finalize() throws Throwable {
+	protected void finalize() throws Throwable { //warn
 		super.finalize();
 	}
 }
@@ -66,7 +66,7 @@ class StaticFinalizer {
 		// This method do some stuff
 	}
 
-	protected void finalize() {
+	protected void finalize() { //warn
 		try {
 			doStuff();
 		} finally {
@@ -76,7 +76,7 @@ class StaticFinalizer {
 
 	class InnerFinalizer {
 
-		protected void finalize() {
+		protected void finalize() { //warn
 			try {
 				doStuff();
 			} finally {
@@ -116,7 +116,7 @@ class WithAnonymousClass {
 				System.out.println("You hit it!");
 			}
 
-			protected void finalize() {
+			protected void finalize() { //warn
 				try {
 					doStuff();
 				} finally {
@@ -133,5 +133,5 @@ class WithAnonymousClass {
 }
 
 interface WithFinalizer {
-	void finalize();
+	void finalize(); //warn
 }

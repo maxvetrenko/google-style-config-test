@@ -2,19 +2,19 @@ package com.google.checkstyle.test.chapter4formatting.rule4821onevariablepreline
 
 public class MultipleVariableDeclarationsInput
 {
-    int i, j;
-    int i1; int j1;
+    int i, j; //warn
+    int i1; int j1; //warn
 
     void method1() {
-        String str, str1;
+        String str, str1; //warn
         java.lang.Object obj; Object obj1;
     }
     // second definition is wrapped
     // line of VARIABLE_DEF is not the same as first line of the definition
-    java.lang.String string; java.lang.String
+    java.lang.String string; java.lang.String //warn
         strings[];
     //both definitions is wrapped
-    java.lang.
+    java.lang. //warn
         String string1; java.lang.String
             strings1[];
 

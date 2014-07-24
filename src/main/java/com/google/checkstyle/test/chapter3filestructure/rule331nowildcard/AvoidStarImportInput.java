@@ -4,8 +4,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter3filestructure.rule331nowildcard;
 
-import java.io.*;
-import java.lang.*;
+import java.io.*; //warn
+import java.lang.*; //warn
 import java.lang.String;
 import java.sql.Connection;
 import java.util.List;
@@ -19,8 +19,8 @@ import javax.swing.ScrollPaneLayout;
 import javax.swing.BorderFactory;
 import static java.io.File.listRoots;
 
-import static javax.swing.WindowConstants.*;
-import static javax.swing.WindowConstants.*;
+import static javax.swing.WindowConstants.*; //warn
+import static javax.swing.WindowConstants.*; //warn
 import static java.io.File.createTempFile;
 import java.awt.Component;
 import java.awt.Graphics2D;
