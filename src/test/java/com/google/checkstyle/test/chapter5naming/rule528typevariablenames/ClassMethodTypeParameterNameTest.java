@@ -15,28 +15,29 @@ import com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameChec
 
 public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
 
-    static ConfigurationBuilder builder;
-
+    private static ConfigurationBuilder builder;
+    private Class<ClassTypeParameterNameCheck> clazz = ClassTypeParameterNameCheck.class;
+    private String msgKey = "name.invalidPattern";
+    private static Configuration checkConfig;
+    private static String format;
+    
     @BeforeClass
     public static void setConfigurationBuilder() throws CheckstyleException {
         builder = new ConfigurationBuilder(new File("src/"),
                 "checkstyle_google_style.xml");
+        checkConfig = builder.getCheckConfig("ClassTypeParameterName");
+        format = checkConfig.getAttribute("format");
     }
 
     @Test
     public void testClassDefault() throws IOException, Exception {
 
-        Class<ClassTypeParameterNameCheck> clazz = ClassTypeParameterNameCheck.class;
-        String msgKey = "name.invalidPattern";
-        String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
-
         final String[] expected = {
             "5:31: " + getCheckMessage(clazz, msgKey, "t", format),
             "13:14: " + getCheckMessage(clazz, msgKey, "foo", format),
-            "27:24: " + getCheckMessage(clazz, msgKey, "foo", format),
+            "27:24: " + getCheckMessage(clazz, msgKey, "$foo", format),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("ClassTypeParameterName");
         String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
         
         verify(checkConfig, filePath, expected);
@@ -46,14 +47,13 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     public void testMethodDefault() throws IOException, Exception {
 
         Class<MethodTypeParameterNameCheck> clazz = MethodTypeParameterNameCheck.class;
-        String msgKey = "name.invalidPattern";
-        String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
 
         final String[] expected = {
             "9:6: " + getCheckMessage(clazz, msgKey, "e_e", format),
             "19:6: " + getCheckMessage(clazz, msgKey, "Tfo$o2T", format),
-            "23:6: " + getCheckMessage(clazz, msgKey, "foo", format),
-            "28:10: " + getCheckMessage(clazz, msgKey, "_fo", format),
+            "23:6: " + getCheckMessage(clazz, msgKey, "foo_", format),
+            "28:10: " + getCheckMessage(clazz, msgKey, "_abc", format),
+            "37:14: " + getCheckMessage(clazz, msgKey, "T$", format),
             "42:14: " + getCheckMessage(clazz, msgKey, "EE", format),
         };
 

@@ -8,9 +8,9 @@ public class MemberNameInput
     private int mPrivate; //warn
 
     public int _public; //warn
-    protected int _protected; //warn
-    int _package; //warn
-    private int _private; //warn
+    protected int prot_ected; //warn
+    int package_; //warn
+    private int priva$te; //warn
     
     public int ppublic; //ok
     protected int pprotected; //ok
@@ -18,5 +18,9 @@ public class MemberNameInput
     private int pprivate; //ok
     
     int ABC = 0; //warn
-    final int CDE = 0; //warn
+    final int C_D_E = 0; //warn
+    
+    public int $mPublic; //warn
+    protected int mPro$tected; //warn
+    int mPackage$; //warn
 }

@@ -14,20 +14,22 @@ import com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck;
 
 public class LocalVariableNameTest extends BaseCheckTestSupport{
 
-    static ConfigurationBuilder builder;
+	private static ConfigurationBuilder builder;
+	private Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
+	private String msgKey = "name.invalidPattern";
+	private static Configuration checkConfig;
+	private static String format;
 
     @BeforeClass
     public static void setConfigurationBuilder() throws CheckstyleException {
         builder = new ConfigurationBuilder(new File("src/"),
                 "checkstyle_google_style.xml");
+        checkConfig = builder.getCheckConfig("LocalVariableName");
+        format = checkConfig.getAttribute("format");
     }
 
     @Test
     public void emptyTest() throws IOException, Exception {
-
-        Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
-        String msgKey = "name.invalidPattern";
-        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
         final String[] expected = {
             "26:13: " + getCheckMessage(clazz, msgKey, "a", format),
@@ -38,9 +40,11 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
             "31:13: " + getCheckMessage(clazz, msgKey, "_a", format),
             "32:13: " + getCheckMessage(clazz, msgKey, "_aa", format),
             "33:13: " + getCheckMessage(clazz, msgKey, "aa_", format),
+            "34:13: " + getCheckMessage(clazz, msgKey, "aaa$aaa", format),
+            "35:13: " + getCheckMessage(clazz, msgKey, "$aaaaaa", format),
+            "36:13: " + getCheckMessage(clazz, msgKey, "aaaaaa$", format),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("LocalVariableName");
         String filePath = builder.getFilePath("LocalVariableNameInput_Simple");
         
         verify(checkConfig, filePath, expected);
@@ -49,16 +53,16 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     @Test
     public void oneCharTest() throws IOException, Exception {
 
-        Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
-        String msgKey = "name.invalidPattern";
-        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
-
         final String[] expected = {
             "15:13: " + getCheckMessage(clazz, msgKey, "i", format),
-            "21:17: " + getCheckMessage(clazz, msgKey, "Index", format),
+            "21:17: " + getCheckMessage(clazz, msgKey, "I_ndex", format),
+            "45:17: " + getCheckMessage(clazz, msgKey, "i_ndex", format),
+            "49:17: " + getCheckMessage(clazz, msgKey, "ii_i1", format),
+            "53:17: " + getCheckMessage(clazz, msgKey, "$index", format),
+            "57:17: " + getCheckMessage(clazz, msgKey, "in$dex", format),
+            "61:17: " + getCheckMessage(clazz, msgKey, "index$", format),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("LocalVariableName");
         String filePath = builder.getFilePath("LocalVariableNameInput_OneCharVarName");
         
         verify(checkConfig, filePath, expected);

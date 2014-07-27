@@ -32,7 +32,6 @@ public class DeclarationOrderTest extends BaseCheckTestSupport{
         String msgStatic = getCheckMessage(clazz, "declaration.order.static");
         String msgCtor = getCheckMessage(clazz, "declaration.order.constructor");
         String msgInstance = getCheckMessage(clazz, "declaration.order.instance");
-        String msgOverloads = getCheckMessage(clazz, "declaration.order.overloads");
 
         final String[] expected = {
             "8:5: " + msgAccess,
@@ -62,12 +61,29 @@ public class DeclarationOrderTest extends BaseCheckTestSupport{
             "143:9: " + msgAccess,
             "152:5: " + msgCtor,
             "178:5: " + msgInstance,
-            "203:9: " + msgOverloads,
-            "215:5: " + msgOverloads,
         };
         
         Configuration checkConfig = builder.getCheckConfig("DeclarationOrder");
         String filePath = builder.getFilePath("DeclarationOrderInput");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void overloadsTest() throws IOException, Exception {
+        
+        Class<DeclarationOrderCheck> clazz = DeclarationOrderCheck.class;
+
+        String msgOverloads = getCheckMessage(clazz, "declaration.order.overloads");
+
+        final String[] expected = {
+        	"28:9: " + msgOverloads,
+        	"40:5: " + msgOverloads,
+        	"52:9: " + msgOverloads,
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("DeclarationOrder");
+        String filePath = builder.getFilePath("DeclarationOrderInput_Overloads");
         
         verify(checkConfig, filePath, expected);
     }

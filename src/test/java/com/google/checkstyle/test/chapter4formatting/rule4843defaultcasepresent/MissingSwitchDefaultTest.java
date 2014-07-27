@@ -28,9 +28,12 @@ public class MissingSwitchDefaultTest extends BaseCheckTestSupport{
         String msg = getCheckMessage(MissingSwitchDefaultCheck.class, "missing.switch.default");
 
         final String[] expected = {
-            "17:9: " + msg,
-            "29:13: " + msg,
-            "37:21: " + msg,
+            "11:9: " + msg,
+            "19:9: " + msg,
+            "23:9: " + msg,
+            "31:13: " + msg,
+            "38:21: " + msg,
+            "42:21: " + msg,
         };
         
         Configuration checkConfig = builder.getCheckConfig("MissingSwitchDefault");

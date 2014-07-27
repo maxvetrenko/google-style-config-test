@@ -25,7 +25,6 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
     @Test
     public void badTest() throws IOException, Exception {
         
-        
         Class<OneTopLevelClassCheck> clazz = OneTopLevelClassCheck.class;
         String messageKey = "one.top.level.class";
 
@@ -51,6 +50,40 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassInputGood");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void bad2Test() throws IOException, Exception {
+    	
+    	Class<OneTopLevelClassCheck> clazz = OneTopLevelClassCheck.class;
+        String messageKey = "one.top.level.class";
+        
+        final String[] expected = {
+        	"3: " + getCheckMessage(clazz, messageKey, "Foo"),
+            "4: " + getCheckMessage(clazz, messageKey, "FooEnum"),
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
+        String filePath = builder.getFilePath("OneTopLevelClassBad2");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void bad3Test() throws IOException, Exception {
+        
+    	Class<OneTopLevelClassCheck> clazz = OneTopLevelClassCheck.class;
+        String messageKey = "one.top.level.class";
+        
+        final String[] expected = {
+        	"5: " + getCheckMessage(clazz, messageKey, "FooIn"),
+            "7: " + getCheckMessage(clazz, messageKey, "FooClass"),
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
+        String filePath = builder.getFilePath("OneTopLevelClassBad3");
         
         verify(checkConfig, filePath, expected);
     }

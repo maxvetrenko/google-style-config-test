@@ -20,12 +20,12 @@ class Other <foo extends Serializable & Cloneable> { //warn
     return null;
     }
     
-    <foo extends Runnable> foo getShadow() { //warn
+    <foo_ extends Runnable> foo getShadow() { //warn
     return null;
     }
     
-    static class Junk <foo> { //warn
-        <_fo extends foo> void getMoreFoo() { //warn
+    static class Junk <$foo> { //warn
+        <_abc extends $foo> void getMoreFoo() { //warn
     }
     }
 }
@@ -34,7 +34,7 @@ class MoreOther <T extends Cloneable> {
     
     <E extends T> void getMore() {
         new Other() {
-            <T> void getMoreFoo() {
+            <T$> void getMoreFoo() {
         }
     };
     

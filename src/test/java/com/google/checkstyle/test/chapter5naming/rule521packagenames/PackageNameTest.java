@@ -14,12 +14,19 @@ import com.google.checkstyle.test.base.BaseCheckTestSupport;
 
 public class PackageNameTest extends BaseCheckTestSupport{
     
-    static ConfigurationBuilder builder;
+	private Class<PackageNameCheck> clazz = PackageNameCheck.class;
+	private static ConfigurationBuilder builder;
+	private static Configuration checkConfig;
+	private String msgKey = "name.invalidPattern";
+	private static String format;
+    
     
     @BeforeClass
     public static void setConfigurationBuilder() throws CheckstyleException {
         builder = new ConfigurationBuilder(new File("src/"),
                 "checkstyle_google_style.xml");
+        checkConfig = builder.getCheckConfig("PackageName");
+        format = checkConfig.getAttribute("format");
     }
 
     @Test
@@ -28,7 +35,6 @@ public class PackageNameTest extends BaseCheckTestSupport{
         
         final String[] expected = {};
         
-        Configuration checkConfig = builder.getCheckConfig("PackageName");
         String filePath = builder.getFilePath("PackageNameInputGood");
         
         verify(checkConfig, filePath, expected);
@@ -37,17 +43,13 @@ public class PackageNameTest extends BaseCheckTestSupport{
     @Test
     public void badTest() throws IOException, Exception {
         
-        Class<PackageNameCheck> clazz = PackageNameCheck.class;
-        String msgKey = "name.invalidPattern";
         String packagePath = "com.google.checkstyle.test.chapter5naming.rule521packageNames";
-        String format = "^[a-z]+(\\.[a-z][a-z0-9]*)*$";
         String msg = getCheckMessage(clazz, msgKey, packagePath, format);
 
         final String[] expected = {
             "1:9: " + msg,
         };
         
-        Configuration checkConfig = builder.getCheckConfig("PackageName");
         String filePath = builder.getFilePath("PackageNameInputBad");
         
         verify(checkConfig, filePath, expected);
@@ -57,18 +59,30 @@ public class PackageNameTest extends BaseCheckTestSupport{
     public void bad2Test() throws IOException, Exception {
         
         
-        Class<PackageNameCheck> clazz = PackageNameCheck.class;
-        String msgKey = "name.invalidPattern";
         String packagePath = "com.google.checkstyle.test.chapter5naming.rule521_packagenames";
-        String format = "^[a-z]+(\\.[a-z][a-z0-9]*)*$";
         String msg = getCheckMessage(clazz, msgKey, packagePath, format);
 
         final String[] expected = {
             "1:9: " + msg,
         };
         
-        Configuration checkConfig = builder.getCheckConfig("PackageName");
         String filePath = builder.getFilePath("PackageNameInputBad2");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void bad3Test() throws IOException, Exception {
+        
+        
+        String packagePath = "com.google.checkstyle.test.chapter5naming.rule521$packagenames";
+        String msg = getCheckMessage(clazz, msgKey, packagePath, format);
+
+        final String[] expected = {
+            "1:9: " + msg,
+        };
+        
+        String filePath = builder.getFilePath("PackageNameInputBad3");
         
         verify(checkConfig, filePath, expected);
     }

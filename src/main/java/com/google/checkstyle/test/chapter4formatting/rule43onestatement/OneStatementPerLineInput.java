@@ -102,24 +102,4 @@ public class OneStatementPerLineInput {
     one = 1
     ; two = 2; //warn
   }
-  
-  /**
-   * The StringBuffer is a Java-API-class that permits smalltalk-style concatenation
-   * on the <code>append</code>-method.
-   */
-  public void doStringBuffer() {
-    StringBuffer sb = new StringBuffer();
-    sb.append("test ");
-    sb.append("test2 ").append("test3 ");
-    appendToSpringBuffer(sb, "test4");
-  }
-  
-  /**
-   * indirect stringbuffer-method. Used only internally.
-   * @param sb The stringbuffer we want to append something
-   * @param text The text to append
-   */
-  private void appendToSpringBuffer(StringBuffer sb, String text) {
-    sb.append(text);
-  }
 }

@@ -125,7 +125,14 @@
         <module name="NoFinalizer"/>
         
         <module name="GenericWhitespace"/>
-        
+
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="braceAdjustment" value="2"/>
+            <property name="caseIndent" value="2"/>
+            <property name="throwsIndent" value="4"/>
+        </module>
+
         <!-- Checks for Javadoc -->
         <!-- See  http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s7-javadoc-->
         <!-- TODO ALL CASES -->

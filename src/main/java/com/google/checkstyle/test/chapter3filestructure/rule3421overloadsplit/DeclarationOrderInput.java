@@ -176,41 +176,4 @@ enum InputDeclarationOrderEnum
 
     // error member variables should be before methods or ctors
     private int mFoo = 0;
-    
-    class overloadInput
-    {
-        public void overloadMethod(int i) //ok
-        {
-            //some foo code
-        }
-        
-        public void overloadMethod(String s) //ok
-        {
-            //some foo code
-        }
-        
-        public void overloadMethod(boolean b) //ok
-        {
-            //some foo code
-        }
-        
-        public void fooMethod()
-        {
-            
-        }
-        
-        //error because overloads never split
-        public void overloadMethod(String s, Boolean b, int i) //warn
-        {
-            //some foo code
-        }
-    }
-}
-
-interface Fooable
-{
-    public abstract void foo(int i);//ok
-    public abstract void foo(String s);//ok
-    public abstract void noFoo();
-    public abstract void foo(String s, Boolean b, int i);//warn
 }

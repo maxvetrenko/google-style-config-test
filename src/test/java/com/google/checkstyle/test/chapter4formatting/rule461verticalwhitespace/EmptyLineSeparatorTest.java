@@ -29,12 +29,12 @@ public class EmptyLineSeparatorTest extends BaseCheckTestSupport{
         String messageKey = "empty.line.separator";
 
         final String[] expected = {
-            "2: " + getCheckMessage(clazz, messageKey, "import"),
-            "16: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
-            "19: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
-            "58: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
-            "63: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
-            "68: " + getCheckMessage(clazz, messageKey, "CTOR_DEF"),
+            "20: " + getCheckMessage(clazz, messageKey, "import"),
+            "34: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
+            "37: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
+            "76: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
+            "81: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
+            "86: " + getCheckMessage(clazz, messageKey, "CTOR_DEF"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("EmptyLineSeparator");

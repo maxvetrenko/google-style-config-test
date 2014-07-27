@@ -3,11 +3,11 @@ package com.google.checkstyle.test.chapter5naming.rule526parameternames;
 import java.io.*;
 
 final class InputSimple
-{
-    void toManyArgs(int aArg1, int aArg2, int aArg3, int aArg4, int aArg5, //warn
-                    int aArg6, int aArg7, int aArg8, int aArg9)
-    {
-    }
+{                      //warn      warn       warn       warn      warn                  
+    void toManyArgs(int $arg1, int ar$g2, int arg3$, int a_rg4, int _arg5, 
+    		int arg6_, int aArg7, int aArg8, int aar_g)
+            //warn ^    warn ^     warn ^     warn ^
+    {}
 }
 
 class InputSimple2
@@ -17,13 +17,13 @@ class InputSimple2
     public void doSomething(int aaa, int abn, String aaA, 
             boolean bB) //warn
     {
-        //"O" should be named "o"
         for (Object O : new java.util.ArrayList())
         {
 
         }
     }
 }
+
 
 /** Test enum for member naming check */
 enum MyEnum1
@@ -37,13 +37,7 @@ enum MyEnum1
     /** Should be mSomeMemeber */
     private int someMember;
     
-    public void doEnum(int aaaL, long lllllllLlL, 
-            boolean bB) //warn
-    {
-        //"O" should be named "o"
-        for (Object O : new java.util.ArrayList())
-        {
-
-        }
-    }
+    public void doEnum(int aaaL,
+    		long llll_llll, //warn
+            boolean bB) {} //warn 
 }
