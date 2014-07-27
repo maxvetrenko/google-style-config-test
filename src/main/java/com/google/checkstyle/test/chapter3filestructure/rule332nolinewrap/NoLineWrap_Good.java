@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; //ok
 
 public class NoLineWrap_Good {
     
-	public void fooMethod() {
-		//
-	}
+    public void fooMethod() {
+        //
+    }
 }

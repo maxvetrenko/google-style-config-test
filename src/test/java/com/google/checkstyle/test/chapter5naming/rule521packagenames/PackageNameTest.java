@@ -23,13 +23,52 @@ public class PackageNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
-    	
+    public void goodTest() throws IOException, Exception {
+        
         
         final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("PackageName");
-        String filePath = builder.getFilePath("PackageNameInput");
+        String filePath = builder.getFilePath("PackageNameInputGood");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void badTest() throws IOException, Exception {
+        
+        Class<PackageNameCheck> clazz = PackageNameCheck.class;
+        String msgKey = "name.invalidPattern";
+        String packagePath = "com.google.checkstyle.test.chapter5naming.rule521packageNames";
+        String format = "^[a-z]+(\\.[a-z][a-z0-9]*)*$";
+        String msg = getCheckMessage(clazz, msgKey, packagePath, format);
+
+        final String[] expected = {
+            "1:9: " + msg,
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("PackageName");
+        String filePath = builder.getFilePath("PackageNameInputBad");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void bad2Test() throws IOException, Exception {
+        
+        
+        Class<PackageNameCheck> clazz = PackageNameCheck.class;
+        String msgKey = "name.invalidPattern";
+        String packagePath = "com.google.checkstyle.test.chapter5naming.rule521_packagenames";
+        String format = "^[a-z]+(\\.[a-z][a-z0-9]*)*$";
+        String msg = getCheckMessage(clazz, msgKey, packagePath, format);
+
+        final String[] expected = {
+            "1:9: " + msg,
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("PackageName");
+        String filePath = builder.getFilePath("PackageNameInputBad2");
         
         verify(checkConfig, filePath, expected);
     }

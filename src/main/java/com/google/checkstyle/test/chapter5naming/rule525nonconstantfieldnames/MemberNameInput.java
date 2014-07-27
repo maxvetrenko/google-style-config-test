@@ -11,4 +11,12 @@ public class MemberNameInput
     protected int _protected; //warn
     int _package; //warn
     private int _private; //warn
+    
+    public int ppublic; //ok
+    protected int pprotected; //ok
+    int ppackage; //ok
+    private int pprivate; //ok
+    
+    int ABC = 0; //warn
+    final int CDE = 0; //warn
 }

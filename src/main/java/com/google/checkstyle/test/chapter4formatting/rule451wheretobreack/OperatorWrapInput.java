@@ -1,19 +1,11 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule451wheretobreack;
 
-/**
- * Test case for detecting operator wrapping.
- * @author Lars K�hne
- **/
 class OperatorWrapInput
 {
     void test()
     {
-        int x = 1 + //warn
-            2 - //warn
+        /*Warn*/int x = 1 + 
+                /*Warn*/ 2 - 
             3
             -
             4;
@@ -21,7 +13,7 @@ class OperatorWrapInput
         boolean y = true
             &&
             false;
-        y = true && //warn
+        /*Warn*/ y = true && 
             false;
         y = false
             && true;
@@ -36,7 +28,7 @@ class OperatorWrapInput
     }
     
     <
-        T extends Comparable & //warn
+    /*Warn*/ T extends Comparable & 
         java.io.Serializable
     >
     void testGenerics1()

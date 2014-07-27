@@ -11,6 +11,7 @@ import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck;
+import com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck;
 
 public class WhitespaceAroundTest extends BaseCheckTestSupport{
@@ -24,48 +25,48 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void WhitespaceAroundBasicTest() throws IOException, Exception {
-    	
+    public void whitespaceAroundBasicTest() throws IOException, Exception {
+        
         Class<WhitespaceAroundCheck> clazz = WhitespaceAroundCheck.class;
-		String masgPreceded = "ws.notPreceded";
-		String msgFollowed = "ws.notFollowed";
+        String msgPreceded = "ws.notPreceded";
+        String msgFollowed = "ws.notFollowed";
 
-		final String[] expected = {
-        		"14:22: " + getCheckMessage(clazz, masgPreceded, "="),
-                "14:23: " + getCheckMessage(clazz, msgFollowed, "="),
-                "16:24: " + getCheckMessage(clazz, msgFollowed, "="),
-                "24:14: " + getCheckMessage(clazz, masgPreceded, "="),
-                "25:10: " + getCheckMessage(clazz, masgPreceded, "="),
-                "25:11: " + getCheckMessage(clazz, msgFollowed, "="),
-                "26:10: " + getCheckMessage(clazz, masgPreceded, "+="),
-                "26:12: " + getCheckMessage(clazz, msgFollowed, "+="),
-                "27:13: " + getCheckMessage(clazz, msgFollowed, "-="),
-                "35:21: " + getCheckMessage(clazz, msgFollowed, "synchronized"),
-                "37:12: " + getCheckMessage(clazz, msgFollowed, "try"),
-                "37:12: " + getCheckMessage(clazz, masgPreceded, "{"),
-                "39:14: " + getCheckMessage(clazz, msgFollowed, "catch"),
-                "39:34: " + getCheckMessage(clazz, masgPreceded, "{"),
-                "56:11: " + getCheckMessage(clazz, msgFollowed, "if"),
-                "74:19: " + getCheckMessage(clazz, msgFollowed, "return"),
-                "95:29: " + getCheckMessage(clazz, masgPreceded, "?"),
-                "95:30: " + getCheckMessage(clazz, msgFollowed, "?"),
-                "95:34: " + getCheckMessage(clazz, masgPreceded, ":"),
-                "95:35: " + getCheckMessage(clazz, msgFollowed, ":"),
-                "96:15: " + getCheckMessage(clazz, masgPreceded, "=="),
-                "96:17: " + getCheckMessage(clazz, msgFollowed, "=="),
-                "102:20: " + getCheckMessage(clazz, msgFollowed, "*"),
-                "102:21: " + getCheckMessage(clazz, masgPreceded, "*"),
-                "117:18: " + getCheckMessage(clazz, masgPreceded, "%"),
-                "118:20: " + getCheckMessage(clazz, msgFollowed, "%"),
-                "119:18: " + getCheckMessage(clazz, masgPreceded, "%"),
-                "119:19: " + getCheckMessage(clazz, msgFollowed, "%"),
-                "121:18: " + getCheckMessage(clazz, masgPreceded, "/"),
-                "122:20: " + getCheckMessage(clazz, msgFollowed, "/"),
-                "123:18: " + getCheckMessage(clazz, masgPreceded, "/"),
-                "123:19: " + getCheckMessage(clazz, msgFollowed, "/"),
-                "151:15: " + getCheckMessage(clazz, msgFollowed, "assert"),
-                "154:20: " + getCheckMessage(clazz, masgPreceded, ":"),
-                "154:21: " + getCheckMessage(clazz, msgFollowed, ":"),
+        final String[] expected = {
+            "10:22: " + getCheckMessage(clazz, msgPreceded, "="),
+            "10:23: " + getCheckMessage(clazz, msgFollowed, "="),
+            "12:24: " + getCheckMessage(clazz, msgFollowed, "="),
+            "20:14: " + getCheckMessage(clazz, msgPreceded, "="),
+            "21:10: " + getCheckMessage(clazz, msgPreceded, "="),
+            "21:11: " + getCheckMessage(clazz, msgFollowed, "="),
+            "22:10: " + getCheckMessage(clazz, msgPreceded, "+="),
+            "22:12: " + getCheckMessage(clazz, msgFollowed, "+="),
+            "23:13: " + getCheckMessage(clazz, msgFollowed, "-="),
+            "31:21: " + getCheckMessage(clazz, msgFollowed, "synchronized"),
+            "33:12: " + getCheckMessage(clazz, msgFollowed, "try"),
+            "33:12: " + getCheckMessage(clazz, msgPreceded, "{"),
+            "35:14: " + getCheckMessage(clazz, msgFollowed, "catch"),
+            "35:34: " + getCheckMessage(clazz, msgPreceded, "{"),
+            "52:11: " + getCheckMessage(clazz, msgFollowed, "if"),
+            "70:19: " + getCheckMessage(clazz, msgFollowed, "return"),
+            "91:29: " + getCheckMessage(clazz, msgPreceded, "?"),
+            "91:30: " + getCheckMessage(clazz, msgFollowed, "?"),
+            "91:34: " + getCheckMessage(clazz, msgPreceded, ":"),
+            "91:35: " + getCheckMessage(clazz, msgFollowed, ":"),
+            "92:15: " + getCheckMessage(clazz, msgPreceded, "=="),
+            "92:17: " + getCheckMessage(clazz, msgFollowed, "=="),
+            "98:20: " + getCheckMessage(clazz, msgFollowed, "*"),
+            "98:21: " + getCheckMessage(clazz, msgPreceded, "*"),
+            "113:18: " + getCheckMessage(clazz, msgPreceded, "%"),
+            "114:20: " + getCheckMessage(clazz, msgFollowed, "%"),
+            "115:18: " + getCheckMessage(clazz, msgPreceded, "%"),
+            "115:19: " + getCheckMessage(clazz, msgFollowed, "%"),
+            "117:18: " + getCheckMessage(clazz, msgPreceded, "/"),
+            "118:20: " + getCheckMessage(clazz, msgFollowed, "/"),
+            "119:18: " + getCheckMessage(clazz, msgPreceded, "/"),
+            "119:19: " + getCheckMessage(clazz, msgFollowed, "/"),
+            "147:15: " + getCheckMessage(clazz, msgFollowed, "assert"),
+            "150:20: " + getCheckMessage(clazz, msgPreceded, ":"),
+            "150:21: " + getCheckMessage(clazz, msgFollowed, ":"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
@@ -75,29 +76,49 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     }
     
     @Test
-    public void WhitespaceAroundGenericsTest() throws IOException, Exception {
-    	
+    public void whitespaceAroundGenericsTest() throws IOException, Exception {
+        
+        String msgPreceded = "ws.preceded";
+        String msgFollowed = "ws.followed";
+        
+        Class<GenericWhitespaceCheck> clazz = GenericWhitespaceCheck.class;
         final String[] expected = {
+            "12:16: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "12:18: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "12:36: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "12:38: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "12:47: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "12:49: " + getCheckMessage(clazz, msgFollowed, ">"),
+            "12:49: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "14:32: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "14:34: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "14:45: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "15:32: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "15:34: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "15:45: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "20:38: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "20:40: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "20:61: " + getCheckMessage(clazz, msgPreceded, ">"),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
+        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
         String filePath = builder.getFilePath("WhitespaceAroundInput_Generics");
 
         verify(checkConfig, filePath, expected);
     }
     
     @Test
-    public void WhitespaceAroundSimpleTest() throws IOException, Exception {
-    	
+    public void whitespaceAroundSimpleTest() throws IOException, Exception {
+        
         String checkMessage = getCheckMessage(WhitespaceAroundCheck.class, "ws.notFollowed", "=");
 
-		final String[] expected = {
-        	"153:27: " + checkMessage,
-            "154:27: " + checkMessage,
-            "155:27: " + checkMessage,
-            "156:27: " + checkMessage,
-            "157:27: " + checkMessage,
-            "158:27: " + checkMessage,
+        final String[] expected = {
+            "119:27: " + checkMessage,
+            "120:23: " + checkMessage,
+            "121:24: " + checkMessage,
+            "122:19: " + checkMessage,
+            "123:23: " + checkMessage,
+            "124:25: " + checkMessage,
         };
 
         Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
@@ -107,10 +128,9 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     }
     
     @Test
-    public void WhitespaceAroundEmptyTypesCyclesTest() throws IOException, Exception {
-    	
-        final String[] expected = {
-        };
+    public void whitespaceAroundEmptyTypesCyclesTest() throws IOException, Exception {
+        
+        final String[] expected = {};
 
         Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
         String filePath = builder.getFilePath("WhitespaceAroundnput_EmptyTypesAndCycles");

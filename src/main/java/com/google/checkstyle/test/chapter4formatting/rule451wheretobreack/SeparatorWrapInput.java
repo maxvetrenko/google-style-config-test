@@ -20,10 +20,10 @@ public class SeparatorWrapInput {
 
 class badCase {
     
-	public void goodCase(int... aFoo) 
+    public void goodCase(int... aFoo) 
     {
-		int i = 0;
-		
+        int i = 0;
+        
         String s = "ffffooooString";
         s.
             isEmpty(); //bad wrapping
@@ -34,10 +34,10 @@ class badCase {
     public static String foo(int i, String s) 
     {
         String maxLength = "123";
-		int truncationLength = 1;
-		CharSequence seq = null;
-		Object truncationIndicator = null;
-		return new StringBuilder(maxLength )
+        int truncationLength = 1;
+        CharSequence seq = null;
+        Object truncationIndicator = null;
+        return new StringBuilder(maxLength )
         .append(seq, 0, truncationLength )
         .append(truncationIndicator)
         .toString();

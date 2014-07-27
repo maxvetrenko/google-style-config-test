@@ -1,4 +1,5 @@
-package com.google.checkstyle.test.chapter3filestructure.rule332nolinewrap; //ok
+package com.google.checkstyle.test.
+              chapter3filestructure.rule332nolinewrap; //warn
 
 import com.google.common.annotations.Beta; //ok
 
@@ -9,11 +10,11 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; //ok
 public class
     NoLineWrap_Bad {
     
-	public void
-	    fooMethod() {
-		final int
-		    foo = 0;
-	}
+    public void
+        fooMethod() {
+        final int
+            foo = 0;
+    }
 }
 
 enum

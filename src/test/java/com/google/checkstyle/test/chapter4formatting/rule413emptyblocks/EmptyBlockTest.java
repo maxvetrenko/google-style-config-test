@@ -27,13 +27,19 @@ public class EmptyBlockTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(EmptyBlockCheck.class, "block.noStmt");
-    	
+        String msg = getCheckMessage(EmptyBlockCheck.class, "block.noStmt");
+        
         final String[] expected = {
-            "17:29: " + msg,
-            "20:42: " + msg,
-            "24:29: " + msg,
-            };
+            "17:21: " + msg,
+            "20:34: " + msg,
+            "24:21: " + msg,
+            "58:25: " + msg,
+            "61:38: " + msg,
+            "65:25: " + msg,
+            "83:29: " + msg,
+            "86:42: " + msg,
+            "90:29: " + msg,
+        };
         
         Configuration checkConfig = builder.getCheckConfig("EmptyBlock");
         String filePath = builder.getFilePath("EmptyBlockInput");

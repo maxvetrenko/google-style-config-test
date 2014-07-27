@@ -26,14 +26,18 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
 
         Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
-		String msgKey = "name.invalidPattern";
-		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+        String msgKey = "name.invalidPattern";
+        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
-		final String[] expected = {
-        	"119:13: " + getCheckMessage(clazz, msgKey, "ABC", format),
-        	"130:18: " + getCheckMessage(clazz, msgKey, "I", format),
-        	"132:20: " + getCheckMessage(clazz, msgKey, "InnerBlockVariable", format),
-        	"207:21: " + getCheckMessage(clazz, msgKey, "O", format),
+        final String[] expected = {
+            "26:13: " + getCheckMessage(clazz, msgKey, "a", format),
+            "27:13: " + getCheckMessage(clazz, msgKey, "aA", format),
+            "28:13: " + getCheckMessage(clazz, msgKey, "a1_a", format),
+            "29:13: " + getCheckMessage(clazz, msgKey, "A_A", format),
+            "30:13: " + getCheckMessage(clazz, msgKey, "aa2_a", format),
+            "31:13: " + getCheckMessage(clazz, msgKey, "_a", format),
+            "32:13: " + getCheckMessage(clazz, msgKey, "_aa", format),
+            "33:13: " + getCheckMessage(clazz, msgKey, "aa_", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("LocalVariableName");
@@ -46,12 +50,12 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     public void oneCharTest() throws IOException, Exception {
 
         Class<LocalVariableNameCheck> clazz = LocalVariableNameCheck.class;
-		String msgKey = "name.invalidPattern";
-		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+        String msgKey = "name.invalidPattern";
+        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
-		final String[] expected = {
-        	"19:21: " + getCheckMessage(clazz, msgKey, "i", format),
-        	"25:17: " + getCheckMessage(clazz, msgKey, "Index", format),
+        final String[] expected = {
+            "15:13: " + getCheckMessage(clazz, msgKey, "i", format),
+            "21:17: " + getCheckMessage(clazz, msgKey, "Index", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("LocalVariableName");

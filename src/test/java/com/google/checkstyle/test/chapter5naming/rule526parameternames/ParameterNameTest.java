@@ -26,19 +26,21 @@ public class ParameterNameTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
 
         Class<ParameterNameCheck> clazz = ParameterNameCheck.class;
-		String msgKey = "name.invalidPattern";
-		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+        String msgKey = "name.invalidPattern";
+        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
-		final String[] expected = {
-        	"194:25: " + getCheckMessage(clazz, msgKey, "aArg1", format),
-        	"194:36: " + getCheckMessage(clazz, msgKey, "aArg2", format),
-        	"194:47: " + getCheckMessage(clazz, msgKey, "aArg3", format),
-        	"194:58: " + getCheckMessage(clazz, msgKey, "aArg4", format),
-        	"194:69: " + getCheckMessage(clazz, msgKey, "aArg5", format),
-        	"195:25: " + getCheckMessage(clazz, msgKey, "aArg6", format),
-        	"195:36: " + getCheckMessage(clazz, msgKey, "aArg7", format),
-        	"195:47: " + getCheckMessage(clazz, msgKey, "aArg8", format),
-        	"195:58: " + getCheckMessage(clazz, msgKey, "aArg9", format),
+        final String[] expected = {
+            "7:25: " + getCheckMessage(clazz, msgKey, "aArg1", format),
+            "7:36: " + getCheckMessage(clazz, msgKey, "aArg2", format),
+            "7:47: " + getCheckMessage(clazz, msgKey, "aArg3", format),
+            "7:58: " + getCheckMessage(clazz, msgKey, "aArg4", format),
+            "7:69: " + getCheckMessage(clazz, msgKey, "aArg5", format),
+            "8:25: " + getCheckMessage(clazz, msgKey, "aArg6", format),
+            "8:36: " + getCheckMessage(clazz, msgKey, "aArg7", format),
+            "8:47: " + getCheckMessage(clazz, msgKey, "aArg8", format),
+            "8:58: " + getCheckMessage(clazz, msgKey, "aArg9", format),
+            "18:21: " + getCheckMessage(clazz, msgKey, "bB", format),
+            "41:21: " + getCheckMessage(clazz, msgKey, "bB", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("ParameterName");

@@ -24,14 +24,17 @@ public class EmptyLineSeparatorTest extends BaseCheckTestSupport{
 
     @Test
     public void emptyTest() throws IOException, Exception {
-    	
+        
         Class<EmptyLineSeparatorCheck> clazz = EmptyLineSeparatorCheck.class;
-		String messageKey = "empty.line.separator";
+        String messageKey = "empty.line.separator";
 
-		final String[] expected = {
-        	"16: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
-        	"19: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
-        	"58: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
+        final String[] expected = {
+            "2: " + getCheckMessage(clazz, messageKey, "import"),
+            "16: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
+            "19: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
+            "58: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
+            "63: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
+            "68: " + getCheckMessage(clazz, messageKey, "CTOR_DEF"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("EmptyLineSeparator");

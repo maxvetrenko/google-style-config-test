@@ -49,7 +49,7 @@ class InnerClone //warn
 // type arguments are ignored when checking super calls
 class CloneWithTypeArguments //warn
 {
-	//Some code
+    //Some code
 }
 
 class CloneWithTypeArgumentsAndNoSuper //warn
@@ -61,7 +61,7 @@ class MyClassWithGenericSuperMethod //warn
 {
     void someMethod(java.util.List<? super java.util.Map> l)
     {
-    	//Some code
+        //Some code
     }
     
     /**
@@ -70,7 +70,7 @@ class MyClassWithGenericSuperMethod //warn
      * @return a cloned Object?
      */
     public static Object clone(Object o) {
-	return null;
+    return null;
     }
 }
 
@@ -83,6 +83,6 @@ class AnotherClass { //warn
      * @return a cloned type?
      */
     public <T> T clone(T t) {
-	return null;
+    return null;
     }
 }

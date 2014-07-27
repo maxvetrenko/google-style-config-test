@@ -1,90 +1,82 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule412nonemptyblocks;
 
-/**
- * Test case for correct use of braces.
- * @author Oliver Burn
- **/
 class LeftCurlyInput_Method
-{
-    LeftCurlyInput_Method() {}
-    LeftCurlyInput_Method(String aOne) {
+{ //warn
+    LeftCurlyInput_Method() {} //ok
+    LeftCurlyInput_Method(String aOne) {//ok
     }
     LeftCurlyInput_Method(int aOne)
-    {
+    { //warn
     }
 
-    void method1() {}
-    void method2() {
+    void method1() {}//ok
+    void method2() {//ok
     }
     void method3()
-    {
+    { //warn
     }
     void                                                               method4()
-    {
+    {//ok
     }
     void method5(String aOne,
                  String aTwo)
-    {
+    {//ok
     }
     void method6(String aOne,
-                 String aTwo) {
+                 String aTwo) {//warn
     }
 }
 
 enum InputLeftCurlyMethodEnum
-{
+{//warn
     CONSTANT1("hello")
-    {
-        void method1() {}
+    {//warn
+        void method1() {}//ok
         void method2() {
-        }
+        }//ok
         void method3()
-        {
+        {//warn
         }
         void                                                               method4()
-        {
+        {//ok
         }
         void method5(String aOne,
                      String aTwo)
-        {
+        {//ok
         }
         void method6(String aOne,
-                     String aTwo) {
+                     String aTwo) {//warn
         }
     },
 
-    CONSTANT2("hello") {
+    CONSTANT2("hello") {//ok
 
     },
     
     CONSTANT3("hellohellohellohellohellohellohellohellohellohellohellohellohellohello")
-    {
+    {//ok
     };
 
     private InputLeftCurlyMethodEnum(String value)
-    {
+    {//warn
 
     }
 
-    void method1() {}
-    void method2() {
+    void method1() {}//ok
+    void method2() {//ok
     }
     void method3()
-    {
+    {//warn
     }
     void                                                               method4()
-    {
+    {//ok
     }
     void method5(String aOne,
                  String aTwo)
-    {
+    {//ok
     }
     void method6(String aOne,
-                 String aTwo) {
+                 String aTwo) {//warn
     }
 }
 

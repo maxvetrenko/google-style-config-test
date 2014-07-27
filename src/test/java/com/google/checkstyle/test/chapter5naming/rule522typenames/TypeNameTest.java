@@ -24,16 +24,17 @@ public class TypeNameTest extends BaseCheckTestSupport{
 
     @Test
     public void emptyTest() throws IOException, Exception {
-    	
-    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
+        
+        Class<TypeNameCheck> clazz = TypeNameCheck.class;
         String msgKey = "name.invalidPattern";
-		String format = "^[A-Z][a-zA-Z0-9]*$";
+        String format = "^[A-Z][a-zA-Z0-9]*$";
 
-		final String[] expected = {
-        	"3:7: " + getCheckMessage(clazz, msgKey, "inputHeaderClass", format),
-        	"5:22: " + getCheckMessage(clazz, msgKey, "inputHeaderInterface", format),
-        	"7:17: " + getCheckMessage(clazz, msgKey, "inputHeaderEnum", format),
-            };
+        final String[] expected = {
+            "3:7: " + getCheckMessage(clazz, msgKey, "inputHeaderClass", format),
+            "5:22: " + getCheckMessage(clazz, msgKey, "inputHeaderInterface", format),
+            "7:17: " + getCheckMessage(clazz, msgKey, "inputHeaderEnum", format),
+            "9:11: " + getCheckMessage(clazz, msgKey, "noValidName", format),
+        };
         
         Configuration checkConfig = builder.getCheckConfig("TypeName");
         String filePath = builder.getFilePath("TypeNameInput");

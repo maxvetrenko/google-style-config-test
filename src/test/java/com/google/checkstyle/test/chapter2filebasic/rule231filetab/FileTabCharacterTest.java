@@ -35,9 +35,17 @@ public class FileTabCharacterTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
 
-        final DefaultConfiguration checkConfig = createConfig(false);
+        final DefaultConfiguration checkConfig = createConfig(true);
         final String[] expected = {
-            "19:25: " + getCheckMessage(FileTabCharacterCheck.class, "file.containsTab"),
+            "8:25: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "51:5: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "121:35: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "122:64: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "130:9: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "131:10: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "132:1: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "133:3: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
+            "134:3: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
         };
         verify(createChecker(checkConfig),builder.getFilePath("FileTabCharacterInput"),
             expected);

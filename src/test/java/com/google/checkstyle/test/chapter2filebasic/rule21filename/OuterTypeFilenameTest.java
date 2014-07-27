@@ -25,11 +25,11 @@ public class OuterTypeFilenameTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
 
-    	String msg = getCheckMessage(OuterTypeFilenameCheck.class, "type.file.mismatch");
+        String msg = getCheckMessage(OuterTypeFilenameCheck.class, "type.file.mismatch");
 
         final String[] expected = {
-        		"4: " + msg,
-                };
+            "4: " + msg,
+        };
         
         Configuration checkConfig = builder.getCheckConfig("OuterTypeFilename");
         String filePath = builder.getFilePath("OuterTypeFilenameInput_1");
@@ -39,7 +39,7 @@ public class OuterTypeFilenameTest extends BaseCheckTestSupport{
     
     @Test
     public void emptyTest2() throws IOException, Exception {
-    	 
+         
         final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("OuterTypeFilename");

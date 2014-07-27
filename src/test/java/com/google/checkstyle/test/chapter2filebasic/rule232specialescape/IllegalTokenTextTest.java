@@ -26,7 +26,14 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
         
 
-        final String[] expected = {};
+        final String[] expected = {
+            "30:27: Avoid using corresponding octal or Unicode escape.",
+            "31:27: Avoid using corresponding octal or Unicode escape.",
+            "32:27: Avoid using corresponding octal or Unicode escape.",
+            "35:25: Avoid using corresponding octal or Unicode escape.",
+            "36:25: Avoid using corresponding octal or Unicode escape.",
+            "38:16: Avoid using corresponding octal or Unicode escape.",
+        };
         
         Configuration checkConfig = builder.getCheckConfig("IllegalTokenText");
         String filePath = builder.getFilePath("IllegalTokenTextInput");

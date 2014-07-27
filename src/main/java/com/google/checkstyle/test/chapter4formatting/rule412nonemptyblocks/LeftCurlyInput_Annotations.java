@@ -7,18 +7,18 @@ import java.util.List;
 
 @TestClassAnnotation
 class LeftCurlyInput_Annotations 
-{
+{ //warn
     private static final int X = 10;
     @Override
     public boolean equals(Object other)
-    {
+    { //warn
         return false;
     }
     
     @Override
     @SuppressWarnings("unused")
     public int hashCode() 
-    {
+    { //warn
         int a = 10;
         return 1;
     }

@@ -5,5 +5,9 @@ class inputHeaderClass { //warn
     public interface inputHeaderInterface {}; //warn
 
     public enum inputHeaderEnum { one, two }; //warn
+    
+    class noValidName {} //warn
 
 }
+
+class ValidName {} //ok

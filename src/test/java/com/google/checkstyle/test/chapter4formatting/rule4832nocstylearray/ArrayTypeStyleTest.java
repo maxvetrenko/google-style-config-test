@@ -25,12 +25,12 @@ public class ArrayTypeStyleTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(ArrayTypeStyleCheck.class, "array.type.style");
+        String msg = getCheckMessage(ArrayTypeStyleCheck.class, "array.type.style");
 
         final String[] expected = {
-                "14:23: " + msg,
-                "20:44: " + msg,
-                };
+            "9:23: " + msg,
+            "15:44: " + msg,
+        };
         
         Configuration checkConfig = builder.getCheckConfig("ArrayTypeStyle");
         String filePath = builder.getFilePath("ArrayTypeStyleInput");

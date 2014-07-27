@@ -1,12 +1,7 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule4832nocstylearray;
 
 /**
  * Test case for ArrayTypeStyle (Java vs C)
- * @author lkuehne
  **/
 public class ArrayTypeStyleInput
 {
@@ -17,7 +12,7 @@ public class ArrayTypeStyleInput
     {
     }
 
-    public static void mainC(String aCStyle[])
+    public static void mainC(String aCStyle[]) //warn
     {
         final int[] blah = new int[0];
         final boolean isOK1 = aCStyle instanceof String[];

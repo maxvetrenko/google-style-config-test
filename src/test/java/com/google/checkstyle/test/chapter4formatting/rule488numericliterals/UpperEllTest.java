@@ -25,8 +25,9 @@ public class UpperEllTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
         
         final String[] expected = {
-                "92:43: Should use uppercase 'L'.",
-                };
+            "6:43: Should use uppercase 'L'.",
+            "12:19: Should use uppercase 'L'.",
+        };
         
         Configuration checkConfig = builder.getCheckConfig("UpperEll");
         String filePath = builder.getFilePath("UpperEllInput");

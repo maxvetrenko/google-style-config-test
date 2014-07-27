@@ -25,11 +25,13 @@ public class MissingSwitchDefaultTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(MissingSwitchDefaultCheck.class, "missing.switch.default");
+        String msg = getCheckMessage(MissingSwitchDefaultCheck.class, "missing.switch.default");
 
         final String[] expected = {
-                "17:9: " + msg,
-                };
+            "17:9: " + msg,
+            "29:13: " + msg,
+            "37:21: " + msg,
+        };
         
         Configuration checkConfig = builder.getCheckConfig("MissingSwitchDefault");
         String filePath = builder.getFilePath("MissingSwitchDefaultInput");

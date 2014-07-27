@@ -1,13 +1,5 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule412nonemptyblocks;
 
-/**
- * Test case for correct use of braces.
- * @author Oliver Burn
- **/
 class RightCurlyInput_Other
 {
     /** @see test method **/
@@ -22,39 +14,35 @@ class RightCurlyInput_Other
                 if (x > 0)
                 {
                     break;
-                }
+                }//ok
                 else if (x < 0) {
                     ;
-                }
+                }//ok
                 else
                 {
                     break;
-                }
+                }//ok
                 switch (a)
                 {
                 case 0:
                     break;
                 default:
                     break;
-                }
-            }
+                }//ok
+            }//ok
             catch (Exception e)
             {
                 break;
-            }
-            finally
-            {
-                break;
-            }
-        }
+            }//ok
+        }//ok
 
         synchronized (this)
         {
             do
             {
                 x = 2;
-            } while (x == 2);
-        }
+            } while (x == 2); //ok
+        }//ok
 
         this.wait(666
                  ); // Bizarre, but legal
@@ -62,20 +50,20 @@ class RightCurlyInput_Other
         for (int k = 0; k < 1; k++)
         {
             String innerBlockVariable = "";
-        }
+        }//ok
 
         // test input for bug reported by Joe Comuzzi
         if (System.currentTimeMillis() > 1000)
             return 1;
         else
             return 2;
-    }
+    }//ok
 
     // Test static initialiser
     static
     {
         int x = 1; // should not require any javadoc
-    }
+    }//ok
 
 
 
@@ -83,7 +71,7 @@ class RightCurlyInput_Other
     {
         HELLO,
         GOODBYE
-    };
+    }; //ok
 
     void method2()
     {
@@ -95,8 +83,8 @@ class RightCurlyInput_Other
         // it is ok to have rcurly on the same line as previous
         // statement if lcurly on the same line.
         if (flag) { System.err.println("it is ok."); }
-    }
-}
+    } //ok
+} //ok
 
 /**
  * Test input for closing brace if that brace terminates 
@@ -104,11 +92,11 @@ class RightCurlyInput_Other
  */
 class FooCtor
 {
-	int i;
-	public FooCtor()
-	{
-		i = 1;
-	}}
+    int i;
+    public FooCtor()
+    {
+        i = 1;
+    }} //warn
 
 /**
 * Test input for closing brace if that brace terminates 
@@ -116,10 +104,10 @@ class FooCtor
 */
 class FooMethod
 {
-	public void fooMethod()
-	{
-		int i = 1;
-	}}
+    public void fooMethod()
+    {
+        int i = 1;
+    }} //warn
 
 /**
 * Test input for closing brace if that brace terminates 
@@ -127,10 +115,10 @@ class FooMethod
 */
 class FooInner
 {
-	class InnerFoo
-	{
-		public void fooInnerMethod ()
-		{
-			
-		}
-	}}
+    class InnerFoo
+    {
+        public void fooInnerMethod ()
+        {
+            
+        }
+    }} //warn

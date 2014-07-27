@@ -1,4 +1,4 @@
-package com.google.checkstyle.test.chapter3filestructure.rule32packagestate; //ok
+package com.google.checkstyle.test.chapter3filestructure.rule32packagestate;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,10 @@ public class LineLengthTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
 
-        final String[] expected = {};
+        final String[] expected = {
+            "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 105),
+            "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 113),
+        };
         
         Configuration checkConfig = builder.getCheckConfig("LineLength");
         String filePath = builder.getFilePath("LineLengthInput");

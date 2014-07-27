@@ -26,7 +26,20 @@ public class SeparatorWrapTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
         
         final String[] expected = {
-        	"28:10: " + getCheckMessage(SeparatorWrapCheck.class, "line.new", "."),
+            "28:10: " + getCheckMessage(SeparatorWrapCheck.class, "line.new", "."),
+        };
+
+        Configuration checkConfig = builder.getCheckConfig("SeparatorWrap");
+        String filePath = builder.getFilePath("SeparatorWrapInput");
+
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void emptyTest2() throws IOException, Exception {
+        
+        final String[] expected = {
+            "28:10: " + getCheckMessage(SeparatorWrapCheck.class, "line.new", "."),
         };
 
         Configuration checkConfig = builder.getCheckConfig("SeparatorWrap");

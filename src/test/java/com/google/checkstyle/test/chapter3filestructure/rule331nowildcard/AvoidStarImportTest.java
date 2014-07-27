@@ -26,10 +26,10 @@ public class AvoidStarImportTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
 
         final String[] expected = {
-            "7: Using the '.*' form of import should be avoided - java.io.*.",
-            "8: Using the '.*' form of import should be avoided - java.lang.*.",
-            "22: Using the '.*' form of import should be avoided - javax.swing.WindowConstants.*.",
-            "23: Using the '.*' form of import should be avoided - javax.swing.WindowConstants.*.",
+            "3: Using the '.*' form of import should be avoided - java.io.*.",
+            "4: Using the '.*' form of import should be avoided - java.lang.*.",
+            "18: Using the '.*' form of import should be avoided - javax.swing.WindowConstants.*.",
+            "19: Using the '.*' form of import should be avoided - javax.swing.WindowConstants.*.",
         };
         
         Configuration checkConfig = builder.getCheckConfig("AvoidStarImport");

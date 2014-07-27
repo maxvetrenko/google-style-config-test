@@ -25,16 +25,16 @@ public class AvoidEscapedUnicodeCharactersCheckTest extends BaseCheckTestSupport
     @Test
     public void emptyTest() throws IOException, Exception {
 
-    	String msg = getCheckMessage(AvoidEscapedUnicodeCharactersCheck.class, "forbid.escaped.unicode.char");
+        String msg = getCheckMessage(AvoidEscapedUnicodeCharactersCheck.class, "forbid.escaped.unicode.char");
 
         final String[] expected = {
-        	"5: " + msg,
-        	"15: " + msg,
-        	"25: " + msg,
-        	"33: " + msg,
-        	"35: " + msg,
-        	"36: " + msg,
-            };
+            "5: " + msg,
+            "15: " + msg,
+            "25: " + msg,
+            "33: " + msg,
+            "35: " + msg,
+            "36: " + msg,
+         };
 
         Configuration checkConfig = builder.getCheckConfig("AvoidEscapedUnicodeCharacters");
         String filePath = builder.getFilePath("AvoidEscapedUnicodeCharactersInput");

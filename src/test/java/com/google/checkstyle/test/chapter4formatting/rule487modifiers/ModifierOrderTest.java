@@ -25,18 +25,18 @@ public class ModifierOrderTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	Class<ModifierOrderCheck> clazz = ModifierOrderCheck.class;
+        Class<ModifierOrderCheck> clazz = ModifierOrderCheck.class;
         String msgMod = "mod.order";
-		String msgAnnotation = "annotation.order";
+        String msgAnnotation = "annotation.order";
 
-		final String[] expected = {
-                "14:10: " + getCheckMessage(clazz, msgMod, "final"),
-                "18:12: " + getCheckMessage(clazz, msgMod, "private"),
-                "24:14: " + getCheckMessage(clazz, msgMod, "private"),
-                "34:13: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation2"),
-                "39:13: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation2"),
-                "49:35: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation4"),
-                };
+        final String[] expected = {
+            "3:10: " + getCheckMessage(clazz, msgMod, "final"),
+            "5:12: " + getCheckMessage(clazz, msgMod, "private"),
+            "11:14: " + getCheckMessage(clazz, msgMod, "private"),
+            "21:13: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation2"),
+            "26:13: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation2"),
+            "36:35: " + getCheckMessage(clazz, msgAnnotation, "@MyAnnotation4"),
+        };
         
         Configuration checkConfig = builder.getCheckConfig("ModifierOrder");
         String filePath = builder.getFilePath("ModifierOrderInput");

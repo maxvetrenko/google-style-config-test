@@ -23,23 +23,34 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
-    	
+    public void badTest() throws IOException, Exception {
+        
         
         Class<OneTopLevelClassCheck> clazz = OneTopLevelClassCheck.class;
-		String messageKey = "one.top.level.class";
+        String messageKey = "one.top.level.class";
 
-		final String[] expected = {
-        	"25: " + getCheckMessage(clazz, messageKey, "NoSuperClone"),
-        	"33: " + getCheckMessage(clazz, messageKey, "InnerClone"),
-        	"50: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArguments"),
-        	"55: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArgumentsAndNoSuper"),
-        	"60: " + getCheckMessage(clazz, messageKey, "MyClassWithGenericSuperMethod"),
-        	"77: " + getCheckMessage(clazz, messageKey, "AnotherClass"),
+        final String[] expected = {
+            "25: " + getCheckMessage(clazz, messageKey, "NoSuperClone"),
+            "33: " + getCheckMessage(clazz, messageKey, "InnerClone"),
+            "50: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArguments"),
+            "55: " + getCheckMessage(clazz, messageKey, "CloneWithTypeArgumentsAndNoSuper"),
+            "60: " + getCheckMessage(clazz, messageKey, "MyClassWithGenericSuperMethod"),
+            "77: " + getCheckMessage(clazz, messageKey, "AnotherClass"),
         };
         
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassInput");
+        
+        verify(checkConfig, filePath, expected);
+    }
+
+    @Test
+    public void goodTest() throws IOException, Exception {
+        
+        final String[] expected = {};
+        
+        Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
+        String filePath = builder.getFilePath("OneTopLevelClassInputGood");
         
         verify(checkConfig, filePath, expected);
     }

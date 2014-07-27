@@ -27,13 +27,13 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     public void testClassDefault() throws IOException, Exception {
 
         Class<ClassTypeParameterNameCheck> clazz = ClassTypeParameterNameCheck.class;
-		String msgKey = "name.invalidPattern";
-		String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
+        String msgKey = "name.invalidPattern";
+        String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
 
-		final String[] expected = {
-        	"5:31: " + getCheckMessage(clazz, msgKey, "t", format),
-        	"13:14: " + getCheckMessage(clazz, msgKey, "foo", format),
-        	"27:24: " + getCheckMessage(clazz, msgKey, "foo", format),
+        final String[] expected = {
+            "5:31: " + getCheckMessage(clazz, msgKey, "t", format),
+            "13:14: " + getCheckMessage(clazz, msgKey, "foo", format),
+            "27:24: " + getCheckMessage(clazz, msgKey, "foo", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("ClassTypeParameterName");
@@ -46,14 +46,15 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     public void testMethodDefault() throws IOException, Exception {
 
         Class<MethodTypeParameterNameCheck> clazz = MethodTypeParameterNameCheck.class;
-		String msgKey = "name.invalidPattern";
-		String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
+        String msgKey = "name.invalidPattern";
+        String format = "(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)";
 
-		final String[] expected = {
-        	"9:6: " + getCheckMessage(clazz, msgKey, "e_e", format),
-        	"19:6: " + getCheckMessage(clazz, msgKey, "Tfo$o2T", format),
-        	"23:6: " + getCheckMessage(clazz, msgKey, "foo", format),
-        	"28:10: " + getCheckMessage(clazz, msgKey, "_fo", format),
+        final String[] expected = {
+            "9:6: " + getCheckMessage(clazz, msgKey, "e_e", format),
+            "19:6: " + getCheckMessage(clazz, msgKey, "Tfo$o2T", format),
+            "23:6: " + getCheckMessage(clazz, msgKey, "foo", format),
+            "28:10: " + getCheckMessage(clazz, msgKey, "_fo", format),
+            "42:14: " + getCheckMessage(clazz, msgKey, "EE", format),
         };
 
         Configuration checkConfig = builder.getCheckConfig("MethodTypeParameterName");

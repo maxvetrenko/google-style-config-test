@@ -1,13 +1,5 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule412nonemptyblocks;
 
-/**
- * Test case for correct use of braces.
- * @author Oliver Burn
- **/
 class LeftCurlyInput_Braces
 {
     /** @return helper func **/

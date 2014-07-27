@@ -1,13 +1,13 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule411bracesareused;
 
-/**
- * Test case for correct use of braces.
- * @author Oliver Burn
- **/
+import java.io.*;
+import javax.script.*;
+import java.util.concurrent.*;
+import java.nio.channels.*;
+import java.awt.print.*;
+import java.lang.management.*;
+import javax.lang.model.element.*;
+
 class NeedBracesInput
 {
     /** @return helper func **/

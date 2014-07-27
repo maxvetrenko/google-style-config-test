@@ -24,21 +24,23 @@ public class MemberNameTest extends BaseCheckTestSupport{
 
     @Test
     public void emptyTest() throws IOException, Exception {
-    	
-    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
+        
+        Class<TypeNameCheck> clazz = TypeNameCheck.class;
         
         String msgKey = "name.invalidPattern";
-		String foramt = "^[a-z]{2,}[a-zA-Z0-9]*$";
+        String foramt = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
-		final String[] expected = {
-        	"5:16: " + getCheckMessage(clazz, msgKey, "mPublic", foramt),
-        	"6:19: " + getCheckMessage(clazz, msgKey, "mProtected", foramt),
-        	"7:9: " + getCheckMessage(clazz, msgKey, "mPackage", foramt),
-        	"8:17: " + getCheckMessage(clazz, msgKey, "mPrivate", foramt),
-        	"10:16: " + getCheckMessage(clazz, msgKey, "_public", foramt),
-        	"11:19: " + getCheckMessage(clazz, msgKey, "_protected", foramt),
-        	"12:9: " + getCheckMessage(clazz, msgKey, "_package", foramt),
-        	"13:17: " + getCheckMessage(clazz, msgKey, "_private", foramt),
+        final String[] expected = {
+            "5:16: " + getCheckMessage(clazz, msgKey, "mPublic", foramt),
+            "6:19: " + getCheckMessage(clazz, msgKey, "mProtected", foramt),
+            "7:9: " + getCheckMessage(clazz, msgKey, "mPackage", foramt),
+            "8:17: " + getCheckMessage(clazz, msgKey, "mPrivate", foramt),
+            "10:16: " + getCheckMessage(clazz, msgKey, "_public", foramt),
+            "11:19: " + getCheckMessage(clazz, msgKey, "_protected", foramt),
+            "12:9: " + getCheckMessage(clazz, msgKey, "_package", foramt),
+            "13:17: " + getCheckMessage(clazz, msgKey, "_private", foramt),
+            "20:9: " + getCheckMessage(clazz, msgKey, "ABC", foramt),
+            "21:15: " + getCheckMessage(clazz, msgKey, "CDE", foramt),
         };
         
         Configuration checkConfig = builder.getCheckConfig("MemberName");
@@ -49,17 +51,17 @@ public class MemberNameTest extends BaseCheckTestSupport{
 
     @Test
     public void simpleTest() throws IOException, Exception {
-    	
-    	Class<TypeNameCheck> clazz = TypeNameCheck.class;
+        
+        Class<TypeNameCheck> clazz = TypeNameCheck.class;
         String msgKey = "name.invalidPattern";
-		String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
+        String format = "^[a-z]{2,}[a-zA-Z0-9]*$";
 
-		final String[] expected = {
-            "37:17: " + getCheckMessage(clazz, msgKey, "mNumCreated1", format),
-            "39:19: " + getCheckMessage(clazz, msgKey, "mNumCreated2", format),
-            "42:19: " + getCheckMessage(clazz, msgKey, "mInts", format),
-            "56:9: " + getCheckMessage(clazz, msgKey, "mTest1", format),
-            "58:16: " + getCheckMessage(clazz, msgKey, "mTest2", format),
+        final String[] expected = {
+            "19:17: " + getCheckMessage(clazz, msgKey, "mNumCreated1", format),
+            "21:19: " + getCheckMessage(clazz, msgKey, "mNumCreated2", format),
+            "24:19: " + getCheckMessage(clazz, msgKey, "mInts", format),
+            "35:9: " + getCheckMessage(clazz, msgKey, "mTest1", format),
+            "37:16: " + getCheckMessage(clazz, msgKey, "mTest2", format),
         };
         
         Configuration checkConfig = builder.getCheckConfig("MemberName");

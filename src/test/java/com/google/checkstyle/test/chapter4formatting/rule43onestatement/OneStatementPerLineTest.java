@@ -25,12 +25,12 @@ public class OneStatementPerLineTest extends BaseCheckTestSupport{
     @Test
     public void emptyTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(OneStatementPerLineCheck.class, "multiple.statements.line");
+        String msg = getCheckMessage(OneStatementPerLineCheck.class, "multiple.statements.line");
 
         final String[] expected = {
-        	"99:18: " + msg,
-        	"127:11: " + msg,
-            };
+            "75:18: " + msg,
+            "103:11: " + msg,
+        };
         
         Configuration checkConfig = builder.getCheckConfig("OneStatementPerLine");
         String filePath = builder.getFilePath("OneStatementPerLineInput");

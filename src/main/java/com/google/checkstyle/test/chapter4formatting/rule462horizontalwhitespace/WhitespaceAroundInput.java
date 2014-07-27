@@ -1,7 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: 2001
-////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule462horizontalwhitespace;
 
 /**
@@ -10,9 +6,9 @@ package com.google.checkstyle.test.chapter4formatting.rule462horizontalwhitespac
  **/
 class InputWhitespace
 {
-    /** ignore assignment **/
+    /** warn **/
     private int mVar1=1;
-    /** ignore assignment **/
+    /** warn **/
     private int mVar2 =1;
     /** Should be ok **/
     private int mVar3 = 1;
@@ -21,22 +17,22 @@ class InputWhitespace
     void method1()
     {
         final int a = 1;
-        int b= 1; // Ignore 1
-        b=1; // Ignore 1
-        b+=1; // Ignore 1
-        b -=- 1 + (+ b); // Ignore 2
-        b = b ++ + b --; // Ignore 1
-        b = ++ b - -- b; // Ignore 1
+        int b= 1; // warn
+        b=1; // warn
+        b+=1; // warn
+        b -=- 1 + (+ b); // warn
+        b = b ++ + b --; // ok
+        b = ++ b - -- b; // ok
     }
 
     /** method **/
     void method2()
     {
-        synchronized(this) {
+        synchronized(this) { //warn
         }
-        try{
+        try{ //warn
         }
-        catch(RuntimeException e){
+        catch(RuntimeException e){ //warn
         }
     }
 
@@ -53,7 +49,7 @@ class InputWhitespace
     private void fastExit()
     {
         boolean complicatedStuffNeeded = true;
-        if( !complicatedStuffNeeded )
+        if( !complicatedStuffNeeded ) //warn
         {
             return; // should not complain about missing WS after return
         }
@@ -71,7 +67,7 @@ class InputWhitespace
     {
         if ( true )
         {
-            return(2); // should complain about missing WS after return
+            return(2); // //warn 
         }
         else
         {
@@ -83,7 +79,7 @@ class InputWhitespace
     private void testCasts()
     {
         Object o = (Object) new Object(); // ok
-        o = (Object)o; // error
+        o = (Object)o; // ok
         o = ( Object ) o; // ok
         o = (Object)
             o; // ok
@@ -92,14 +88,14 @@ class InputWhitespace
     /** test questions **/
     private void testQuestions()
     {
-        boolean b = (1 == 2)?true:false;
-        b = (1==2) ? false : true;
+        boolean b = (1 == 2)?true:false; //warn
+        b = (1==2) ? false : true; //warn
     }
 
     /** star test **/
     private void starTest()
     {
-        int x = 2 *3* 4;
+        int x = 2 *3* 4; //warn
     }
 
     /** boolean test **/
@@ -114,13 +110,13 @@ class InputWhitespace
     private void divTest()
     {
         int a = 4 % 2;
-        int b = 4% 2;
-        int c = 4 %2;
-        int d = 4%2;
+        int b = 4% 2;//warn
+        int c = 4 %2;//warn
+        int d = 4%2;//warn
         int e = 4 / 2;
-        int f = 4/ 2;
-        int g = 4 /2;
-        int h = 4/2;
+        int f = 4/ 2;//warn
+        int g = 4 /2;//warn
+        int h = 4/2;//warn
     }
 
     /** @return dot test **/
@@ -148,10 +144,10 @@ class InputWhitespace
         assert "OK".equals(null) ? false : true : "Whups";
 
         // missing WS around assert
-        assert(true);
+        assert(true);//warn
 
         // missing WS around colon
-        assert true:"Whups";
+        assert true:"Whups";//warn
     }
 
     /** another check */
@@ -221,15 +217,15 @@ class SpecialCasesInForLoop
     {
         // avoid conflict between WhiteSpaceAfter ';' and ParenPad(nospace)
         for (int i = 0; i++ < 5;) {
-	    //                  ^ no whitespace
-	}
+        //                  ^ no whitespace
+    }
 
         // bug 895072
-	// avoid confilct between ParenPad(space) and NoWhiteSpace before ';'
-	int i = 0;
-	for ( ; i < 5; i++ ) {
-	//   ^ whitespace
-	}
+    // avoid confilct between ParenPad(space) and NoWhiteSpace before ';'
+    int i = 0;
+    for ( ; i < 5; i++ ) {
+    //   ^ whitespace
+    }
         for (int anInt : getSomeInts()) {
             //Should be ignored
         }

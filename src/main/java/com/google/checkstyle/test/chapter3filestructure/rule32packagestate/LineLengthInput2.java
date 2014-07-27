@@ -1,22 +1,9 @@
-////////////////////////////////////////////////////////////////////////////////
-// Test case file for checkstyle.
-// Created: Feb-2001
-// Ignore error
-////////////////////////////////////////////////////////////////////////////////
-package com.google.checkstyle.test.chapter5naming.rule521packagenames; //ok
+package com.google.checkstyle.test.chapter3filestructure.rule32packagestate;
 import java.io.*;
-/**
- * Contains simple mistakes:
- * - Long lines
- * - Tabs
- * - Format of variables and parameters
- * - Order of modifiers
- * @author Oliver Burn
- **/
-final class InputSimple
+final class LineLengthInput2
 {
-    // Long line ----------------------------------------------------------------
-    // Contains a tab ->	<-
+    // Long line ----------------------------------------------------------------------------------------
+    // Contains a tab ->    <-
     // Contains trailing whitespace ->
 
     // Name format tests
@@ -39,8 +26,7 @@ final class InputSimple
     protected int mNumCreated2 = 0;
 
     /** commas are wrong **/
-    private int[] mInts = new int[] {1,2, 3,
-                                     4};
+    private int[] mInts = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
 
     //
     // Accessor tests
@@ -99,7 +85,7 @@ final class InputSimple
     }
 
     /** constructor that is 10 lines long **/
-    private InputSimple()
+    private LineLengthInput2()
     {
         // a line
         // a line
@@ -142,8 +128,8 @@ final class InputSimple
     private static final int BAD__NAME = 3;
 
     // A very, very long line that is OK because it matches the regexp "^.*is OK.*regexp.*$"
-    // long line that has a tab ->	<- and would be OK if tab counted as 1 char
-    // tabs that count as one char because of their position ->	<-   ->	<-, OK
+    // long line that has a tab ->    <- and would be OK if tab counted as 1 char
+    // tabs that count as one char because of their position ->    <-   ->    <-, OK
  
     /** some lines to test the error column after tabs */
     void errorColumnAfterTabs()
@@ -151,11 +137,11 @@ final class InputSimple
         // with tab-width 8 all statements below start at the same column,
         // with different combinations of ' ' and '\t' before the statement
                 int tab0 =1;
-        	int tab1 =1;
-         	int tab2 =1;
-		int tab3 =1;
-  	  	int tab4 =1;
-  	        int tab5 =1;
+            int tab1 =1;
+             int tab2 =1;
+        int tab3 =1;
+            int tab4 =1;
+              int tab5 =1;
     }
 
     // FIXME:

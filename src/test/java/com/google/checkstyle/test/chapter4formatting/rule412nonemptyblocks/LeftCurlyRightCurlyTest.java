@@ -13,7 +13,7 @@ import com.puppycrawl.tools.checkstyle.api.Configuration;
 import com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck;
 import com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck;
 
-public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
+public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
     
     static ConfigurationBuilder builder;
     
@@ -27,14 +27,14 @@ public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
     public void emptyTest() throws IOException, Exception {
         
         String checkMessage = getCheckMessage(LeftCurlyCheck.class, "line.previous", "{");
-		final String[] expected = {
-            "12:1: " + checkMessage,
-            "15:5: " + checkMessage,
-            "21:5: " + checkMessage,
-            "34:5: " + checkMessage,
-            "51:5: " + checkMessage,
-            "69:5: " + checkMessage,
-            "105:5: " + checkMessage,
+        final String[] expected = {
+            "4:1: " + checkMessage,
+            "7:5: " + checkMessage,
+            "13:5: " + checkMessage,
+            "26:5: " + checkMessage,
+            "43:5: " + checkMessage,
+            "61:5: " + checkMessage,
+            "97:5: " + checkMessage,
             };
         
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
@@ -47,11 +47,11 @@ public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
     public void emptyTest2() throws IOException, Exception {
         
         String checkMessagePrevious = getCheckMessage(LeftCurlyCheck.class, "line.previous", "{");
-		final String[] expected = {
+        final String[] expected = {
             "10:1: " + checkMessagePrevious,
             "14:5: " + checkMessagePrevious,
             "21:5: " + checkMessagePrevious,
-            };
+        };
         
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
         String filePath = builder.getFilePath("LeftCurlyInput_Annotations");
@@ -65,19 +65,19 @@ public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
 
         String checkMessagePrevious = getCheckMessage(LeftCurlyCheck.class, "line.previous", "{");
         String checkMessageNew = getCheckMessage(LeftCurlyCheck.class, "line.new", "{");
-		final String[] expected = {
-        	"12:1: " + checkMessagePrevious,
-            "17:5: " + checkMessagePrevious,
-            "24:5: " + checkMessagePrevious,
-            "34:31: " + checkMessageNew,
-            "39:1: " + checkMessagePrevious,
-            "41:5: " + checkMessagePrevious,
-            "46:9: " + checkMessagePrevious,
-            "56:35: " + checkMessageNew,
+        final String[] expected = {
+            "4:1: " + checkMessagePrevious,
+            "9:5: " + checkMessagePrevious,
+            "16:5: " + checkMessagePrevious,
+            "26:31: " + checkMessageNew,
+            "31:1: " + checkMessagePrevious,
+            "33:5: " + checkMessagePrevious,
+            "38:9: " + checkMessagePrevious,
+            "48:35: " + checkMessageNew,
+            "61:5: " + checkMessagePrevious,
             "69:5: " + checkMessagePrevious,
-            "77:5: " + checkMessagePrevious,
-            "87:31: " + checkMessageNew,
-            };
+            "79:31: " + checkMessageNew,
+         };
 
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
         String filePath = builder.getFilePath("LeftCurlyInput_Method");
@@ -87,14 +87,14 @@ public class LeftCurlyRightCurlyTTest extends BaseCheckTestSupport{
     
     @Test
     public void rightCurlyTest() throws Exception {
-    	String checkMessagePrevious = getCheckMessage(RightCurlyCheck.class, "line.new", "}");
-    	final String[] expected = {
-    		"111:10: " + checkMessagePrevious,
-    		"122:10: " + checkMessagePrevious,
-    		"136:10: " + checkMessagePrevious,
-    	};
-    	
-    	Configuration checkConfig = builder.getCheckConfig("RightCurly");
+        String checkMessagePrevious = getCheckMessage(RightCurlyCheck.class, "line.new", "}");
+        final String[] expected = {
+            "99:6: " + checkMessagePrevious,
+            "110:6: " + checkMessagePrevious,
+            "124:6: " + checkMessagePrevious,
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("RightCurly");
         String filePath = builder.getFilePath("RightCurlyInput_Other");
         
         verify(checkConfig, filePath, expected);

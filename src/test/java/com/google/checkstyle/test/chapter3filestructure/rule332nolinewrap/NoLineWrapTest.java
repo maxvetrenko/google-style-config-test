@@ -23,23 +23,13 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
-        
-        final String[] expected = {};
-        
-        Configuration checkConfig = builder.getCheckConfig("LineLength");
-        String filePath = builder.getFilePath("LineLengthInput");
-        
-        verify(checkConfig, filePath, expected);
-    }
-    
-    @Test
     public void badLineWrapTest() throws IOException, Exception {
         
-    	String msg = getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "import");
+        String msg = getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "import");
 
         final String[] expected = {
-            "5: " + msg,        	
+            "1: " + getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "package"),
+            "6: " + getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "import"),            
         };
         
         Configuration checkConfig = builder.getCheckConfig("NoLineWrap");
