@@ -26,7 +26,7 @@ class NeedBracesInput
         while (condition());
 
         // Invalid
-        do testDoWhile(); while (condition());
+        do testDoWhile(); while (condition()); //warn
     }
 
     /** Test while loops **/
@@ -38,11 +38,11 @@ class NeedBracesInput
         }
 
         // Invalid
-        while(condition());
-        while (condition())
+        while(condition()); //warn
+        while (condition()) //warn
             testWhile();
-        while (condition())
-            if (condition())
+        while (condition()) //warn
+            if (condition()) //warn
                 testWhile();
     }
 
@@ -55,12 +55,12 @@ class NeedBracesInput
         }
 
         // Invalid
-        for(int i = 1;i < 5;i++);
-        for (int i = 1; i < 5; i++)
+        for(int i = 1;i < 5;i++); //warn
+        for (int i = 1; i < 5; i++) //warn
             testFor();
-        for (int i = 1; i < 5;
+        for (int i = 1; i < 5; //warn
              i++)
-            if (i > 2)
+            if (i > 2) //warn
                 testFor();
     }
 
@@ -79,14 +79,14 @@ class NeedBracesInput
         }
 
         // Invalid
-        if (condition());
-        if (condition())
+        if (condition()); //warn
+        if (condition()) //warn
             testIf();
-        if (condition())
+        if (condition()) //warn
             testIf();
-        else
+        else //warn
             testIf();
-        if (condition())
+        if (condition()) //warn
             testIf();
         else {
             testIf();
@@ -94,10 +94,10 @@ class NeedBracesInput
         if (condition()) {
             testIf();
         }
-        else
+        else //warn
             testIf();
-        if (condition())
-            if (condition())
+        if (condition()) //warn
+            if (condition()) //warn
                 testIf();
     }
 

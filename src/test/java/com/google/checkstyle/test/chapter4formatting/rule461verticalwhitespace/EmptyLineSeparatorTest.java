@@ -23,18 +23,18 @@ public class EmptyLineSeparatorTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void emptyLineSeparatorTest() throws IOException, Exception {
         
         Class<EmptyLineSeparatorCheck> clazz = EmptyLineSeparatorCheck.class;
         String messageKey = "empty.line.separator";
 
         final String[] expected = {
+            "19: " + getCheckMessage(clazz, messageKey, "package"),
             "20: " + getCheckMessage(clazz, messageKey, "import"),
-            "34: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
-            "37: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
-            "76: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
-            "81: " + getCheckMessage(clazz, messageKey, "VARIABLE_DEF"),
-            "86: " + getCheckMessage(clazz, messageKey, "CTOR_DEF"),
+            "33: " + getCheckMessage(clazz, messageKey, "CLASS_DEF"),
+            "37: " + getCheckMessage(clazz, messageKey, "STATIC_INIT"),
+            "75: " + getCheckMessage(clazz, messageKey, "INTERFACE_DEF"),
+            "82: " + getCheckMessage(clazz, messageKey, "INSTANCE_INIT"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("EmptyLineSeparator");

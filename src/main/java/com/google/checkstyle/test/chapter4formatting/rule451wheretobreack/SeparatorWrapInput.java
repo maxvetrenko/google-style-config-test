@@ -6,11 +6,11 @@ public class SeparatorWrapInput {
         int i = 0;
         String s = "ffffooooString";
         s
-            .isEmpty(); //good wrapping
+            .isEmpty(); //ok
         s.isEmpty();
         
         foo(i,
-                s); //good wrapping
+                s); //ok
     }
     public static void foo(int i, String s) 
     {
@@ -26,9 +26,9 @@ class badCase {
         
         String s = "ffffooooString";
         s.
-            isEmpty(); //bad wrapping
+            isEmpty(); //warn
         foo(i
-                ,s);  //bad wrapping
+                ,s);  //warn
         int[] j;        
     }
     public static String foo(int i, String s) 

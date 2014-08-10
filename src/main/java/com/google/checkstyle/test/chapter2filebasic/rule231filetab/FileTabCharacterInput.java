@@ -48,7 +48,7 @@ final class FileTabCharacterInput
      * @throws java.lang.Exception abc
      **/
     int test1(int badFormat1,int badFormat2,
-    			final int badFormat3)
+    			final int badFormat3) //warn
         throws java.lang.Exception
     {
         return 0;
@@ -127,11 +127,11 @@ final class FileTabCharacterInput
         // with tab-width 8 all statements below start at the same column,
         // with different combinations of ' ' and '\t' before the statement
                 int tab0 =1;
-        	int tab1 =1;
-         	int tab2 =1;
-		int tab3 =1;
-  	  	int tab4 =1;
-  	        int tab5 =1;
+        	int tab1 =1; //warn
+         	int tab2 =1; //warn
+		int tab3 =1; //warn
+  	  	int tab4 =1; //warn
+  	        int tab5 =1; //warn
     }
 
     // FIXME:

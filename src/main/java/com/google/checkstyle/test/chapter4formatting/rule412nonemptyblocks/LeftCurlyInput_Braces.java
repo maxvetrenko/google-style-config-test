@@ -1,35 +1,35 @@
 package com.google.checkstyle.test.chapter4formatting.rule412nonemptyblocks;
 
 class LeftCurlyInput_Braces
-{
+{ //warn
     /** @return helper func **/
     boolean condition()
-    {
+    { //warn
         return false;
     }
 
     /** Test do/while loops **/
     void testDoWhile()
-    {
-        // Valid
+    { //warn
+        
         do {
             testDoWhile();
         }
         while (condition());
 
-        // Invalid
+      
         do testDoWhile(); while (condition());
     }
 
     /** Test while loops **/
     void testWhile()
-    {
-        // Valid
+    { //warn
+        
         while (condition()) {
             testWhile();
         }
 
-        // Invalid
+        
         while(condition());
         while (condition())
             testWhile();
@@ -40,13 +40,13 @@ class LeftCurlyInput_Braces
 
     /** Test for loops **/
     void testFor()
-    {
-        // Valid
+    {  //warn
+        
         for (int i = 1; i < 5; i++) {
             testFor();
         }
 
-        // Invalid
+        
         for(int i = 1;i < 5;i++);
         for (int i = 1; i < 5; i++)
             testFor();
@@ -58,8 +58,8 @@ class LeftCurlyInput_Braces
 
     /** Test if constructs **/
     public void testIf()
-    {
-        // Valid
+    { //warn
+        
         if (condition()) {
             testIf();
         }
@@ -70,7 +70,7 @@ class LeftCurlyInput_Braces
             testIf();
         }
 
-        // Invalid
+        
         if (condition());
         if (condition())
             testIf();
@@ -94,11 +94,11 @@ class LeftCurlyInput_Braces
     }
 
     void whitespaceAfterSemi()
-    {
-        //reject
+    { //warn
+       
         int i = 1;int j = 2;
 
-        //accept
+        
         for (;;) {
         }
     }

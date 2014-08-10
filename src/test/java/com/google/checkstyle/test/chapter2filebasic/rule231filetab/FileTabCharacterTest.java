@@ -33,7 +33,7 @@ public class FileTabCharacterTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void fileTabTest() throws IOException, Exception {
 
         final DefaultConfiguration checkConfig = createConfig(true);
         final String[] expected = {
@@ -50,7 +50,7 @@ public class FileTabCharacterTest extends BaseCheckTestSupport{
         verify(createChecker(checkConfig),builder.getFilePath("FileTabCharacterInput"),
             expected);
     } 
-    
+
     /**
      * Creates a configuration that is functionally close to that in the docs.
      */

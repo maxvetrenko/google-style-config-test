@@ -10,6 +10,7 @@ import com.google.checkstyle.test.base.BaseCheckTestSupport;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
+import com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck;
 
 public class NoLineWrapTest extends BaseCheckTestSupport{
@@ -45,6 +46,21 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
         
         Configuration checkConfig = builder.getCheckConfig("NoLineWrap");
         String filePath = builder.getFilePath("NoLineWrap_Good");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void goodLineLength() throws IOException, Exception {
+        
+        int maxLineLength = 100;
+        final String[] expected = {
+            "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 112),
+            "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 183),
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("LineLength");
+        String filePath = builder.getFilePath("LineLengthInput2");
         
         verify(checkConfig, filePath, expected);
     }

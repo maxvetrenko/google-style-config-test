@@ -23,7 +23,7 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void illegalTokensTest() throws IOException, Exception {
         
 
         final String[] expected = {

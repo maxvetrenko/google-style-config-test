@@ -24,7 +24,7 @@ class LeftCurlyInput_Annotations
     }
     
     @Override @SuppressWarnings({"unused", "unchecked", "static-access"}) public String toString()
-    {
+    { //warn
         Integer i = this.X;
         List<String> l = new ArrayList();
         return "SomeString";
@@ -47,7 +47,7 @@ class InputLeftCurlyAnnotations2 {
     }
     
     @Override @SuppressWarnings({"unused", "unchecked", "static-access"}) public String toString()
-    {
+    { //warn
         Integer i = this.X;
         List<String> l = new ArrayList();
         return "SomeString";

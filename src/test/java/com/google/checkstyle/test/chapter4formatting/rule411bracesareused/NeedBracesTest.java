@@ -23,7 +23,7 @@ public class NeedBracesTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void needBracesTest() throws IOException, Exception {
         
         Class<NeedBracesCheck> clazz = NeedBracesCheck.class;
         String messageKey = "needBraces";
@@ -46,7 +46,7 @@ public class NeedBracesTest extends BaseCheckTestSupport{
             "97: " + getCheckMessage(clazz, messageKey, "else"),
             "99: " + getCheckMessage(clazz, messageKey, "if"),
             "100: " + getCheckMessage(clazz, messageKey, "if"),
-                };
+        };
 
         Configuration checkConfig = builder.getCheckConfig("NeedBraces");
         String filePath = builder.getFilePath("NeedBracesInput");

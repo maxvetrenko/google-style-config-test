@@ -23,15 +23,15 @@ public class LineLengthTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void lineLengthTest() throws IOException, Exception {
         
         final String[] expected = {
-             "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 105),
-             "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 113),
+             "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 112),
+             "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 183),
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("LineLength");
-        String filePath = builder.getFilePath("LineLengthInput");
+        String filePath = builder.getFilePath("LineLengthInput2");
         
         verify(checkConfig, filePath, expected);
     }

@@ -11,8 +11,6 @@ import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
 import com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck;
-import com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck;
-import com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck;
 
 public class EmptyBlockTest extends BaseCheckTestSupport{
     
@@ -25,20 +23,23 @@ public class EmptyBlockTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void emptyBlockTest() throws IOException, Exception {
         
         String msg = getCheckMessage(EmptyBlockCheck.class, "block.noStmt");
         
         final String[] expected = {
-            "17:21: " + msg,
-            "20:34: " + msg,
-            "24:21: " + msg,
-            "58:25: " + msg,
-            "61:38: " + msg,
-            "65:25: " + msg,
-            "83:29: " + msg,
-            "86:42: " + msg,
-            "90:29: " + msg,
+            "19:21: " + msg,
+            "22:34: " + msg,
+            "26:21: " + msg,
+            "28:20: " + msg,
+            "67:25: " + msg,
+            "70:38: " + msg,
+            "74:25: " + msg,
+            "76:24: " + msg,
+            "96:29: " + msg,
+            "99:42: " + msg,
+            "103:29: " + msg,
+            "105:28: " + msg,
         };
         
         Configuration checkConfig = builder.getCheckConfig("EmptyBlock");

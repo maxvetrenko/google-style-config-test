@@ -29,7 +29,7 @@ public class MemberNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void memberNameTest() throws IOException, Exception {
         
 
         final String[] expected = {

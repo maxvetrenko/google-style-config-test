@@ -16,14 +16,14 @@ class LeftCurlyInput_Method
     { //warn
     }
     void                                                               method4()
-    {//ok
+    { //warn
     }
     void method5(String aOne,
                  String aTwo)
-    {//ok
+    {//warn
     }
     void method6(String aOne,
-                 String aTwo) {//warn
+                 String aTwo) {// ok
     }
 }
 
@@ -38,14 +38,14 @@ enum InputLeftCurlyMethodEnum
         {//warn
         }
         void                                                               method4()
-        {//ok
+        { //warn
         }
         void method5(String aOne,
                      String aTwo)
-        {//ok
+        {//warm
         }
         void method6(String aOne,
-                     String aTwo) {//warn
+                     String aTwo) {//ok
         }
     },
 
@@ -68,15 +68,15 @@ enum InputLeftCurlyMethodEnum
     void method3()
     {//warn
     }
-    void                                                               method4()
-    {//ok
+    void                            method4()
+    {//warn
     }
     void method5(String aOne,
                  String aTwo)
-    {//ok
+    {//warn
     }
     void method6(String aOne,
-                 String aTwo) {//warn
+                 String aTwo) {// ok
     }
 }
 

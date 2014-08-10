@@ -29,7 +29,7 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void localVariableNameTest() throws IOException, Exception {
 
         final String[] expected = {
             "26:13: " + getCheckMessage(clazz, msgKey, "a", format),

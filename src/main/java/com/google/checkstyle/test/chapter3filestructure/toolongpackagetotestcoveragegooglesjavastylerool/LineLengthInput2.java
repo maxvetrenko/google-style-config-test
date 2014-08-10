@@ -1,8 +1,8 @@
-package com.google.checkstyle.test.chapter3filestructure.toolongpackagetotestcoveragegooglesjavastylerool;
+package com.google.checkstyle.test.chapter3filestructure.toolongpackagetotestcoveragegooglesjavastylerool; // ok
 import java.io.*;
 final class LineLengthInput2
 {
-    // Long line ----------------------------------------------------------------------------------------
+    // Long line ---------------------------------------------------------------------------------------- //warn
     // Contains a tab ->    <-
     // Contains trailing whitespace ->
 
@@ -26,5 +26,25 @@ final class LineLengthInput2
     protected int mNumCreated2 = 0;
 
     /** commas are wrong **/
-    private int[] mInts = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24};
+    private int[] mInts = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}; //warn
+    
+    /**
+     * Very long url: https://github.com/checkstyle/checkstyle/blob/master/src/main/java/com/puppycrawl/tools/checkstyle/checks/AvoidEscapedUnicodeCharactersCheck.java
+     */
+    public void fooMethod() {}
+    
+    /**
+     * Long url without wraping: http://ftp.dlink.ru/pub/D-Link_Solutions/D-Link_Solutions_for_Business.pdf
+     */
+    public void fooMethodLongFtp() {}
+    
+    public void fooLongStringUrl() {
+        String url = "https://github.com/checkstyle/checkstyle/blob/master/src/main/java/com/puppycrawl/tools/checkstyle/checks/AvoidEscapedUnicodeCharactersCheck.java"; //ok
+        processUrl("https://github.com/checkstyle/checkstyle/blob/master/src/main/java/com/puppycrawl/tools/checkstyle/checks/AvoidEscapedUnicodeCharactersCheck.java"); //ok
+    }
+    
+    public void processUrl (String url)
+    {
+        
+    }
 }

@@ -4,30 +4,36 @@
 ////////////////////////////////////////////////////////////////////////////////
 package com.google.checkstyle.test.chapter4formatting.rule413emptyblocks;
 
-import java.io.*; // star import for instantiation tests
-import java.awt.Dimension; // explicit import for instantiation tests
+import java.io.*; 
+import java.awt.Dimension;
 import java.awt.Color;
 
 class UpdateClass
 {
+    static {} //ok
+    
     public void fooMethod()
     {
         UpdateClass r = new UpdateClass();
         int a = 1;
-        if (a == 1) {} //it's not OK 
+        if (a == 1) {} // warn 
         char[] s = {'1', '2'};
         int index = 2;
-        if (doSideEffect() == 1) {} //it's not OK, 
+        if (doSideEffect() == 1) {} // warn
         IO in = new IO();
-        while ((r = in.read()) != null) {} // it's OK 
-        for (; index < s.length && s[index] != 'x'; index++) {} // it's OK
-        if (a == 1) {} else {System.out.println("a");} // it's not OK
+        while ((r = in.read()) != null) {} // ok
+        for (; index < s.length && s[index] != 'x'; index++) {} // ok
+        if (a == 1) {} else {System.out.println("a");}  // warn
+        do {} while(a == 1); //ok
+        switch (a) {} //warn
     }
     
     public int doSideEffect()
     {
         return 1;
     }
+    
+    public void emptyMethod() {}
 }
 
 class IO
@@ -37,12 +43,15 @@ class IO
         return new UpdateClass();
     }
 }
-class Empty {} //it's Ok
+class Empty {} //ok
 
-interface EmptyImplement {} //it's Ok
+interface EmptyImplement {} //ok
 
 class WithInner
 {
+    static {} //ok
+    
+    public void emptyMethod() {}
     
     public int doSideEffect()
     {
@@ -55,14 +64,16 @@ class WithInner
         {
             UpdateClass r = new UpdateClass();
             int a = 1;
-            if (a == 1) {} //is not OK 
+            if (a == 1) {} // warn 
             char[] s = {'1', '2'};
             int index = 2;
-            if (doSideEffect() == 1) {} //is not OK, 
+            if (doSideEffect() == 1) {} //warn
             IO in = new IO();
-            while ((r = in.read()) != null) {} // is OK 
-            for (; index < s.length && s[index] != 'x'; index++) {} // is OK
-            if (a == 1) {} else {System.out.println("a");} // is not OK
+            while ((r = in.read()) != null) {} // ok 
+            for (; index < s.length && s[index] != 'x'; index++) {} // ok
+            if (a == 1) {} else {System.out.println("a");} // warn
+            do {} while(a == 1); //ok
+            switch (a) {} //warn
         }
     }
 }
@@ -76,18 +87,22 @@ class WithAnon
     void method()
     {
         AnonWithEmpty foo = new AnonWithEmpty() {
+            
+            public void emptyMethod() {}
 
             public void fooEmpty() {
                 UpdateClass r = new UpdateClass();
                 int a = 1;
-                if (a == 1) {} //is not OK 
+                if (a == 1) {} //warn
                 char[] s = {'1', '2'};
                 int index = 2;
-                if (doSideEffect() == 1) {} //is not OK, 
+                if (doSideEffect() == 1) {} //warn
                 IO in = new IO();
-                while ((r = in.read()) != null) {} // is OK 
-                for (; index < s.length && s[index] != 'x'; index++) {} // is OK
-                if (a == 1) {} else {System.out.println("a");} // is not OK
+                while ((r = in.read()) != null) {} // ok 
+                for (; index < s.length && s[index] != 'x'; index++) {} // ok
+                if (a == 1) {} else {System.out.println("a");} // warn
+                do {} while(a == 1); //ok
+                switch (a) {} //warn
             }
             
             public int doSideEffect()
@@ -97,3 +112,6 @@ class WithAnon
         };
     }
 }
+
+
+enum EmptyEnum {}

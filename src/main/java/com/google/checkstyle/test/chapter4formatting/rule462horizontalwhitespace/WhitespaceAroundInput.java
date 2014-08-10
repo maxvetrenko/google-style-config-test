@@ -7,9 +7,9 @@ package com.google.checkstyle.test.chapter4formatting.rule462horizontalwhitespac
 class InputWhitespace
 {
     /** warn **/
-    private int mVar1=1;
+    private int mVar1=1; // warn
     /** warn **/
-    private int mVar2 =1;
+    private int mVar2 =1; // warn
     /** Should be ok **/
     private int mVar3 = 1;
 

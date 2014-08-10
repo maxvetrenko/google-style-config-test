@@ -10,7 +10,6 @@ import com.google.checkstyle.test.base.BaseCheckTestSupport;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
-import com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck;
 
@@ -21,7 +20,7 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     @BeforeClass
     public static void setConfigurationBuilder() throws CheckstyleException {
         builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+            "checkstyle_google_style.xml");
     }
 
     @Test
@@ -106,27 +105,6 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
 
         verify(checkConfig, filePath, expected);
     }
-    
-    @Test
-    public void whitespaceAroundSimpleTest() throws IOException, Exception {
-        
-        String checkMessage = getCheckMessage(WhitespaceAroundCheck.class, "ws.notFollowed", "=");
-
-        final String[] expected = {
-            "119:27: " + checkMessage,
-            "120:23: " + checkMessage,
-            "121:24: " + checkMessage,
-            "122:19: " + checkMessage,
-            "123:23: " + checkMessage,
-            "124:25: " + checkMessage,
-        };
-
-        Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
-        String filePath = builder.getFilePath("WhitespaceAroundInput_Simple");
-
-        verify(checkConfig, filePath, expected);
-    }
-    
     @Test
     public void whitespaceAroundEmptyTypesCyclesTest() throws IOException, Exception {
         
@@ -134,6 +112,51 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
 
         Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
         String filePath = builder.getFilePath("WhitespaceAroundnput_EmptyTypesAndCycles");
+
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void genericWhitespaceTest() throws IOException, Exception
+    {
+        Class<GenericWhitespaceCheck> clazz = GenericWhitespaceCheck.class;
+        String msgPreceded = "ws.preceded";
+        String msgFollowed = "ws.followed";
+        String msgNotPreceded = "ws.notPreceded";
+        String msgIllegalFollow = "ws.illegalFollow";
+        
+        
+        final String[] expected = {
+            "16:13: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "16:15: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "16:23: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "16:43: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "16:45: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "16:53: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "17:13: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "17:15: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "17:20: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "17:22: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "17:30: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "17:32: " + getCheckMessage(clazz, msgFollowed, ">"),
+            "17:32: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "17:52: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "17:54: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "17:59: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "17:61: " + getCheckMessage(clazz, msgFollowed, "<"),
+            "17:69: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "17:71: " + getCheckMessage(clazz, msgFollowed, ">"),
+            "17:71: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "30:17: " + getCheckMessage(clazz, msgNotPreceded, "<"),
+            "30:21: " + getCheckMessage(clazz, msgIllegalFollow, ">"),
+            "42:21: " + getCheckMessage(clazz, msgPreceded, "<"),
+            "42:30: " + getCheckMessage(clazz, msgFollowed, ">"),
+            "60:60: " + getCheckMessage(clazz, msgNotPreceded, "&"),
+            "63:60: " + getCheckMessage(clazz, msgFollowed, ">"),
+        };
+
+        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
+        String filePath = builder.getFilePath("GenericWhitespaceInput");
 
         verify(checkConfig, filePath, expected);
     }

@@ -14,10 +14,10 @@ class RightCurlyInput_Other
                 if (x > 0)
                 {
                     break;
-                }//ok
-                else if (x < 0) {
+                } else if (x < 0) {  //ok
+                
                     ;
-                }//ok
+                } //warn
                 else
                 {
                     break;
@@ -28,8 +28,8 @@ class RightCurlyInput_Other
                     break;
                 default:
                     break;
-                }//ok
-            }//ok
+                } //ok
+            } //warn
             catch (Exception e)
             {
                 break;
@@ -52,17 +52,17 @@ class RightCurlyInput_Other
             String innerBlockVariable = "";
         }//ok
 
-        // test input for bug reported by Joe Comuzzi
+        
         if (System.currentTimeMillis() > 1000)
             return 1;
         else
             return 2;
     }//ok
 
-    // Test static initialiser
+    
     static
     {
-        int x = 1; // should not require any javadoc
+        int x = 1; 
     }//ok
 
 
@@ -78,10 +78,10 @@ class RightCurlyInput_Other
         boolean flag = true;
         if (flag) {
             System.out.println("heh");
-            flag = !flag; } System.err.
+            flag = !flag; } System.err.  //warn
               println("Xe-xe");
-        // it is ok to have rcurly on the same line as previous
-        // statement if lcurly on the same line.
+        
+       
         if (flag) { System.err.println("it is ok."); }
     } //ok
 } //ok

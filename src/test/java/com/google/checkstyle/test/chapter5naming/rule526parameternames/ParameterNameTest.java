@@ -29,7 +29,7 @@ public class ParameterNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void parameterNameTest() throws IOException, Exception {
 
 
         final String[] expected = {
