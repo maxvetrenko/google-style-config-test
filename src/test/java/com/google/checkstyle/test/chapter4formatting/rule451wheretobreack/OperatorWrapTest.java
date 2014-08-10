@@ -23,16 +23,32 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void operatorWrapTest() throws IOException, Exception {
         
         Class<OperatorWrapCheck> clazz = OperatorWrapCheck.class;
         String messageKey = "line.new";
 
         final String[] expected = {
-            "7:27: " + getCheckMessage(clazz, messageKey, "+"),
-            "8:28: " + getCheckMessage(clazz, messageKey, "-"),
-            "16:27: " + getCheckMessage(clazz, messageKey, "&&"),
-            "31:35: " + getCheckMessage(clazz, messageKey, "&"),
+            "10:27: " + getCheckMessage(clazz, messageKey, "+"),
+            "11:28: " + getCheckMessage(clazz, messageKey, "-"),
+            "19:27: " + getCheckMessage(clazz, messageKey, "&&"),
+            "34:35: " + getCheckMessage(clazz, messageKey, "&"),
+            "53:42: " + getCheckMessage(clazz, messageKey, "?"),
+            "57:27: " + getCheckMessage(clazz, messageKey, "!="),
+            "63:30: " + getCheckMessage(clazz, messageKey, "=="),
+            "69:27: " + getCheckMessage(clazz, messageKey, ">"),
+            "75:35: " + getCheckMessage(clazz, messageKey, "||"),
+            "98:46: " + getCheckMessage(clazz, messageKey, "?"),
+            "102:31: " + getCheckMessage(clazz, messageKey, "!="),
+            "108:34: " + getCheckMessage(clazz, messageKey, "=="),
+            "114:31: " + getCheckMessage(clazz, messageKey, ">"),
+            "120:39: " + getCheckMessage(clazz, messageKey, "||"),
+            "144:46: " + getCheckMessage(clazz, messageKey, "?"),
+            "148:31: " + getCheckMessage(clazz, messageKey, "!="),
+            "154:34: " + getCheckMessage(clazz, messageKey, "=="),
+            "160:31: " + getCheckMessage(clazz, messageKey, ">"),
+            "166:39: " + getCheckMessage(clazz, messageKey, "||"),
+            "185:38: " + getCheckMessage(clazz, messageKey, "?"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("OperatorWrap");

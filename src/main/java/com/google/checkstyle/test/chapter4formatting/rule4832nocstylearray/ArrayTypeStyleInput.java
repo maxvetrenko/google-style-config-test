@@ -8,22 +8,24 @@ public class ArrayTypeStyleInput
     private int[] javaStyle = new int[0];
     private int cStyle[] = new int[0]; //warn
 
-    public static void mainJava(String[] aJavaStyle)
+    public static void mainJava(String[] aJavaStyle) //ok
     {
     }
 
     public static void mainC(String aCStyle[]) //warn
     {
-        final int[] blah = new int[0];
-        final boolean isOK1 = aCStyle instanceof String[];
-        final boolean isOK2 = aCStyle instanceof java.lang.String[];
-        final boolean isOK3 = blah instanceof int[];
+        final int[] blah = new int[0]; //ok
+        final boolean isOK1 = aCStyle instanceof String[]; //ok
+        final boolean isOK2 = aCStyle instanceof java.lang.String[]; //ok
+        final boolean isOK3 = blah instanceof int[]; //ok
+        int[] array[] = new int [2][2]; //warn 
+        int array2[][][] = new int[3][3][3]; //warn
     }
 
     public class Test
     {
         public Test[]
-            variable;
+            variable; //ok
 
         public Test[]
             getTests()
@@ -31,9 +33,11 @@ public class ArrayTypeStyleInput
             return null;
         }
 
-        public Test[] getNewTest()
+        public Test[] getNewTest() //ok
         {
             return null;
         }
     }
+    int[] array[] = new int [2][2]; //warn
+    int array2[][][] = new int[3][3][3]; //warn
 }

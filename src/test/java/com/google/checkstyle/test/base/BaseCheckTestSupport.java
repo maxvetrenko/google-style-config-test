@@ -14,6 +14,7 @@ import java.io.PrintStream;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 
 import com.google.common.collect.Lists;
@@ -171,4 +172,19 @@ public abstract class BaseCheckTestSupport
 	public String getCheckMessage(Class aClass, String messageKey, Object ... arguments) {
 		return format(getCheckMessage(aClass, messageKey), arguments);
 	}
+	
+	/**
+     * Gets the check message 'as is' from appropriate 'messages.properties' file.
+     * @param messageKey the key of message in 'messages.properties' file.
+     * @param arguments the arguments of message in 'messages.properties' file.
+     */
+   public String getCheckMessage(Map<String, String> messages, String messageKey, Object ... arguments)
+   {
+       for (Map.Entry<String, String> entry : messages.entrySet()) {
+           if (messageKey.equals(entry.getKey())) {
+               return format(entry.getValue(), arguments);
+           }
+       }
+       return null;
+   }
 }

@@ -19,7 +19,7 @@ class UpperEllInput
     
     private void processUpperEll(long aLong) {
         long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
-        long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //warn
+        long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
         long[] array = {
             66l, //warn
             66L, //ok
@@ -78,7 +78,7 @@ class UpperEllInput
                 
                 private void processUpperEll(long aLong) {
                     long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
-                    long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //warn
+                    long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
                     long[] array = {
                         66l, //warn
                         66L, //ok

@@ -26,7 +26,7 @@ class NeedBracesInput
         while (condition());
 
         // Invalid
-        do testDoWhile(); while (condition());
+        do testDoWhile(); while (condition()); //warn
     }
 
     /** Test while loops **/
@@ -38,11 +38,11 @@ class NeedBracesInput
         }
 
         // Invalid
-        while(condition());
-        while (condition())
+        while(condition()); //warn
+        while (condition()) //warn
             testWhile();
-        while (condition())
-            if (condition())
+        while (condition()) //warn
+            if (condition()) //warn
                 testWhile();
     }
 
@@ -55,12 +55,12 @@ class NeedBracesInput
         }
 
         // Invalid
-        for(int i = 1;i < 5;i++);
-        for (int i = 1; i < 5; i++)
+        for(int i = 1;i < 5;i++); //warn
+        for (int i = 1; i < 5; i++) //warn
             testFor();
-        for (int i = 1; i < 5;
+        for (int i = 1; i < 5; //warn
              i++)
-            if (i > 2)
+            if (i > 2) //warn
                 testFor();
     }
 
@@ -79,14 +79,14 @@ class NeedBracesInput
         }
 
         // Invalid
-        if (condition());
-        if (condition())
+        if (condition()); //warn
+        if (condition()) //warn
             testIf();
-        if (condition())
+        if (condition()) //warn
             testIf();
-        else
+        else //warn
             testIf();
-        if (condition())
+        if (condition()) //warn
             testIf();
         else {
             testIf();
@@ -94,10 +94,10 @@ class NeedBracesInput
         if (condition()) {
             testIf();
         }
-        else
+        else //warn
             testIf();
-        if (condition())
-            if (condition())
+        if (condition()) //warn
+            if (condition()) //warn
                 testIf();
     }
 
@@ -116,4 +116,100 @@ class NeedBracesInput
     
     /** Empty method block. **/
     public void emptyImplementation() {}
+}
+
+class EmptyBlocks {
+    boolean flag = true;    
+    int[] a = {1, 2, 3, 4, };
+
+    void foo() {
+        while(flag); //warn
+        while(flag) {}
+        while(flag) {/*foo*/}
+        do; //warn
+        while(flag);
+        do {}
+        while(flag);
+        do {/*foo*/}
+        while(flag);
+        if(flag); //warn
+        if(flag){}
+        if(flag) {/*foo*/}
+        if(flag); //warn
+        else; //warn
+        if(flag){}
+        else {}
+        if(flag){/*foo*/}
+        else {/*foo*/}
+        for(int i = 0; i < 10; i++); //warn
+        for(int i = 0; i < 10; i++) {}
+        for(int i = 0; i < 10; i++) {/*foo*/}
+        for(int b : a); //warn
+        for(int b : a) {}
+        for(int b : a) {/*foo*/}
+    }
+    
+    class InnerEmptyBlocks {
+        boolean flag = true;    
+        int[] a = {1, 2, 3, 4, };
+
+        void foo() {
+            while(flag); //warn
+            while(flag) {}
+            while(flag) {/*foo*/}
+            do; //warn
+            while(flag);
+            do {}
+            while(flag);
+            do {/*foo*/}
+            while(flag);
+            if(flag); //warn
+            if(flag){}
+            if(flag) {/*foo*/}
+            if(flag); //warn
+            else; //warn
+            if(flag){}
+            else {}
+            if(flag){/*foo*/}
+            else {/*foo*/}
+            for(int i = 0; i < 10; i++); //warn
+            for(int i = 0; i < 10; i++) {}
+            for(int i = 0; i < 10; i++) {/*foo*/}
+            for(int b : a); //warn
+            for(int b : a) {}
+            for(int b : a) {/*foo*/}
+        }
+    }
+
+    InnerEmptyBlocks anon = new InnerEmptyBlocks() {
+        boolean flag = true;    
+        int[] a = {1, 2, 3, 4, };
+
+        void foo() {
+            while(flag); //warn
+            while(flag) {}
+            while(flag) {/*foo*/}
+            do; //warn
+            while(flag);
+            do {}
+            while(flag);
+            do {/*foo*/}
+            while(flag);
+            if(flag); //warn
+            if(flag){}
+            if(flag) {/*foo*/}
+            if(flag); //warn
+            else; //warn
+            if(flag){}
+            else {}
+            if(flag){/*foo*/}
+            else {/*foo*/}
+            for(int i = 0; i < 10; i++); //warn
+            for(int i = 0; i < 10; i++) {}
+            for(int i = 0; i < 10; i++) {/*foo*/}
+            for(int b : a); //warn
+            for(int b : a) {}
+            for(int b : a) {/*foo*/}
+        }
+    };
 }

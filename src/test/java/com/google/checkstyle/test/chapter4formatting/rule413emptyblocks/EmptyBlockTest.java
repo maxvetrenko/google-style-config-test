@@ -11,8 +11,6 @@ import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
 import com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck;
-import com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck;
-import com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck;
 
 public class EmptyBlockTest extends BaseCheckTestSupport{
     
@@ -25,24 +23,43 @@ public class EmptyBlockTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
-        
-        String msg = getCheckMessage(EmptyBlockCheck.class, "block.noStmt");
+    public void emptyBlockTest() throws IOException, Exception {
         
         final String[] expected = {
-            "17:21: " + msg,
-            "20:34: " + msg,
-            "24:21: " + msg,
-            "58:25: " + msg,
-            "61:38: " + msg,
-            "65:25: " + msg,
-            "83:29: " + msg,
-            "86:42: " + msg,
-            "90:29: " + msg,
+            "19:21: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "22:34: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "26:21: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "28:20: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "switch"),
+            "68:25: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "71:38: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "75:25: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "77:24: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "switch"),
+            "98:29: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "101:42: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "105:29: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "if"),
+            "107:28: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "switch"),
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("EmptyBlock");
         String filePath = builder.getFilePath("EmptyBlockInput");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void emptyBlockTestCatch() throws IOException, Exception {
+        
+        final String[] expected = {
+            "28:31: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "catch"),
+            "29:17: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "finally"),
+            "49:35: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "catch"),
+            "50:21: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "finally"),
+            "71:35: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "catch"),
+            "72:21: " + getCheckMessage(EmptyBlockCheck.class, "block.empty", "finally"),
+        };
+
+        Configuration checkConfig = builder.getCheckConfig("EmptyBlock");
+        String filePath = builder.getFilePath("EmptyBlockInputCatch");
         
         verify(checkConfig, filePath, expected);
     }

@@ -23,11 +23,11 @@ public class LineLengthTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void lineLengthTest() throws IOException, Exception {
 
         final String[] expected = {
-            "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 105),
-            "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 176),
+            "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 112),
+            "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", 100, 183),
         };
 
         Configuration checkConfig = builder.getCheckConfig("LineLength");

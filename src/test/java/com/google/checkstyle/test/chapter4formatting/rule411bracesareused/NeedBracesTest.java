@@ -23,7 +23,7 @@ public class NeedBracesTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void needBracesTest() throws IOException, Exception {
         
         Class<NeedBracesCheck> clazz = NeedBracesCheck.class;
         String messageKey = "needBraces";
@@ -46,7 +46,28 @@ public class NeedBracesTest extends BaseCheckTestSupport{
             "97: " + getCheckMessage(clazz, messageKey, "else"),
             "99: " + getCheckMessage(clazz, messageKey, "if"),
             "100: " + getCheckMessage(clazz, messageKey, "if"),
-                };
+            "126: " + getCheckMessage(clazz, messageKey, "while"),
+            "129: " + getCheckMessage(clazz, messageKey, "do"),
+            "135: " + getCheckMessage(clazz, messageKey, "if"),
+            "138: " + getCheckMessage(clazz, messageKey, "if"),
+            "139: " + getCheckMessage(clazz, messageKey, "else"),
+            "144: " + getCheckMessage(clazz, messageKey, "for"),
+            "147: " + getCheckMessage(clazz, messageKey, "for"),
+            "157: " + getCheckMessage(clazz, messageKey, "while"),
+            "160: " + getCheckMessage(clazz, messageKey, "do"),
+            "166: " + getCheckMessage(clazz, messageKey, "if"),
+            "169: " + getCheckMessage(clazz, messageKey, "if"),
+            "170: " + getCheckMessage(clazz, messageKey, "else"),
+            "175: " + getCheckMessage(clazz, messageKey, "for"),
+            "178: " + getCheckMessage(clazz, messageKey, "for"),
+            "189: " + getCheckMessage(clazz, messageKey, "while"),
+            "192: " + getCheckMessage(clazz, messageKey, "do"),
+            "198: " + getCheckMessage(clazz, messageKey, "if"),
+            "201: " + getCheckMessage(clazz, messageKey, "if"),
+            "202: " + getCheckMessage(clazz, messageKey, "else"),
+            "207: " + getCheckMessage(clazz, messageKey, "for"),
+            "210: " + getCheckMessage(clazz, messageKey, "for"),
+        };
 
         Configuration checkConfig = builder.getCheckConfig("NeedBraces");
         String filePath = builder.getFilePath("NeedBracesInput");

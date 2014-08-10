@@ -1,15 +1,14 @@
 package com.google.checkstyle.test.chapter2filebasic.rule21filename;
 
-
-@interface MyAnnotation1 { //warn
-    String name();
-    int version();
-}
-
 @MyAnnotation1(name = "ABC", version = 1)
 public class OuterTypeFilenameInput_1 //ok
 {
 
+}
+
+@interface MyAnnotation1 { //warn
+    String name();
+    int version();
 }
 
 enum Enum1 //ok

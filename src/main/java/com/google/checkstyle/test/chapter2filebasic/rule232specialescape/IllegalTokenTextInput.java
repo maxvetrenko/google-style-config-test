@@ -17,24 +17,24 @@ public class IllegalTokenTextInput
         final String r1 = "\u0008"; //warn
         final String r2 = "\u0009"; //warn
         final String r3 = "\u000csssdfsd"; //warn
-        final String r4  = "\u1111sdfsd\444"; //no warn
+        final String r4  = "\u1111sdfsd\444"; // ok
         
         final char r5 = '\012'; //warn
         final char r6 = '\u0022'; //warn
-        final char r7 = '\b'; //no warn
+        final char r7 = '\b'; //ok
         return "\u000csssdfsd"; //warn
     }
     
     public void specialCharsWithoutWarn()
     {
-        String r1 = "\b"; //no warn
-        String r2 = "\t"; //no warn
-        String r3 = "\n"; //no warn
-        String r4 = "\f"; //no warn
-        String r5 = "\r"; //no warn
-        String r6 = "\""; //no warn
-        String r7 = "\'"; //no warn
-        String r8 = "\\"; //no warn
+        String r1 = "\b"; //ok
+        String r2 = "\t"; //ok
+        String r3 = "\n"; //ok
+        String r4 = "\f"; //ok
+        String r5 = "\r"; //ok
+        String r6 = "\""; //ok
+        String r7 = "\'"; //ok
+        String r8 = "\\"; //ok
     }
 
     public void specialCharsWithWarn()
@@ -68,24 +68,24 @@ public class IllegalTokenTextInput
             final String r1 = "\u0008"; //warn
             final String r2 = "\u0009"; //warn
             final String r3 = "\u000csssdfsd"; //warn
-            final String r4  = "\u1111sdfsd\444"; //no warn
+            final String r4  = "\u1111sdfsd\444"; //ok
             
             final char r5 = '\012'; //warn
             final char r6 = '\u0022'; //warn
-            final char r7 = '\b'; //no warn
+            final char r7 = '\b'; //ok
             return "\u000csssdfsd"; //warn
         }
         
         public void specialCharsWithoutWarn()
         {
-            String r1 = "\b"; //no warn
-            String r2 = "\t"; //no warn
-            String r3 = "\n"; //no warn
-            String r4 = "\f"; //no warn
-            String r5 = "\r"; //no warn
-            String r6 = "\""; //no warn
-            String r7 = "\'"; //no warn
-            String r8 = "\\"; //no warn
+            String r1 = "\b"; //ok
+            String r2 = "\t"; //ok
+            String r3 = "\n"; //ok
+            String r4 = "\f"; //ok
+            String r5 = "\r"; //ok
+            String r6 = "\""; //ok
+            String r7 = "\'"; //ok
+            String r8 = "\\"; //ok
         }
 
         public void specialCharsWithWarn()
@@ -118,24 +118,24 @@ public class IllegalTokenTextInput
                 final String r1 = "\u0008"; //warn
                 final String r2 = "\u0009"; //warn
                 final String r3 = "\u000csssdfsd"; //warn
-                final String r4  = "\u1111sdfsd\444"; //no warn
+                final String r4  = "\u1111sdfsd\444"; //ok
                 
                 final char r5 = '\012'; //warn
                 final char r6 = '\u0022'; //warn
-                final char r7 = '\b'; //no warn
+                final char r7 = '\b'; //ok
                 return "\u000csssdfsd"; //warn
             }
             
             public void specialCharsWithoutWarn()
             {
-                String r1 = "\b"; //no warn
-                String r2 = "\t"; //no warn
-                String r3 = "\n"; //no warn
-                String r4 = "\f"; //no warn
-                String r5 = "\r"; //no warn
-                String r6 = "\""; //no warn
-                String r7 = "\'"; //no warn
-                String r8 = "\\"; //no warn
+                String r1 = "\b"; //ok
+                String r2 = "\t"; //ok
+                String r3 = "\n"; //ok
+                String r4 = "\f"; //ok
+                String r5 = "\r"; //ok
+                String r6 = "\""; //ok
+                String r7 = "\'"; //ok
+                String r8 = "\\"; //ok
             }
 
             public void specialCharsWithWarn()

@@ -10,9 +10,9 @@ import com.google.checkstyle.test.base.BaseCheckTestSupport;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
-import com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck;
+import com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck;
 
-public class SeparatorWrapTest extends BaseCheckTestSupport{
+public class MethodParamPadTest extends BaseCheckTestSupport{
     
     static ConfigurationBuilder builder;
     
@@ -23,17 +23,19 @@ public class SeparatorWrapTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void separatorWrapTest() throws IOException, Exception {
+    public void operatorWrapTest() throws IOException, Exception {
         
-        final String[] expected = {
-            "28:10: " + getCheckMessage(SeparatorWrapCheck.class, "line.new", "."),
-        };
+        Class<MethodParamPadCheck> clazz = MethodParamPadCheck.class;
+        String messageKey = "line.previous";
 
-        Configuration checkConfig = builder.getCheckConfig("SeparatorWrap");
-        String filePath = builder.getFilePath("SeparatorWrapInput");
+        final String[] expected = {
+            "83:9: " + getCheckMessage(clazz, messageKey, "("),
+            "128:13: " + getCheckMessage(clazz, messageKey, "("),
+            "130:9: " + getCheckMessage(clazz, messageKey, "("),
+        };
+        Configuration checkConfig = builder.getCheckConfig("MethodParamPad");
+        String filePath = builder.getFilePath("OperatorWrapInput");
 
         verify(checkConfig, filePath, expected);
     }
 }
-
-

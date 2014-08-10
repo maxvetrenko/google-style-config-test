@@ -23,7 +23,7 @@ public class AvoidEscapedUnicodeCharactersCheckTest extends BaseCheckTestSupport
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void unicodeEscapesTest() throws IOException, Exception {
 
         String msg = getCheckMessage(AvoidEscapedUnicodeCharactersCheck.class, "forbid.escaped.unicode.char");
 

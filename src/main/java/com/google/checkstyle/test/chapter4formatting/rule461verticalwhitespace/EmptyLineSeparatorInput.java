@@ -16,9 +16,8 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ////////////////////////////////////////////////////////////////////////////////
-package com.google.checkstyle.test.chapter4formatting.rule461verticalwhitespace;
-import java.beans.beancontext.*;
-import java.io.Serializable;
+package com.google.checkstyle.test.chapter4formatting.rule461verticalwhitespace; //warn
+import java.io.Serializable; //warn
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,31 +30,31 @@ import com.google.common.io.CharSource;
 import javax.swing.AbstractAction;
 
 import org.apache.commons.beanutils.locale.converters.ByteLocaleConverter;
-class EmptyLineSeparatorInput
+class InputEmptyLineSeparatorCheck //warn
 {
-    public static final double FOO_PI = 3.1415;
-    private boolean flag = true; 
-    //separator blank line
-    static {
+	public static final double FOO_PI = 3.1415;
+	private boolean flag = true; 
+	static {  //warn
         //empty static initializer
-    }
-    //separator blank line
+	}
+	//separator blank line
+	{
+		//empty instance initializer
+	}
+	//separator blank line
+	/**
+	 * 
+	 * 
+	 * 
+	 */
+	private InputEmptyLineSeparatorCheck()
+	{
+		//empty
+	}
+	//separator blank line
+    public int compareTo(InputEmptyLineSeparatorCheck aObject)
     {
-        //empty instance initializer
-    }
-    //separator blank line
-    /**
-     * 
-     * 
-     */
-    private EmptyLineSeparatorInput()
-    {
-        //empty
-    }
-    //separator blank line
-    public int compareTo()
-    {
-        int number = 0;
+    	int number = 0;
         return 0;
     }
     /**
@@ -77,15 +76,51 @@ class EmptyLineSeparatorInput
     }
     //separator blank line
     class InnerClass {
-        public static final double FOO_PI_INNER = 3.1415;
-        private boolean flagInner = true; //warn 
-        //separator blank line
-        {
-            //empty instance initializer
-        }
-        private InnerClass() //warn
+    	
+    	public static final double FOO_PI_INNER = 3.1415;
+    	private boolean flagInner = true; 
+    	{ //warn
+    		//empty instance initializer
+    	}
+    	//separator blank line
+    	private InnerClass()
+    	{
+    		//empty
+    	}
+
+    }
+    
+    class InnerClass2 { //ok
+        private InnerClass2() //ok
         {
             //empty
         }
     }
+
+    class InnerClass3 { //ok
+        public int compareTo(InputEmptyLineSeparatorCheck aObject) //ok
+        {
+            int number = 0;
+            return 0;
+        }
+
+    }
+}
+
+class Class { //ok
+    private Class() {} //ok
+} 
+class Class2{ //warn
+    public int compareTo(InputEmptyLineSeparatorCheck aObject) //ok
+    {
+        int number = 0;
+        return 0;
+    }
+    Class2 anon = new Class2(){ //warn
+        public int compareTo(InputEmptyLineSeparatorCheck aObject) //ok
+        {
+            int number = 0;
+            return 0;
+        }
+    };
 }

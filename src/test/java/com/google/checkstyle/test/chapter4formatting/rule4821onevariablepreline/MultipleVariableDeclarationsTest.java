@@ -23,7 +23,7 @@ public class MultipleVariableDeclarationsTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void multipleVariableDeclarationsTest() throws IOException, Exception {
         
         String msgComma = getCheckMessage(MultipleVariableDeclarationsCheck.class, "multiple.variable.declarations.comma");
         String msg = getCheckMessage(MultipleVariableDeclarationsCheck.class, "multiple.variable.declarations");
@@ -35,8 +35,22 @@ public class MultipleVariableDeclarationsTest extends BaseCheckTestSupport{
             "10:9: " + msg,
             "14:5: " + msg,
             "17:5: " + msg,
+            "31:9: " + msgComma,
+            "32:9: " + msg,
+            "35:13: " + msgComma,
+            "36:13: " + msg,
+            "40:9: " + msg,
+            "43:9: " + msg,
+            "57:13: " + msgComma,
+            "58:13: " + msg,
+            "61:17: " + msgComma,
+            "62:17: " + msg,
+            "66:13: " + msg,
+            "69:13: " + msg,
+            "86:5: " + msgComma,
+            "89:5: " + msgComma,
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("MultipleVariableDeclarations");
         String filePath = builder.getFilePath("MultipleVariableDeclarationsInput");
         

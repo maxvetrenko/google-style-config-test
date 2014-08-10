@@ -23,7 +23,7 @@ public class FallThroughTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void fallThroughTest() throws IOException, Exception {
         
         String msg = getCheckMessage(FallThroughCheck.class, "fall.through");
                      
@@ -38,7 +38,7 @@ public class FallThroughTest extends BaseCheckTestSupport{
             "123:13: " + msg,
             "369:11: " + msg,
             "372:11: " + msg,
-            "374:40: " + msg,
+            "374:46: " + msg,
         };
         
         Configuration checkConfig = builder.getCheckConfig("FallThrough");

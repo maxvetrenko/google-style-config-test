@@ -22,7 +22,7 @@ public class UpperEllTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void upperEllTest() throws IOException, Exception {
         
         final String[] expected = {
             "6:36: Should use uppercase 'L'.",

@@ -143,9 +143,9 @@ interface MemberContainer
     public static final int MAX_ROWS = 2;
 
     
-    int bad$Static = 2; //other symbols
+    int bad$Static = 2; //warn
    
-     int sum_Created = 0;
+     int sum_Created = 0; //warn
 
    
     int bad_Member = 2; //warn

@@ -23,7 +23,7 @@ public class TypeNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void typeNameTest() throws IOException, Exception {
         
         Class<TypeNameCheck> clazz = TypeNameCheck.class;
         String msgKey = "name.invalidPattern";

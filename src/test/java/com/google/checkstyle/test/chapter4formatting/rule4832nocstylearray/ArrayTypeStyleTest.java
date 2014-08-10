@@ -23,13 +23,17 @@ public class ArrayTypeStyleTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void arrayTypeStyleTest() throws IOException, Exception {
         
         String msg = getCheckMessage(ArrayTypeStyleCheck.class, "array.type.style");
 
         final String[] expected = {
             "9:23: " + msg,
             "15:44: " + msg,
+            "21:20: " + msg,
+            "22:23: " + msg,
+            "41:16: " + msg,
+            "42:19: " + msg,
         };
         
         Configuration checkConfig = builder.getCheckConfig("ArrayTypeStyle");

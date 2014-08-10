@@ -19,7 +19,7 @@ public class MemberNameTest extends BaseCheckTestSupport{
 	private String msgKey = "name.invalidPattern";
 	private static Configuration checkConfig;
 	private static String format;
-    
+
     @BeforeClass
     public static void setConfigurationBuilder() throws CheckstyleException {
         builder = new ConfigurationBuilder(new File("src/"),
@@ -29,23 +29,22 @@ public class MemberNameTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void emptyTest() throws IOException, Exception {
+    public void memberNameTest() throws IOException, Exception {
         
-
         final String[] expected = {
-            "5:16: " + getCheckMessage(clazz, msgKey, "mPublic", format),
-            "6:19: " + getCheckMessage(clazz, msgKey, "mProtected", format),
-            "7:9: " + getCheckMessage(clazz, msgKey, "mPackage", format),
-            "8:17: " + getCheckMessage(clazz, msgKey, "mPrivate", format),
-            "10:16: " + getCheckMessage(clazz, msgKey, "_public", format),
-            "11:19: " + getCheckMessage(clazz, msgKey, "prot_ected", format),
-            "12:9: " + getCheckMessage(clazz, msgKey, "package_", format),
-            "13:17: " + getCheckMessage(clazz, msgKey, "priva$te", format),
-            "20:9: " + getCheckMessage(clazz, msgKey, "ABC", format),
-            "21:15: " + getCheckMessage(clazz, msgKey, "C_D_E", format),
-            "23:16: " + getCheckMessage(clazz, msgKey, "$mPublic", format),
-            "24:19: " + getCheckMessage(clazz, msgKey, "mPro$tected", format),
-            "25:9: " + getCheckMessage(clazz, msgKey, "mPackage$", format),
+            "5:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPublic", format),
+            "6:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mProtected", format),
+            "7:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPackage", format),
+            "8:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPrivate", format),
+            "10:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_public", format),
+            "11:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "prot_ected", format),
+            "12:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "package_", format),
+            "13:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "priva$te", format),
+            "20:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "ABC", format),
+            "21:15: " + getCheckMessage(checkConfig.getMessages(), msgKey, "C_D_E", format),
+            "23:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mPublic", format),
+            "24:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPro$tected", format),
+            "25:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPackage$", format),
         };
         
         String filePath = builder.getFilePath("MemberNameInput");
@@ -57,27 +56,38 @@ public class MemberNameTest extends BaseCheckTestSupport{
     public void simpleTest() throws IOException, Exception {
         
         final String[] expected = {
-            "12:17: " + getCheckMessage(clazz, msgKey, "bad$Static", format),
-            "17:17: " + getCheckMessage(clazz, msgKey, "bad_Member", format),
-            "19:17: " + getCheckMessage(clazz, msgKey, "m", format),
-            "21:19: " + getCheckMessage(clazz, msgKey, "m_M", format),
-            "24:19: " + getCheckMessage(clazz, msgKey, "m$nts", format),
-            "35:9: " + getCheckMessage(clazz, msgKey, "mTest1", format),
-            "37:16: " + getCheckMessage(clazz, msgKey, "mTest2", format),
-            "39:16: " + getCheckMessage(clazz, msgKey, "$mTest2", format),
-            "41:16: " + getCheckMessage(clazz, msgKey, "mTes$t2", format),
-            "43:16: " + getCheckMessage(clazz, msgKey, "mTest2$", format),
-            "77:21: " + getCheckMessage(clazz, msgKey, "bad$Static", format),
-            "79:22: " + getCheckMessage(clazz, msgKey, "sum_Created", format),
-            "82:21: " + getCheckMessage(clazz, msgKey, "bad_Member", format),
-            "84:21: " + getCheckMessage(clazz, msgKey, "m", format),
-            "86:23: " + getCheckMessage(clazz, msgKey, "m_M", format),
-            "89:23: " + getCheckMessage(clazz, msgKey, "m$nts", format),
-            "93:13: " + getCheckMessage(clazz, msgKey, "mTest1", format),
-            "95:20: " + getCheckMessage(clazz, msgKey, "mTest2", format),
-            "97:20: " + getCheckMessage(clazz, msgKey, "$mTest2", format),
-            "99:20: " + getCheckMessage(clazz, msgKey, "mTes$t2", format),
-            "101:20: " + getCheckMessage(clazz, msgKey, "mTest2$", format),
+            "12:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
+            "17:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),
+            "19:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m", format),
+            "21:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m_M", format),
+            "24:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m$nts", format),
+            "35:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest1", format),
+            "37:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2", format),
+            "39:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
+            "41:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
+            "43:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
+            "77:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
+            "79:22: " + getCheckMessage(checkConfig.getMessages(), msgKey, "sum_Created", format),
+            "82:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),
+            "84:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m", format),
+            "86:23: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m_M", format),
+            "89:23: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m$nts", format),
+            "93:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest1", format),
+            "95:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2", format),
+            "97:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
+            "99:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
+            "101:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
+            "146:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
+            "148:10: " + getCheckMessage(checkConfig.getMessages(), msgKey, "sum_Created", format),
+            "151:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),
+            "153:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m", format),
+            "155:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m_M", format),
+            "158:11: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m$nts", format),
+            "162:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest1", format),
+            "164:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2", format),
+            "166:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
+            "168:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
+            "170:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
         };
         
         String filePath = builder.getFilePath("MemberNameInput_Simple");
