@@ -103,7 +103,6 @@ final class InputSimple
         void fooMethod()
         {
             Foo foo = new Foo() {
-                public void greet() {
                     
                     int bad$Static = 2; //other symbols
                    
@@ -130,7 +129,8 @@ final class InputSimple
                     int mTes$t2; //warn
 
                     int mTest2$; //warn
-                }
+
+                    public void greet() {}
             };
         }
     }

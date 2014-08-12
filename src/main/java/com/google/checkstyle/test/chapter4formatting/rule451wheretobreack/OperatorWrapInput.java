@@ -25,7 +25,7 @@ class OperatorWrapInput
     void testAssignment()
     {
         int x
-            = 0; //error when checking assignment operators with EOL wrap option
+            = 0; //warn
         int y =
             0;
     }
@@ -171,10 +171,10 @@ class OperatorWrapInput
     };
 }
 
-class AssignInput {
+class AsInput {
     int abc = 0;
     String string
-        = "string"; // ok
+        = "string"; // warn
     double PI = // ok
             3.1415;
 }
@@ -195,4 +195,157 @@ class Ternary {
                 : 2;
         
     }
+}
+
+class AssignClass {
+    void foo() {
+        int i = 0;
+        int j = 0;
+        i +=
+                1; //warn
+        j
+             += 2;
+        i -=
+                1; //warn
+        j
+             -= 2;
+        i /=
+                1; //warn
+        j
+             /= 2;
+        i *=
+                1; //warn
+        j
+             *= 2;
+        i %=
+                1; //warn
+        j
+             %= 2;
+        i ^=
+                1; //warn
+        j
+             ^= 2;
+        i |=
+                1; //warn
+        j
+             |= 2;
+        i &=
+                1; //warn
+        j
+             &= 2;
+        i >>=
+                1; //warn
+        j
+            >>= 2;
+        i >>>=
+                1; //warn
+        j
+            >>>= 2;
+        i <<=
+                1; //warn
+        j
+            <<= 2;
+    }
+    
+    class InnerClass {
+        void foo() {
+            int i = 0;
+            int j = 0;
+            i +=
+                    1; //warn
+            j
+                 += 2;
+            i -=
+                    1; //warn
+            j
+                 -= 2;
+            i /=
+                    1; //warn
+            j
+                 /= 2;
+            i *=
+                    1; //warn
+            j
+                 *= 2;
+            i %=
+                    1; //warn
+            j
+                 %= 2;
+            i ^=
+                    1; //warn
+            j
+                 ^= 2;
+            i |=
+                    1; //warn
+            j
+                 |= 2;
+            i &=
+                    1; //warn
+            j
+                 &= 2;
+            i >>=
+                    1; //warn
+            j
+                >>= 2;
+            i >>>=
+                    1; //warn
+            j
+                >>>= 2;
+            i <<=
+                    1; //warn
+            j
+                <<= 2;
+        }
+    }
+    
+    InnerClass anon = new InnerClass() {
+        void foo() {
+            int i = 0;
+            int j = 0;
+            i +=
+                    1; //warn
+            j
+                 += 2;
+            i -=
+                    1; //warn
+            j
+                 -= 2;
+            i /=
+                    1; //warn
+            j
+                 /= 2;
+            i *=
+                    1; //warn
+            j
+                 *= 2;
+            i %=
+                    1; //warn
+            j
+                 %= 2;
+            i ^=
+                    1; //warn
+            j
+                 ^= 2;
+            i |=
+                    1; //warn
+            j
+                 |= 2;
+            i &=
+                    1; //warn
+            j
+                 &= 2;
+            i >>=
+                    1; //warn
+            j
+                >>= 2;
+            i >>>=
+                    1; //warn
+            j
+                >>>= 2;
+            i <<=
+                    1; //warn
+            j
+                <<= 2;
+        }
+    };
 }

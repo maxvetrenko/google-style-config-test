@@ -32,17 +32,17 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     public void localVariableNameTest() throws IOException, Exception {
 
         final String[] expected = {
-            "26:13: " + getCheckMessage(clazz, msgKey, "a", format),
-            "27:13: " + getCheckMessage(clazz, msgKey, "aA", format),
-            "28:13: " + getCheckMessage(clazz, msgKey, "a1_a", format),
-            "29:13: " + getCheckMessage(clazz, msgKey, "A_A", format),
-            "30:13: " + getCheckMessage(clazz, msgKey, "aa2_a", format),
-            "31:13: " + getCheckMessage(clazz, msgKey, "_a", format),
-            "32:13: " + getCheckMessage(clazz, msgKey, "_aa", format),
-            "33:13: " + getCheckMessage(clazz, msgKey, "aa_", format),
-            "34:13: " + getCheckMessage(clazz, msgKey, "aaa$aaa", format),
-            "35:13: " + getCheckMessage(clazz, msgKey, "$aaaaaa", format),
-            "36:13: " + getCheckMessage(clazz, msgKey, "aaaaaa$", format),
+            "26:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "a", format),
+            "27:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aA", format),
+            "28:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "a1_a", format),
+            "29:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "A_A", format),
+            "30:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aa2_a", format),
+            "31:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_a", format),
+            "32:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_aa", format),
+            "33:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aa_", format),
+            "34:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aaa$aaa", format),
+            "35:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$aaaaaa", format),
+            "36:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aaaaaa$", format),
         };
 
         String filePath = builder.getFilePath("LocalVariableNameInput_Simple");
@@ -54,13 +54,13 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
     public void oneCharTest() throws IOException, Exception {
 
         final String[] expected = {
-            "15:13: " + getCheckMessage(clazz, msgKey, "i", format),
-            "21:17: " + getCheckMessage(clazz, msgKey, "I_ndex", format),
-            "45:17: " + getCheckMessage(clazz, msgKey, "i_ndex", format),
-            "49:17: " + getCheckMessage(clazz, msgKey, "ii_i1", format),
-            "53:17: " + getCheckMessage(clazz, msgKey, "$index", format),
-            "57:17: " + getCheckMessage(clazz, msgKey, "in$dex", format),
-            "61:17: " + getCheckMessage(clazz, msgKey, "index$", format),
+            "15:13: " + getCheckMessage(checkConfig.getMessages(), msgKey, "i", format),
+            "21:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "I_ndex", format),
+            "45:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "i_ndex", format),
+            "49:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "ii_i1", format),
+            "53:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$index", format),
+            "57:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "in$dex", format),
+            "61:17: " + getCheckMessage(checkConfig.getMessages(), msgKey, "index$", format),
         };
 
         String filePath = builder.getFilePath("LocalVariableNameInput_OneCharVarName");

@@ -63,9 +63,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
             "9: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "10: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "11: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
-            "13: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
-            "14: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
-            "17: " + getCheckMessage(clazz, msgSeparator, "org.apache.*"),
+            "14: " + getCheckMessage(clazz, msgSeparator, "com.*"),
+            "16: " + getCheckMessage(clazz, msgOrder, "SPECIAL_IMPORTS"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
@@ -84,9 +83,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
                 "9: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "10: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "11: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
-                "13: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
-                "14: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
-                "17: " + getCheckMessage(clazz, msgSeparator, "org.apache.*"),
+                "14: " + getCheckMessage(clazz, msgSeparator, "com.*"),
+                "16: " + getCheckMessage(clazz, msgOrder, "SPECIAL_IMPORTS"),
         };
 
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");

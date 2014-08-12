@@ -27,8 +27,7 @@ public class OuterTypeFilenameTest extends BaseCheckTestSupport{
 
         String msg = getCheckMessage(OuterTypeFilenameCheck.class, "type.file.mismatch");
 
-        final String[] expected = {
-        };
+        final String[] expected = {};
         
         Configuration checkConfig = builder.getCheckConfig("OuterTypeFilename");
         String filePath = builder.getFilePath("OuterTypeFilenameInput_1");
@@ -43,6 +42,19 @@ public class OuterTypeFilenameTest extends BaseCheckTestSupport{
         
         Configuration checkConfig = builder.getCheckConfig("OuterTypeFilename");
         String filePath = builder.getFilePath("OuterTypeFilenameInput_2");
+        
+        verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void outerTypeFilenameTest_3() throws IOException, Exception {
+         
+        final String[] expected = {
+            "3: " + getCheckMessage(OuterTypeFilenameCheck.class, "type.file.mismatch"), 
+        };
+        
+        Configuration checkConfig = builder.getCheckConfig("OuterTypeFilename");
+        String filePath = builder.getFilePath("OuterTypeFilenameInput_3");
         
         verify(checkConfig, filePath, expected);
     }

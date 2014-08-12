@@ -26,50 +26,49 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     @Test
     public void whitespaceAroundBasicTest() throws IOException, Exception {
         
-        Class<WhitespaceAroundCheck> clazz = WhitespaceAroundCheck.class;
+        Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
         String msgPreceded = "ws.notPreceded";
         String msgFollowed = "ws.notFollowed";
 
         final String[] expected = {
-            "10:22: " + getCheckMessage(clazz, msgPreceded, "="),
-            "10:23: " + getCheckMessage(clazz, msgFollowed, "="),
-            "12:24: " + getCheckMessage(clazz, msgFollowed, "="),
-            "20:14: " + getCheckMessage(clazz, msgPreceded, "="),
-            "21:10: " + getCheckMessage(clazz, msgPreceded, "="),
-            "21:11: " + getCheckMessage(clazz, msgFollowed, "="),
-            "22:10: " + getCheckMessage(clazz, msgPreceded, "+="),
-            "22:12: " + getCheckMessage(clazz, msgFollowed, "+="),
-            "23:13: " + getCheckMessage(clazz, msgFollowed, "-="),
-            "31:21: " + getCheckMessage(clazz, msgFollowed, "synchronized"),
-            "33:12: " + getCheckMessage(clazz, msgFollowed, "try"),
-            "33:12: " + getCheckMessage(clazz, msgPreceded, "{"),
-            "35:14: " + getCheckMessage(clazz, msgFollowed, "catch"),
-            "35:34: " + getCheckMessage(clazz, msgPreceded, "{"),
-            "52:11: " + getCheckMessage(clazz, msgFollowed, "if"),
-            "70:19: " + getCheckMessage(clazz, msgFollowed, "return"),
-            "91:29: " + getCheckMessage(clazz, msgPreceded, "?"),
-            "91:30: " + getCheckMessage(clazz, msgFollowed, "?"),
-            "91:34: " + getCheckMessage(clazz, msgPreceded, ":"),
-            "91:35: " + getCheckMessage(clazz, msgFollowed, ":"),
-            "92:15: " + getCheckMessage(clazz, msgPreceded, "=="),
-            "92:17: " + getCheckMessage(clazz, msgFollowed, "=="),
-            "98:20: " + getCheckMessage(clazz, msgFollowed, "*"),
-            "98:21: " + getCheckMessage(clazz, msgPreceded, "*"),
-            "113:18: " + getCheckMessage(clazz, msgPreceded, "%"),
-            "114:20: " + getCheckMessage(clazz, msgFollowed, "%"),
-            "115:18: " + getCheckMessage(clazz, msgPreceded, "%"),
-            "115:19: " + getCheckMessage(clazz, msgFollowed, "%"),
-            "117:18: " + getCheckMessage(clazz, msgPreceded, "/"),
-            "118:20: " + getCheckMessage(clazz, msgFollowed, "/"),
-            "119:18: " + getCheckMessage(clazz, msgPreceded, "/"),
-            "119:19: " + getCheckMessage(clazz, msgFollowed, "/"),
-            "147:15: " + getCheckMessage(clazz, msgFollowed, "assert"),
-            "150:20: " + getCheckMessage(clazz, msgPreceded, ":"),
-            "150:21: " + getCheckMessage(clazz, msgFollowed, ":"),
+            "10:22: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "="),
+            "10:23: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "="),
+            "12:24: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "="),
+            "20:14: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "="),
+            "21:10: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "="),
+            "21:11: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "="),
+            "22:10: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "+="),
+            "22:12: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "+="),
+            "23:13: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "-="),
+            "31:21: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "synchronized"),
+            "33:12: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "try"),
+            "33:12: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "{"),
+            "35:14: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "catch"),
+            "35:34: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "{"),
+            "52:11: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "if"),
+            "70:19: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "return"),
+            "91:29: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "?"),
+            "91:30: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "?"),
+            "91:34: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ":"),
+            "91:35: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ":"),
+            "92:15: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "=="),
+            "92:17: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "=="),
+            "98:20: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "*"),
+            "98:21: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "*"),
+            "113:18: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "%"),
+            "114:20: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "%"),
+            "115:18: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "%"),
+            "115:19: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "%"),
+            "117:18: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "/"),
+            "118:20: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "/"),
+            "119:18: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "/"),
+            "119:19: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "/"),
+            "147:15: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "assert"),
+            "150:20: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ":"),
+            "150:21: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ":"),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("WhitespaceAround");
-        String filePath = builder.getFilePath("WhitespaceAroundInput");
+        String filePath = builder.getFilePath("WhitespaceAroundInput_Basic");
 
         verify(checkConfig, filePath, expected);
     }
@@ -79,28 +78,27 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
         
         String msgPreceded = "ws.preceded";
         String msgFollowed = "ws.followed";
+        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
         
-        Class<GenericWhitespaceCheck> clazz = GenericWhitespaceCheck.class;
         final String[] expected = {
-            "12:16: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "12:18: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "12:36: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "12:38: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "12:47: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "12:49: " + getCheckMessage(clazz, msgFollowed, ">"),
-            "12:49: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "14:32: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "14:34: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "14:45: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "15:32: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "15:34: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "15:45: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "20:38: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "20:40: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "20:61: " + getCheckMessage(clazz, msgPreceded, ">"),
+            "12:16: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "12:18: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "12:36: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "12:38: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "12:47: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "12:49: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ">"),
+            "12:49: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "14:32: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "14:34: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "14:45: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "15:32: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "15:34: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "15:45: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "20:38: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "20:40: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "20:61: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
         String filePath = builder.getFilePath("WhitespaceAroundInput_Generics");
 
         verify(checkConfig, filePath, expected);
@@ -119,43 +117,42 @@ public class WhitespaceAroundTest extends BaseCheckTestSupport{
     @Test
     public void genericWhitespaceTest() throws IOException, Exception
     {
-        Class<GenericWhitespaceCheck> clazz = GenericWhitespaceCheck.class;
         String msgPreceded = "ws.preceded";
         String msgFollowed = "ws.followed";
         String msgNotPreceded = "ws.notPreceded";
         String msgIllegalFollow = "ws.illegalFollow";
+        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
         
         
         final String[] expected = {
-            "16:13: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "16:15: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "16:23: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "16:43: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "16:45: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "16:53: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "17:13: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "17:15: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "17:20: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "17:22: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "17:30: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "17:32: " + getCheckMessage(clazz, msgFollowed, ">"),
-            "17:32: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "17:52: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "17:54: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "17:59: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "17:61: " + getCheckMessage(clazz, msgFollowed, "<"),
-            "17:69: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "17:71: " + getCheckMessage(clazz, msgFollowed, ">"),
-            "17:71: " + getCheckMessage(clazz, msgPreceded, ">"),
-            "30:17: " + getCheckMessage(clazz, msgNotPreceded, "<"),
-            "30:21: " + getCheckMessage(clazz, msgIllegalFollow, ">"),
-            "42:21: " + getCheckMessage(clazz, msgPreceded, "<"),
-            "42:30: " + getCheckMessage(clazz, msgFollowed, ">"),
-            "60:60: " + getCheckMessage(clazz, msgNotPreceded, "&"),
-            "63:60: " + getCheckMessage(clazz, msgFollowed, ">"),
+            "16:13: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "16:15: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "16:23: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "16:43: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "16:45: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "16:53: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "17:13: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "17:15: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "17:20: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "17:22: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "17:30: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "17:32: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ">"),
+            "17:32: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "17:52: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "17:54: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "17:59: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "17:61: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, "<"),
+            "17:69: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "17:71: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ">"),
+            "17:71: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, ">"),
+            "30:17: " + getCheckMessage(checkConfig.getMessages(), msgNotPreceded, "<"),
+            "30:21: " + getCheckMessage(checkConfig.getMessages(), msgIllegalFollow, ">"),
+            "42:21: " + getCheckMessage(checkConfig.getMessages(), msgPreceded, "<"),
+            "42:30: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ">"),
+            "60:60: " + getCheckMessage(checkConfig.getMessages(), msgNotPreceded, "&"),
+            "63:60: " + getCheckMessage(checkConfig.getMessages(), msgFollowed, ">"),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("GenericWhitespace");
         String filePath = builder.getFilePath("GenericWhitespaceInput");
 
         verify(checkConfig, filePath, expected);

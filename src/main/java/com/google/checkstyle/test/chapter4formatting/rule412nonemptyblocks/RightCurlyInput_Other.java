@@ -65,8 +65,6 @@ class RightCurlyInput_Other
         int x = 1; 
     }//ok
 
-
-
     public enum GreetingsEnum
     {
         HELLO,
@@ -82,7 +80,7 @@ class RightCurlyInput_Other
               println("Xe-xe");
         
        
-        if (flag) { System.err.println("some foo"); }
+        if (flag) { System.err.println("some foo"); } //warn
     } //ok
 } //ok
 

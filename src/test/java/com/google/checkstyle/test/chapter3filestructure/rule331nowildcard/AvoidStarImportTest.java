@@ -2,6 +2,7 @@ package com.google.checkstyle.test.chapter3filestructure.rule331nowildcard;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,7 +11,6 @@ import com.google.checkstyle.test.base.BaseCheckTestSupport;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
-import com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck;
 
 public class AvoidStarImportTest extends BaseCheckTestSupport{
     
@@ -34,7 +34,8 @@ public class AvoidStarImportTest extends BaseCheckTestSupport{
         
         Configuration checkConfig = builder.getCheckConfig("AvoidStarImport");
         String filePath = builder.getFilePath("AvoidStarImportInput");
-        
+
+        List<Integer> warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected);
     }
 }

@@ -38,7 +38,7 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         };
         
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
-        String filePath = builder.getFilePath("OneTopLevelClassInput");
+        String filePath = builder.getFilePath("OneTopLevelClassInput_Basic");
         
         verify(checkConfig, filePath, expected);
     }
@@ -61,7 +61,6 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         String messageKey = "one.top.level.class";
         
         final String[] expected = {
-        	"3: " + getCheckMessage(clazz, messageKey, "Foo"),
             "4: " + getCheckMessage(clazz, messageKey, "FooEnum"),
         };
         

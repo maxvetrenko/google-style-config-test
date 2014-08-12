@@ -33,9 +33,9 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     public void testClassDefault() throws IOException, Exception {
 
         final String[] expected = {
-            "5:31: " + getCheckMessage(clazz, msgKey, "t", format),
-            "13:14: " + getCheckMessage(clazz, msgKey, "foo", format),
-            "27:24: " + getCheckMessage(clazz, msgKey, "$foo", format),
+            "5:31: " + getCheckMessage(checkConfig.getMessages(), msgKey, "t", format),
+            "13:14: " + getCheckMessage(checkConfig.getMessages(), msgKey, "foo", format),
+            "27:24: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$foo", format),
         };
 
         String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
@@ -47,17 +47,18 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     public void testMethodDefault() throws IOException, Exception {
 
         Class<MethodTypeParameterNameCheck> clazz = MethodTypeParameterNameCheck.class;
+        Configuration checkConfig = builder.getCheckConfig("MethodTypeParameterName");
 
         final String[] expected = {
-            "9:6: " + getCheckMessage(clazz, msgKey, "e_e", format),
-            "19:6: " + getCheckMessage(clazz, msgKey, "Tfo$o2T", format),
-            "23:6: " + getCheckMessage(clazz, msgKey, "foo_", format),
-            "28:10: " + getCheckMessage(clazz, msgKey, "_abc", format),
-            "37:14: " + getCheckMessage(clazz, msgKey, "T$", format),
-            "42:14: " + getCheckMessage(clazz, msgKey, "EE", format),
+            "9:6: " + getCheckMessage(checkConfig.getMessages(), msgKey, "e_e", format),
+            "19:6: " + getCheckMessage(checkConfig.getMessages(), msgKey, "Tfo$o2T", format),
+            "23:6: " + getCheckMessage(checkConfig.getMessages(), msgKey, "foo_", format),
+            "28:10: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_abc", format),
+            "37:14: " + getCheckMessage(checkConfig.getMessages(), msgKey, "T$", format),
+            "42:14: " + getCheckMessage(checkConfig.getMessages(), msgKey, "EE", format),
         };
 
-        Configuration checkConfig = builder.getCheckConfig("MethodTypeParameterName");
+        
         String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
         
         verify(checkConfig, filePath, expected);

@@ -158,8 +158,8 @@ class WithInner
 	     * Anonymous class
 	     */
 	    InnerImplementation foo = new InnerImplementation() {
+
 			
-			@Override
 			public void method() {
 				// TODO Auto-generated method stub
 				

@@ -8,9 +8,13 @@ import org.junit.Test;
 
 import com.google.checkstyle.test.base.BaseCheckTestSupport;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
+import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
+import com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck;
+import com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyOption;
 import com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck;
+import com.puppycrawl.tools.checkstyle.checks.whitespace.WrapOption;
 
 public class OperatorWrapTest extends BaseCheckTestSupport{
     
@@ -32,7 +36,6 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
             "10:27: " + getCheckMessage(clazz, messageKey, "+"),
             "11:28: " + getCheckMessage(clazz, messageKey, "-"),
             "19:27: " + getCheckMessage(clazz, messageKey, "&&"),
-            "34:35: " + getCheckMessage(clazz, messageKey, "&"),
             "53:42: " + getCheckMessage(clazz, messageKey, "?"),
             "57:27: " + getCheckMessage(clazz, messageKey, "!="),
             "63:30: " + getCheckMessage(clazz, messageKey, "=="),
@@ -55,5 +58,58 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
         String filePath = builder.getFilePath("OperatorWrapInput");
 
         verify(checkConfig, filePath, expected);
+    }
+    
+    @Test
+    public void operatorWrapTestAssign() throws Exception {
+        DefaultConfiguration newCheckConfig = createCheckConfig(OperatorWrapCheck.class);
+        newCheckConfig.addAttribute("option", WrapOption.EOL.toString());
+        newCheckConfig.addAttribute("tokens", "ASSIGN, DIV_ASSIGN, PLUS_ASSIGN, MINUS_ASSIGN,"
+                + "STAR_ASSIGN, MOD_ASSIGN, SR_ASSIGN, BSR_ASSIGN, SL_ASSIGN, BXOR_ASSIGN,"
+                + "BOR_ASSIGN, BAND_ASSIGN");
+        String messageKey = "line.previous";
+        Class<OperatorWrapCheck> clazz = OperatorWrapCheck.class;
+        
+        final String[] expected = {
+            "28:13: " + getCheckMessage(clazz, messageKey, "="),
+            "177:9: " + getCheckMessage(clazz, messageKey, "="),
+            "207:14: " + getCheckMessage(clazz, messageKey, "+="),
+            "211:14: " + getCheckMessage(clazz, messageKey, "-="),
+            "215:14: " + getCheckMessage(clazz, messageKey, "/="),
+            "219:14: " + getCheckMessage(clazz, messageKey, "*="),
+            "223:14: " + getCheckMessage(clazz, messageKey, "%="),
+            "227:14: " + getCheckMessage(clazz, messageKey, "^="),
+            "231:14: " + getCheckMessage(clazz, messageKey, "|="),
+            "235:14: " + getCheckMessage(clazz, messageKey, "&="),
+            "239:13: " + getCheckMessage(clazz, messageKey, ">>="),
+            "243:13: " + getCheckMessage(clazz, messageKey, ">>>="),
+            "247:13: " + getCheckMessage(clazz, messageKey, "<<="),
+            "257:18: " + getCheckMessage(clazz, messageKey, "+="),
+            "261:18: " + getCheckMessage(clazz, messageKey, "-="),
+            "265:18: " + getCheckMessage(clazz, messageKey, "/="),
+            "269:18: " + getCheckMessage(clazz, messageKey, "*="),
+            "273:18: " + getCheckMessage(clazz, messageKey, "%="),
+            "277:18: " + getCheckMessage(clazz, messageKey, "^="),
+            "281:18: " + getCheckMessage(clazz, messageKey, "|="),
+            "285:18: " + getCheckMessage(clazz, messageKey, "&="),
+            "289:17: " + getCheckMessage(clazz, messageKey, ">>="),
+            "293:17: " + getCheckMessage(clazz, messageKey, ">>>="),
+            "297:17: " + getCheckMessage(clazz, messageKey, "<<="),
+            "308:18: " + getCheckMessage(clazz, messageKey, "+="),
+            "312:18: " + getCheckMessage(clazz, messageKey, "-="),
+            "316:18: " + getCheckMessage(clazz, messageKey, "/="),
+            "320:18: " + getCheckMessage(clazz, messageKey, "*="),
+            "324:18: " + getCheckMessage(clazz, messageKey, "%="),
+            "328:18: " + getCheckMessage(clazz, messageKey, "^="),
+            "332:18: " + getCheckMessage(clazz, messageKey, "|="),
+            "336:18: " + getCheckMessage(clazz, messageKey, "&="),
+            "340:17: " + getCheckMessage(clazz, messageKey, ">>="),
+            "344:17: " + getCheckMessage(clazz, messageKey, ">>>="),
+            "348:17: " + getCheckMessage(clazz, messageKey, "<<="),
+        };
+
+        String filePath = builder.getFilePath("OperatorWrapInput");
+        
+        verify(newCheckConfig, filePath, expected);
     }
 }

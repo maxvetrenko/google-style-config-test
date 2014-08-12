@@ -26,16 +26,15 @@ public class OverloadMethodsDeclarationOrderTest extends BaseCheckTestSupport{
     public void overloadMethodsTest() throws IOException, Exception {
         
         Class<OverloadMethodsDeclarationOrderCheck> clazz = OverloadMethodsDeclarationOrderCheck.class;
-
-        String msg = getCheckMessage(clazz, "overload.methods.declaration");
+        String messageKey = "overload.methods.declaration";
 
         final String[] expected = {
-            "26: " + msg,
-            "54: " + msg,
-            "66: " + msg,
-            "109: " + msg,
+            "26: " + getCheckMessage(clazz, messageKey, 15),
+            "54: " + getCheckMessage(clazz, messageKey, 43),
+            "66: " + getCheckMessage(clazz, messageKey, 64),
+            "109: " + getCheckMessage(clazz, messageKey, 98),
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("OverloadMethodsDeclarationOrder");
         String filePath = builder.getFilePath("InputOverloadMethodsDeclarationOrder");
         

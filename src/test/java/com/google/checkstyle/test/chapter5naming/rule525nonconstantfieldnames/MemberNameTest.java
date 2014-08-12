@@ -47,7 +47,7 @@ public class MemberNameTest extends BaseCheckTestSupport{
             "25:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPackage$", format),
         };
         
-        String filePath = builder.getFilePath("MemberNameInput");
+        String filePath = builder.getFilePath("MemberNameInput_Basic");
         
         verify(checkConfig, filePath, expected);
     }
@@ -77,6 +77,17 @@ public class MemberNameTest extends BaseCheckTestSupport{
             "97:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
             "99:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
             "101:20: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
+            "107:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
+            "109:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "sum_Created", format),
+            "112:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),
+            "114:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m", format),
+            "116:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m_M", format),
+            "119:27: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m$nts", format),
+            "123:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest1", format),
+            "125:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2", format),
+            "127:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
+            "129:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
+            "131:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
             "146:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
             "148:10: " + getCheckMessage(checkConfig.getMessages(), msgKey, "sum_Created", format),
             "151:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),

@@ -98,12 +98,15 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         String checkMessageSame = getCheckMessage(RightCurlyCheck.class, "line.same", "}");
         String checkMessageAlone = getCheckMessage(RightCurlyCheck.class, "line.alone", "}");
         String checkMessageNew = getCheckMessage(RightCurlyCheck.class, "line.new", "}");
+        String checkMessageLineBreak = getCheckMessage(RightCurlyCheck.class, "line.break.before");
         
         final String[] expected = {
             "20:17: " + checkMessageSame,
             "32:13: " + checkMessageSame,
-            "81:27: " + checkMessageAlone,
-            "81:27: " + checkMessageNew,
+            "79:27: " + checkMessageAlone,
+            "79:27: " + checkMessageNew,
+            "79:27: '}' should have line break before.",
+            "83:53: '}' should have line break before.",
         };
 
         Configuration checkConfig = builder.getCheckConfig("RightCurly");
@@ -120,9 +123,9 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         
         String checkMessageNew = getCheckMessage(RightCurlyCheck.class, "line.new", "}");
         final String[] expected = {
-            "99:6: " + checkMessageNew,
-            "110:6: " + checkMessageNew,
-            "124:6: " + checkMessageNew,
+            "97:6: " + checkMessageNew,
+            "108:6: " + checkMessageNew,
+            "122:6: " + checkMessageNew,
         };
 
         String filePath = builder.getFilePath("RightCurlyInput_Other");

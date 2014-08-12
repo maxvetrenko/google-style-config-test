@@ -49,16 +49,22 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
         
         verify(checkConfig, filePath, expected);
     }
-    
+
     @Test
     public void goodLineLength() throws IOException, Exception {
-        
+
         int maxLineLength = 100;
         final String[] expected = {
-            "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 112),
-            "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 183),
+                "5: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 112),
+                "29: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 183),
+                "46: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 131),
+                "47: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 124),
+                "48: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 113),
+                "50: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 116),
+                "53: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 131),
+                "57: " + getCheckMessage(LineLengthCheck.class, "maxLineLen", maxLineLength, 116),
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("LineLength");
         String filePath = builder.getFilePath("LineLengthInput2");
         

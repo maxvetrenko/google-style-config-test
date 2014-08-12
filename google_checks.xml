@@ -17,7 +17,7 @@
 
     To completely disable a check, just comment it out or delete it from the file.
 
-    Finally, it is worth reading the documentation.
+    Authors: Max Vetrenko, Ruslan Diachenko, Roman Ivanov.
     
  -->
  
@@ -33,9 +33,6 @@
         </module>
     
     <module name="TreeWalker">
-    
-        <!-- Checks for Source file basics -->
-        <!-- See http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s2-source-file-basics -->
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
             <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
@@ -47,7 +44,6 @@
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
-
         <module name="LineLength">
             <property name="max" value="100"/>
             <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
@@ -55,9 +51,6 @@
         <module name="AvoidStarImport"/>
         <module name="OneTopLevelClass"/>
         <module name="NoLineWrap"/>
-        
-        <!-- Checks for Formatting -->
-        <!-- See http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s4-formatting -->
         <module name="EmptyBlock">
             <property name="option" value="TEXT"/>
             <property name="tokens" value="LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
@@ -69,7 +62,7 @@
         <module name="RightCurly"/>
         <module name="RightCurly">
             <property name="option" value="alone"/>
-            <property name="tokens" value="CLASS_DEF, METHOD_DEF, CTOR_DEF"/>
+            <property name="tokens" value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT"/>
         </module>
         <module name="WhitespaceAround">
             <property name="allowEmptyConstructors" value="true"/>
@@ -82,9 +75,6 @@
              value="WhitespaceAround: ''{0}'' is not preceded with whitespace."/>
         </module>
         <module name="OneStatementPerLine"/>
-        <module name="OperatorWrap">
-            <property name="tokens" value="TYPE_EXTENSION_AND, BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR"/>
-        </module>
         <module name="MultipleVariableDeclarations"/>
         <module name="ArrayTypeStyle"/>
         <module name="MissingSwitchDefault"/>
@@ -102,9 +92,6 @@
             <property name="tokens" value="COMMA"/>
             <property name="option" value="EOL"/>
         </module>
-        
-        <!-- Checks for Naming -->
-        <!-- See http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s5-naming-->
         <module name="PackageName">
             <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
             <message key="name.invalidPattern"
@@ -141,11 +128,7 @@
             <message key="name.invalidPattern"
              value="Method type name ''{0}'' must match pattern ''{1}''."/>
         </module>
-        
-        <!-- Checks for Programming Practice -->
-        <!-- See  http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s6-programming-practices-->
         <module name="NoFinalizer"/>
-        
         <module name="GenericWhitespace">
             <message key="ws.followed"
              value="GenericWhitespace ''{0}'' is followed by whitespace."/>
@@ -156,24 +139,18 @@
              <message key="ws.notPreceded"
              value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
         </module>
-
 <!--         <module name="Indentation"> -->
-<!--             <property name="basicOffset" value="4"/> -->
-<!--             <property name="braceAdjustment" value="2"/> -->
+<!--             <property name="basicOffset" value="2"/> -->
+<!--             <property name="braceAdjustment" value="0"/> -->
 <!--             <property name="caseIndent" value="2"/> -->
 <!--             <property name="throwsIndent" value="2"/> -->
 <!--         </module> -->
-
         <module name="AbbreviationAsWordInName">
             <property name="ignoreFinal" value="false"/>
             <property name="allowedAbbreviationLength" value="1"/>
         </module>
-
         <module name="OverloadMethodsDeclarationOrder"/>
-        <module name="VariableDeclarationUsageDistance">
-            <property name="ignoreVariablePattern" value="old.*|previous.*"/>
-        </module>
-
+        <module name="VariableDeclarationUsageDistance"/>
         <module name="CustomImportOrder">
             <property name="thirdPartyPackageRegExp" value=".*"/>
             <property name="specialImportsRegExp" value="com.google"/>
@@ -181,9 +158,9 @@
             <property name="customImportOrderRules" value="STATIC###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE###STANDARD_JAVA_PACKAGE"/>
         </module>
         <module name="MethodParamPad"/>
-
-        <!-- Checks for Javadoc -->
-        <!-- See  http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s7-javadoc-->
-        <!-- TODO ALL CASES -->
+        <module name="OperatorWrap">
+            <property name="option" value="NL"/>
+            <property name="tokens" value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR "/>
+        </module>
     </module>
 </module>
