@@ -18,9 +18,8 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -36,7 +35,8 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("NoLineWrap");
         String filePath = builder.getFilePath("NoLineWrap_Bad");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -47,7 +47,8 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("NoLineWrap");
         String filePath = builder.getFilePath("NoLineWrap_Good");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -68,7 +69,8 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("LineLength");
         String filePath = builder.getFilePath("LineLengthInput2");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

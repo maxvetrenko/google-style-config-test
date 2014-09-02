@@ -94,33 +94,34 @@ public abstract class BaseCheckTestSupport
         return new File("src/test/java/com/puppycrawl/tools/checkstyle/" + aFilename).getCanonicalPath();
     }
 
-    protected void verify(Configuration aConfig, String aFileName, String[] aExpected)
+    protected void verify(Configuration aConfig, String aFileName, String[] aExpected, Integer[] aWarnsExpected)
             throws Exception
     {
-        verify(createChecker(aConfig), aFileName, aFileName, aExpected);
+        verify(createChecker(aConfig), aFileName, aFileName, aExpected, aWarnsExpected);
     }
 
-    protected void verify(Checker aC, String aFileName, String[] aExpected)
+    protected void verify(Checker aC, String aFileName, String[] aExpected, Integer[] aWarnsExpected)
             throws Exception
     {
-        verify(aC, aFileName, aFileName, aExpected);
+        verify(aC, aFileName, aFileName, aExpected, aWarnsExpected);
     }
 
     protected void verify(Checker aC,
                           String aProcessedFilename,
                           String aMessageFileName,
-                          String[] aExpected)
+                          String[] aExpected, Integer[] aWarnsExpected)
         throws Exception
     {
         verify(aC,
             new File[] {new File(aProcessedFilename)},
-            aMessageFileName, aExpected);
+            aMessageFileName, aExpected, aWarnsExpected);
     }
 
     protected void verify(Checker aC,
                           File[] aProcessedFiles,
                           String aMessageFileName,
-                          String[] aExpected)
+                          String[] aExpected,
+                          Integer[] aWarnsExpected)
         throws Exception
     {
         mStream.flush();
@@ -136,8 +137,12 @@ public abstract class BaseCheckTestSupport
        
         for (int i = 0; i < aExpected.length; i++) {
             final String expected = aMessageFileName + ":" + aExpected[i];
-            final String actual = lnr.readLine();
+            String actual = lnr.readLine();
             assertEquals("error message " + i, expected, actual);
+            Integer integer = aWarnsExpected[i];
+            String parseInt = actual.substring(actual.indexOf(":") + 1);
+            parseInt = parseInt.substring(0, parseInt.indexOf(":"));
+            assertEquals("error message " + i, (long) integer, (long) Integer.parseInt(parseInt));
         }
 
         assertEquals("unexpected output: " + lnr.readLine(),
@@ -156,7 +161,7 @@ public abstract class BaseCheckTestSupport
     {
         Properties pr = new Properties();
         try {
-        	pr.load(aClass.getResourceAsStream("messages.properties"));
+            pr.load(aClass.getResourceAsStream("messages.properties"));
         }
         catch (IOException e) {
             return null;
@@ -164,16 +169,16 @@ public abstract class BaseCheckTestSupport
         return pr.getProperty(messageKey);
     }
 
-	/**
-	 * Gets the check message 'as is' from appropriate 'messages.properties' file.
-	 * @param messageKey the key of message in 'messages.properties' file.
-	 * @param arguments the arguments of message in 'messages.properties' file.
-	 */
-	public String getCheckMessage(Class aClass, String messageKey, Object ... arguments) {
-		return format(getCheckMessage(aClass, messageKey), arguments);
-	}
-	
-	/**
+    /**
+     * Gets the check message 'as is' from appropriate 'messages.properties' file.
+     * @param messageKey the key of message in 'messages.properties' file.
+     * @param arguments the arguments of message in 'messages.properties' file.
+     */
+    public String getCheckMessage(Class aClass, String messageKey, Object ... arguments) {
+        return format(getCheckMessage(aClass, messageKey), arguments);
+    }
+    
+    /**
      * Gets the check message 'as is' from appropriate 'messages.properties' file.
      * @param messageKey the key of message in 'messages.properties' file.
      * @param arguments the arguments of message in 'messages.properties' file.

@@ -1,4 +1,4 @@
-package com.google.checkstyle.test.chapter4formatting.rule4832nocstylearray;
+package com.google.checkstyle.test.chapter4formatting.rule485annotations;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import org.junit.Test;
 import com.google.checkstyle.test.base.ConfigurationBuilder;
 import com.puppycrawl.tools.checkstyle.api.CheckstyleException;
 import com.puppycrawl.tools.checkstyle.api.Configuration; 
-import com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck;
+import com.puppycrawl.tools.checkstyle.checks.javadoc.AnnotationLocationCheck;
 import com.google.checkstyle.test.base.BaseCheckTestSupport;
 
-public class ArrayTypeStyleTest extends BaseCheckTestSupport{
+public class AnnotationLocationTest extends BaseCheckTestSupport{
     
     static ConfigurationBuilder builder;
     
@@ -22,22 +22,18 @@ public class ArrayTypeStyleTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void arrayTypeStyleTest() throws IOException, Exception {
+    public void modifierOrderTest() throws IOException, Exception {
         
-        String msg = getCheckMessage(ArrayTypeStyleCheck.class, "array.type.style");
+        Class<AnnotationLocationCheck> clazz = AnnotationLocationCheck.class;
+        String msgLocation = "annotation.location";
+        String msgLocationAlone = "annotation.location.alone";
 
         final String[] expected = {
-            "9:23: " + msg,
-            "15:44: " + msg,
-            "21:20: " + msg,
-            "22:23: " + msg,
-            "41:16: " + msg,
-            "42:19: " + msg,
         };
         
-        Configuration checkConfig = builder.getCheckConfig("ArrayTypeStyle");
-        String filePath = builder.getFilePath("ArrayTypeStyleInput");
-        
+        Configuration checkConfig = builder.getCheckConfig("AnnotationLocation");
+        String filePath = builder.getFilePath("AnnotationLocationInput");
+
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected, warnList);
     }

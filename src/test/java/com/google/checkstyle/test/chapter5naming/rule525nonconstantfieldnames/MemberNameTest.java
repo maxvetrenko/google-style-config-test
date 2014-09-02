@@ -21,9 +21,8 @@ public class MemberNameTest extends BaseCheckTestSupport{
 	private static String format;
 
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
         checkConfig = builder.getCheckConfig("MemberName");
         format = checkConfig.getAttribute("format");
     }
@@ -49,7 +48,8 @@ public class MemberNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("MemberNameInput_Basic");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -103,7 +103,8 @@ public class MemberNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("MemberNameInput_Simple");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

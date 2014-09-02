@@ -23,9 +23,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
     String msgNongroup = "custom.import.order.nongroup.import";
 
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -50,7 +49,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
         String filePath = builder.getFilePath("CustomImportOrderInput_1");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -70,7 +70,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
         String filePath = builder.getFilePath("CustomImportOrderInput_2");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -90,7 +91,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
         String filePath = builder.getFilePath("CustomImportOrderInput_3");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     @Test
     public void validTest() throws IOException, Exception {
@@ -101,7 +103,8 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
         String filePath = builder.getFilePath("CustomImportOrderValidInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

@@ -22,9 +22,8 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
     private static String format;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
         checkConfig = builder.getCheckConfig("ClassTypeParameterName");
         format = checkConfig.getAttribute("format");
     }
@@ -40,7 +39,8 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
 
         String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -61,6 +61,7 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }

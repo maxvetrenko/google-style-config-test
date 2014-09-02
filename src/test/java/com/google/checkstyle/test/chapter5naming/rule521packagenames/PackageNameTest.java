@@ -22,9 +22,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
     
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
         checkConfig = builder.getCheckConfig("PackageName");
         format = checkConfig.getAttribute("format");
     }
@@ -37,7 +36,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("PackageNameInputGood");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -52,7 +52,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("PackageNameInputBad");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -68,7 +69,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("PackageNameInputBad2");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -84,7 +86,8 @@ public class PackageNameTest extends BaseCheckTestSupport{
         
         String filePath = builder.getFilePath("PackageNameInputBad3");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

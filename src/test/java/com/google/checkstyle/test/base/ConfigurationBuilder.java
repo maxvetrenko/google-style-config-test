@@ -26,20 +26,25 @@ public class ConfigurationBuilder extends BaseCheckTestSupport {
 
 	Configuration mConfig;
 	
-	Pattern warnPattern = Utils.getPattern(".*[ ]*//[ ]*warn[ ]*");
+	URL mUrl;
+	
+	String mXmlName = "google_checks.xml";
+	
+	Pattern warnPattern = Utils.getPattern(".*[ ]*//[ ]*warn[ ]*|/[*]warn[*]/");
 	
 	public ConfigurationBuilder(File aROOT, String aXMLName)
 			throws CheckstyleException {
 		this.mROOT = aROOT;
-		mConfig = getConfigurationFromXML(aXMLName, System.getProperties());
+		mConfig = getConfigurationFromXML(mXmlName, System.getProperties());
 		listFiles(mFiles, mROOT, "java");
 	}
 
-	public ConfigurationBuilder(File aROOT, URL aUrl, String aXMLName)
+	public ConfigurationBuilder(File aROOT)
 			throws IOException, CheckstyleException {
+		mUrl = new URL("https://raw.githubusercontent.com/maxvetrenko/checkstyle/master/google_checks.xml");
 		this.mROOT = aROOT;
-		FileUtils.copyURLToFile(aUrl, new File(aXMLName));
-		mConfig = getConfigurationFromXML(aXMLName, System.getProperties());
+		FileUtils.copyURLToFile(mUrl, new File(mXmlName));
+		mConfig = getConfigurationFromXML(mXmlName, System.getProperties());
 		listFiles(mFiles, mROOT, "java");
 	}
 
@@ -100,7 +105,7 @@ public class ConfigurationBuilder extends BaseCheckTestSupport {
 		return mROOT;
 	}
 
-	public List<Integer> getLinesWithWarn(String aFileName) throws IOException {
+	public Integer[] getLinesWithWarn(String aFileName) throws IOException {
 		int lineNumber = 1;
 	    List<Integer> result = new ArrayList<Integer>();
 	    try(BufferedReader br = new BufferedReader(new FileReader(aFileName))) {
@@ -111,6 +116,6 @@ public class ConfigurationBuilder extends BaseCheckTestSupport {
 	            lineNumber++;
 	        }
 	    }
-	    return result;
+	    return result.toArray(new Integer[result.size()]);
 	}
 }

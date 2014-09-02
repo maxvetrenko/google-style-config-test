@@ -21,9 +21,8 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -57,7 +56,8 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("OperatorWrap");
         String filePath = builder.getFilePath("OperatorWrapInput");
 
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -109,7 +109,7 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
         };
 
         String filePath = builder.getFilePath("OperatorWrapInput");
-        
-        verify(newCheckConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(newCheckConfig, filePath, expected, warnList);
     }
 }

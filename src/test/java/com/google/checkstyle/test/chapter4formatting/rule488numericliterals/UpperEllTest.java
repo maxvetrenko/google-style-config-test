@@ -16,9 +16,8 @@ public class UpperEllTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -54,7 +53,8 @@ public class UpperEllTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("UpperEll");
         String filePath = builder.getFilePath("UpperEllInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

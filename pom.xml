@@ -28,7 +28,7 @@
     <dependency>
 	  <groupId>com.puppycrawl.tools</groupId>
 	  <artifactId>checkstyle</artifactId>
-	  <version>5.8-SNAPSHOT</version>
+	  <version>5.9-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -44,9 +44,9 @@
     <dependency>
 	  <groupId>com.puppycrawl.tools</groupId>
 	  <artifactId>checkstyle</artifactId>
-	  <version>5.8-SNAPSHOT</version>
-      <type>test-jar</type>
-      <scope>test</scope>
+	  <version>5.9-SNAPSHOT</version>
+<!--       <type>test-jar</type> -->
+<!--       <scope>test</scope> -->
     </dependency>
   </dependencies>
    <reporting>

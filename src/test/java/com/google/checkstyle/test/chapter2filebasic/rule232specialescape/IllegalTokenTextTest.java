@@ -20,9 +20,7 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
     @BeforeClass
     public static void setConfigurationBuilder()
     		throws CheckstyleException, MalformedURLException, IOException {
-        builder = new ConfigurationBuilder(new File("src/"), new URL("https://raw.githubusercontent"
-        		+ ".com/maxvetrenko/google-style-config-test/master/checkstyle_google_style.xml"),
-                "remote_configuration.xml");
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -100,7 +98,8 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("IllegalTokenText");
         String filePath = builder.getFilePath("IllegalTokenTextInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

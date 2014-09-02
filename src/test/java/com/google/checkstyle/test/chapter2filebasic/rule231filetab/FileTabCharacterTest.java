@@ -18,9 +18,8 @@ public class FileTabCharacterTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
     
     @Override
@@ -47,8 +46,11 @@ public class FileTabCharacterTest extends BaseCheckTestSupport{
             "133:3: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
             "134:3: " + getCheckMessage(FileTabCharacterCheck.class, "containsTab"),
         };
-        verify(createChecker(checkConfig),builder.getFilePath("FileTabCharacterInput"),
-            expected);
+        
+        String filePath = builder.getFilePath("FileTabCharacterInput");
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+		verify(createChecker(checkConfig),filePath,
+            expected, warnList);
     } 
 
     /**

@@ -21,9 +21,8 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
 	private static String format;
 
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
         checkConfig = builder.getCheckConfig("LocalVariableName");
         format = checkConfig.getAttribute("format");
     }
@@ -47,7 +46,8 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
 
         String filePath = builder.getFilePath("LocalVariableNameInput_Simple");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -65,7 +65,8 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
 
         String filePath = builder.getFilePath("LocalVariableNameInput_OneCharVarName");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

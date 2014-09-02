@@ -17,9 +17,8 @@ public class AvoidEscapedUnicodeCharactersCheckTest extends BaseCheckTestSupport
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -39,7 +38,8 @@ public class AvoidEscapedUnicodeCharactersCheckTest extends BaseCheckTestSupport
         Configuration checkConfig = builder.getCheckConfig("AvoidEscapedUnicodeCharacters");
         String filePath = builder.getFilePath("AvoidEscapedUnicodeCharactersInput");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

@@ -20,9 +20,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -42,7 +41,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
         String filePath = builder.getFilePath("LeftCurlyInput_Braces");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -60,7 +60,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
         String filePath = builder.getFilePath("LeftCurlyInput_Annotations");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -89,7 +90,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("LeftCurly");
         String filePath = builder.getFilePath("LeftCurlyInput_Method");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -112,7 +114,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("RightCurly");
         String filePath = builder.getFilePath("RightCurlyInput_Other");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -129,8 +132,8 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
         };
 
         String filePath = builder.getFilePath("RightCurlyInput_Other");
-        
-        verify(newCheckConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(newCheckConfig, filePath, expected, warnList);
     }
 }
 

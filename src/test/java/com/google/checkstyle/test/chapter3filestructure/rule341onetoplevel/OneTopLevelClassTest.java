@@ -17,9 +17,8 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
     static ConfigurationBuilder builder;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
     }
 
     @Test
@@ -40,7 +39,8 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassInput_Basic");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 
     @Test
@@ -51,7 +51,8 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassInputGood");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -67,7 +68,8 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassBad2");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
     
     @Test
@@ -84,7 +86,8 @@ public class OneTopLevelClassTest extends BaseCheckTestSupport{
         Configuration checkConfig = builder.getCheckConfig("OneTopLevelClass");
         String filePath = builder.getFilePath("OneTopLevelClassBad3");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
 

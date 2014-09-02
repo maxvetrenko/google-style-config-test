@@ -20,9 +20,8 @@ public class AbbreviationAsWordInNameTest extends BaseCheckTestSupport{
     private static Configuration checkConfig;
     
     @BeforeClass
-    public static void setConfigurationBuilder() throws CheckstyleException {
-        builder = new ConfigurationBuilder(new File("src/"),
-                "checkstyle_google_style.xml");
+    public static void setConfigurationBuilder() throws CheckstyleException, IOException {
+        builder = new ConfigurationBuilder(new File("src/"));
         checkConfig = builder.getCheckConfig("AbbreviationAsWordInName");
     }
 
@@ -46,6 +45,7 @@ public class AbbreviationAsWordInNameTest extends BaseCheckTestSupport{
 
         String filePath = builder.getFilePath("InputAbbreviationAsWordInTypeNameCheck");
         
-        verify(checkConfig, filePath, expected);
+        Integer[] warnList = builder.getLinesWithWarn(filePath);
+        verify(checkConfig, filePath, expected, warnList);
     }
 }
