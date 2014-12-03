@@ -23,17 +23,17 @@ final class InputSimple
     private void localVariables()
     {
         //bad examples
-        int a;
-        int aA;
-        int a1_a;
-        int A_A;
-        int aa2_a;
-        int _a;
-        int _aa;
-        int aa_;
-        int aaa$aaa;
-        int $aaaaaa;
-        int aaaaaa$;
+        int a; //warn
+        int aA; //warn
+        int a1_a; //warn
+        int A_A; //warn
+        int aa2_a; //warn
+        int _a; //warn
+        int _aa; //warn
+        int aa_; //warn
+        int aaa$aaa; //warn
+        int $aaaaaa; //warn
+        int aaaaaa$; //warn
         
         //good examples
         int aa;

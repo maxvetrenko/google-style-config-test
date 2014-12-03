@@ -11,7 +11,7 @@ public class FallThroughInput
                 break;
             case 2:
                 i++;
-            case 3: //fall through!!! //WARN
+            case 3: //warn
                 i++;
                 break;
             case 4:
@@ -35,7 +35,7 @@ public class FallThroughInput
             case 11: {
                 i++;
             }
-            case 12: //fall through!!! //WARN
+            case 12:  //warn
                 if (false)
                     break;
                 else
@@ -50,7 +50,7 @@ public class FallThroughInput
                 } else {
                     //do nothing
                 }
-            case 15: //fall through!!! //WARN
+            case 15:  //warn
                 do {
                     System.out.println("something");
                     return;
@@ -67,7 +67,7 @@ public class FallThroughInput
                 while(cond) {
                     break;
                 }
-            case 19: //fall through!!! //WARN
+            case 19:  //warn
                 try {
                     i++;
                     break;
@@ -84,7 +84,7 @@ public class FallThroughInput
                 } catch (Error e) {
                     return;
                 }
-            case 21: //fall through!!! //WARN
+            case 21:  //warn
                 try {
                     i++;
                 } catch (RuntimeException e) {
@@ -102,7 +102,7 @@ public class FallThroughInput
                 } finally {
                     i++;
                 }
-            case 23: //fall through!!! //WARN
+            case 23:  //warn
                 switch (j) {
                 case 1:
                     continue;
@@ -120,7 +120,7 @@ public class FallThroughInput
                 default:
                     return;
                 }
-            default: //fall through!!! //WARN
+            default:  //warn
                 // this is the last label
                 i++;
             }
@@ -366,12 +366,12 @@ public class FallThroughInput
           case 0:
               i++; /* Continue with next case */
 
-          case 1: //WARN
+          case 1:  //warn
               i++;
           /* Continue with next case.  */
-          case 2: // WARN
+          case 2:  //warn
               i++;
-          /* Continue with next case. WARN */case 3:
+          /* Continue with next case. */case 3:  //warn
                 break;
           case 4:
               i++;

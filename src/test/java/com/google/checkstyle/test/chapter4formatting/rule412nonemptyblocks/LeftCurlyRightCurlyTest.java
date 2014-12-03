@@ -95,30 +95,6 @@ public class LeftCurlyRightCurlyTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void rightCurlyTestSame() throws Exception {
-
-        String checkMessageSame = getCheckMessage(RightCurlyCheck.class, "line.same", "}");
-        String checkMessageAlone = getCheckMessage(RightCurlyCheck.class, "line.alone", "}");
-        String checkMessageNew = getCheckMessage(RightCurlyCheck.class, "line.new", "}");
-        String checkMessageLineBreak = getCheckMessage(RightCurlyCheck.class, "line.break.before");
-        
-        final String[] expected = {
-            "20:17: " + checkMessageSame,
-            "32:13: " + checkMessageSame,
-            "79:27: " + checkMessageAlone,
-            "79:27: " + checkMessageNew,
-            "79:27: '}' should have line break before.",
-            "83:53: '}' should have line break before.",
-        };
-
-        Configuration checkConfig = builder.getCheckConfig("RightCurly");
-        String filePath = builder.getFilePath("RightCurlyInput_Other");
-        
-        Integer[] warnList = builder.getLinesWithWarn(filePath);
-        verify(checkConfig, filePath, expected, warnList);
-    }
-    
-    @Test
     public void rightCurlyTestAlone() throws Exception {
         DefaultConfiguration newCheckConfig = createCheckConfig(RightCurlyCheck.class);
         newCheckConfig.addAttribute("option", RightCurlyOption.ALONE.toString());

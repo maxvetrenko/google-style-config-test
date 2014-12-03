@@ -45,7 +45,7 @@ public class LocalVariableNameTest extends BaseCheckTestSupport{
         };
 
         String filePath = builder.getFilePath("LocalVariableNameInput_Simple");
-        
+
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected, warnList);
     }
