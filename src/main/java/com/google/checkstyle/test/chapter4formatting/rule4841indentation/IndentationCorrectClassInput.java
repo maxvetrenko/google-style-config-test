@@ -17,10 +17,10 @@ public class IndentationCorrectClassInput  // indent:0 ; exp:0; ok
   class InnerClass2  // indent:2 ; exp:2; ok
        extends  // indent:7 ; exp:>6; ok
           SecondClassReturnWithVeryVeryVeryLongName {  // indent:10 ; exp:>6; ok
-	public InnerClass2(String string) {  // indent:4 ; exp:4; ok
-	  super(string);  // indent:6 ; exp:6; ok
-	  // TODO Auto-generated constructor stub
-	}  // indent:4 ; exp:4; ok
+    public InnerClass2(String string) {  // indent:4 ; exp:4; ok
+      super(string);  // indent:6 ; exp:6; ok
+      // TODO Auto-generated constructor stub
+    }  // indent:4 ; exp:4; ok
   }  // indent:2 ; exp:2; ok
 
   @Override  // indent:2 ; exp:2; ok

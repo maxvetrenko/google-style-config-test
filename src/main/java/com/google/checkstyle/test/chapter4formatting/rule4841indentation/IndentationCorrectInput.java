@@ -20,27 +20,6 @@ public abstract class IndentationCorrectInput { // indent:0 ; exp:0; ok
     b = 2; // indent:4 ; exp: 4; ok
   } // indent:2 ; exp: 2; ok
 
-  public static final IndentationCorrectInput // indent:2 ; exp: 2; ok
-      BREAKING_WHITESPACE = new IndentationCorrectInput() { // indent:6 ; exp: 6; ok
-    @Override // indent:4 ; exp: 4; ok
-    public boolean matches(char c) { // indent:4 ; exp: 4; ok
-      switch (c) { // indent:6 ; exp: 6; ok
-        case ' ': // indent:8 ; exp: 8; ok
-        case '\u3000': // indent:8 ; exp: 8; ok
-            return true; // indent:12 ; exp: 12; ok
-        case '\u2007': // indent:8 ; exp: 8; ok
-            return false; // indent:12 ; exp: 12; ok
-        default: // indent:8 ; exp: 8; ok
-            return c >= '\u2000' && c <= '\u200a'; // indent:12 ; exp: 12; ok
-      } // indent:6 ; exp: 6; ok
-    } // indent:4 ; exp:4; ok
-
-    @Override // indent:4 ; exp: 4; ok
-    public String toString() { // indent:4 ; exp:4; ok
-      return "CharMatcher.BREAKING_WHITESPACE"; // indent:6 ; exp:6; ok
-    } // indent:4 ; exp:4; ok
-  }; // indent:2 ; exp:2; ok
-
   private static abstract class RangesMatcher { // indent:2 ; exp:2; ok
 
     private static final String ZEROES = "0\u0660\u06f0" // indent:4 ; exp:4; ok
@@ -49,10 +28,10 @@ public abstract class IndentationCorrectInput { // indent:0 ; exp:0; ok
 
     public static final IndentationCorrectInput JAVA_LETTER_OR_DIGIT = // indent:4 ; exp:4; ok
         new IndentationCorrectInput() { // indent:8 ; exp:8; ok
-      @Override public boolean matches(char c) { // indent:6 ; exp:6; ok
-        return Character.isLetterOrDigit(c); // indent:8 ; exp:8; ok
-      } // indent:6 ; exp:6; ok
-    }; // indent:4 ; exp:4; ok
+          @Override public boolean matches(char c) { // indent:6 ; exp:6; ok
+            return Character.isLetterOrDigit(c); // indent:8 ; exp:8; ok
+          } // indent:6 ; exp:6; ok
+        }; // indent:4 ; exp:4; ok
 
     /** Matches no characters. */
     public static final FastMatcher NONE = // indent:4 ; exp:4; ok
@@ -106,9 +85,9 @@ public abstract class IndentationCorrectInput { // indent:0 ; exp:0; ok
   } // indent:2 ; exp:2; ok
 
   public boolean veryLongLongLongCondition() { // indent:2 ; exp:2; ok
-	if (veryLongLongLongCondition2()) { // indent:4 ; exp:4; ok
+    if (veryLongLongLongCondition2()) { // indent:4 ; exp:4; ok
       return true; // indent:6 ; exp:6; ok
-	} // indent:4 ; exp:4; ok
+    } // indent:4 ; exp:4; ok
     return false; // indent:4 ; exp:4; ok
   } // indent:2 ; exp:2; ok
 

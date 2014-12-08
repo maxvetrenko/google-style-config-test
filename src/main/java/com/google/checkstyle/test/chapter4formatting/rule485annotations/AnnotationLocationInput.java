@@ -10,7 +10,7 @@ class InputCorrectAnnotationIndentation
     @MyAnnotation1 public int b;
 
     @MyAnnotation2
-        @MyAnnotation1 //warn
+    @MyAnnotation1
     public int c;
 
     @MyAnnotation1
@@ -20,7 +20,8 @@ class InputCorrectAnnotationIndentation
         @MyAnnotation1 //warn
     public InputCorrectAnnotationIndentation() {}
 
-    @MyAnnotationWithParam("foo") @MyAnnotation2 void foo1() {} //warn
+    @MyAnnotationWithParam("foo")
+    @MyAnnotation2 void foo1() {} //warn
 
     @MyAnnotation1
        @MyAnnotation2 //warn
@@ -38,7 +39,7 @@ class InputCorrectAnnotationIndentation
         @MyAnnotation1 public int b;
         
         @MyAnnotation2
-            @MyAnnotation1 //warn
+        @MyAnnotation1
         public int c;
         
         @MyAnnotation1

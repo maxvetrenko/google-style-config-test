@@ -1,7 +1,7 @@
 package com.google.checkstyle.test.chapter4formatting.rule4841indentation; // indent:0 ; exp:0; ok
 
 class FooIfClass { // indent:0 ; exp:0; ok
-    
+
   String getString(int someInt, String someString) { // indent:2 ; exp:2; ok
     return "String"; // indent:4 ; exp:4; ok
   } // indent:2 ; exp:2; ok
@@ -12,7 +12,7 @@ class FooIfClass { // indent:0 ; exp:0; ok
         SecondClassWithVeryVeryVeryLongName("Loooooooooooooooooog"). // indent:8 ; exp:8; ok
         getInteger(new FooIfClass(), "Loooooooooooooooooog"), // indent:8 ; exp:8; ok
         new InnerClassFoo())) {}
-    
+
     if (conditionSecond(10000000000.0, new // indent:4 ; exp:4; ok
         SecondClassWithVeryVeryVeryLongName("Looooooooooooo" // indent:8 ; exp:8; ok
         + "oooooooooooong").getString(new FooIfClass(), // indent:8 ; exp:8; ok

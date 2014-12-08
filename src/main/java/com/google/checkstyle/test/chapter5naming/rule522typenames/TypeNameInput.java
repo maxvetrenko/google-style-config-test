@@ -50,11 +50,11 @@ enum Foo$Enum {} //warn
 
 enum FooEnum$ {} //warn
 
-class aaa {}
+class aaa {} //warn 
 
-interface bbb {}
+interface bbb {} //warn 
 
-enum ccc {}
+enum ccc {} //warn 
 
 @interface Annotation {} //ok
 

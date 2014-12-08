@@ -1,10 +1,10 @@
-package com.google.checkstyle.test.
-              chapter3filestructure.rule332nolinewrap; //warn
+package com.google.checkstyle.test. //warn
+              chapter3filestructure.rule332nolinewrap;
 
 import com.google.common.annotations.Beta; //ok
 
-import javax.accessibility.
-    AccessibleAttributeSequence; //warn
+import javax.accessibility. //warn
+    AccessibleAttributeSequence;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater; //ok
 
 public class

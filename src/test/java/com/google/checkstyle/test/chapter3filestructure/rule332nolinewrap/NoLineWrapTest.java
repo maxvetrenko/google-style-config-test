@@ -31,7 +31,7 @@ public class NoLineWrapTest extends BaseCheckTestSupport{
             "1: " + getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "package"),
             "6: " + getCheckMessage(NoLineWrapCheck.class, "no.line.wrap", "import"),            
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("NoLineWrap");
         String filePath = builder.getFilePath("NoLineWrap_Bad");
         

@@ -7,8 +7,8 @@ class OperatorWrapInput
 {
     void test()
     {
-        /*Warn*/int x = 1 + 
-                /*Warn*/ 2 - 
+        /*warn*/int x = 1 + 
+                /*warn*/ 2 - 
             3
             -
             4;
@@ -16,7 +16,7 @@ class OperatorWrapInput
         boolean y = true
             &&
             false;
-        /*Warn*/ y = true && 
+        /*warn*/ y = true && 
             false;
         y = false
             && true;

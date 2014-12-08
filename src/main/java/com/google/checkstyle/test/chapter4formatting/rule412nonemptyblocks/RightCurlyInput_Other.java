@@ -17,7 +17,7 @@ class RightCurlyInput_Other
                 } else if (x < 0) {  //ok
                 
                     ;
-                } //warn
+                }
                 else
                 {
                     break;
@@ -29,7 +29,7 @@ class RightCurlyInput_Other
                 default:
                     break;
                 } //ok
-            } //warn
+            }
             catch (Exception e)
             {
                 break;
@@ -76,11 +76,11 @@ class RightCurlyInput_Other
         boolean flag = true;
         if (flag) {
             System.out.println("heh");
-            flag = !flag; } System.err.  //warn
+            flag = !flag; } System.err.
               println("Xe-xe");
         
        
-        if (flag) { System.err.println("some foo"); } //warn
+        if (flag) { System.err.println("some foo"); }
     } //ok
 } //ok
 

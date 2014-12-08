@@ -32,18 +32,10 @@ public class ConfigurationBuilder extends BaseCheckTestSupport {
 	
 	Pattern warnPattern = Utils.getPattern(".*[ ]*//[ ]*warn[ ]*|/[*]warn[*]/");
 	
-	public ConfigurationBuilder(File aROOT, String aXMLName)
-			throws CheckstyleException {
-		this.mROOT = aROOT;
-		mConfig = getConfigurationFromXML(mXmlName, System.getProperties());
-		listFiles(mFiles, mROOT, "java");
-	}
-
 	public ConfigurationBuilder(File aROOT)
-			throws IOException, CheckstyleException {
-		mUrl = new URL("https://raw.githubusercontent.com/maxvetrenko/checkstyle/master/google_checks.xml");
+			throws CheckstyleException, IOException {
+		ConfigurationGetter.getInstance().updateConfiguration();
 		this.mROOT = aROOT;
-		FileUtils.copyURLToFile(mUrl, new File(mXmlName));
 		mConfig = getConfigurationFromXML(mXmlName, System.getProperties());
 		listFiles(mFiles, mROOT, "java");
 	}

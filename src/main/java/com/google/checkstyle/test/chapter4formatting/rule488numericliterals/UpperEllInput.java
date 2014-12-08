@@ -18,7 +18,8 @@ class UpperEllInput
     }
     
     private void processUpperEll(long aLong) {
-        long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
+        long bad = (4+5*7^66l/7+890) //warn
+                & (88l + 78 * 4); //warn
         long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
         long[] array = {
             66l, //warn
@@ -28,9 +29,8 @@ class UpperEllInput
     
     private void processUpperEll(String s, long l) {}
     
-    class Inner
-    {
-    	/** test **/
+    class Inner {
+        /** test **/
         private static final long IGNORE = 666l + 666L; //warn
         
         private static final String notWarn = "666l"; //ok
@@ -47,12 +47,12 @@ class UpperEllInput
         
         private void processUpperEll(long aLong)
         {
-            long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
+            long bad = (4+5*7^66l/7+890) //warn
+                    & (88l + 78 * 4); //warn
             long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
         }
-        private void processUpperEll(String s, long l)
-        {
-        	long[] array = {
+        private void processUpperEll(String s, long l) {
+            long[] array = {
                     66l, //warn
                     66L, //ok
                 };
@@ -61,7 +61,7 @@ class UpperEllInput
         void fooMethod()
         {
             Foo foo = new Foo() {
-            	/** test **/
+                /** test **/
                 private final long IGNORE = 666l + 666L; //warn
                 
                 private String notWarn = "666l"; //ok
@@ -77,7 +77,8 @@ class UpperEllInput
                 }
                 
                 private void processUpperEll(long aLong) {
-                    long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
+                    long bad = (4+5*7^66l/7+890) //warn
+                            & (88l + 78 * 4); //warn
                     long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
                     long[] array = {
                         66l, //warn
@@ -92,11 +93,11 @@ class UpperEllInput
     
     class Foo {}
     
-    interface Long
-    {
+    interface Long {
         public static final long IGNORE = 666l + 666L; //warn
         public static final String notWarn = "666l"; //ok
-        long bad = (4+5*7^66l/7+890) & (88l + 78 * 4); //warn
+        long bad = (4+5*7^66l/7+890) //warn
+                & (88l + 78 * 4); //warn
         long good = (4+5*7^66L/7+890) & (88L + 78 * 4); //ok
     }
 }

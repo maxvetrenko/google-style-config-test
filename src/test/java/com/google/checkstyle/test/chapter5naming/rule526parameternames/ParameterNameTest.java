@@ -32,18 +32,18 @@ public class ParameterNameTest extends BaseCheckTestSupport{
 
 
         final String[] expected = {
-            "7:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$arg1", format),
-            "7:36: " + getCheckMessage(checkConfig.getMessages(), msgKey, "ar$g2", format),
-            "7:47: " + getCheckMessage(checkConfig.getMessages(), msgKey, "arg3$", format),
-            "7:58: " + getCheckMessage(checkConfig.getMessages(), msgKey, "a_rg4", format),
-            "7:69: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_arg5", format),
-            "8:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "arg6_", format),
-            "8:32: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aArg7", format),
-            "8:43: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aArg8", format),
-            "8:54: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aar_g", format),
-            "18:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bB", format),
-            "41:22: " + getCheckMessage(checkConfig.getMessages(), msgKey, "llll_llll", format),
-            "42:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bB", format),
+            "8:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$arg1", format),
+            "9:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "ar$g2", format),
+            "10:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "arg3$", format),
+            "11:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "a_rg4", format),
+            "12:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "_arg5", format),
+            "13:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "arg6_", format),
+            "14:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aArg7", format),
+            "15:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aArg8", format),
+            "16:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "aar_g", format),
+            "26:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bB", format),
+            "49:22: " + getCheckMessage(checkConfig.getMessages(), msgKey, "llll_llll", format),
+            "50:21: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bB", format),
         };
 
         String filePath = builder.getFilePath("ParameterNameInput_Simple");

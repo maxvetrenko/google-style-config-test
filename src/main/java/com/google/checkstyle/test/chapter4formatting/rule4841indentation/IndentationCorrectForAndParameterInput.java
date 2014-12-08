@@ -84,47 +84,6 @@ class FooForClass { // indent:0 ; exp:0; ok
                      + "oooooooooooooooooooooooooooooooooooooooo" // indent:21 ; exp:>10; ok
           + "oooooooooong"))) {} // indent:10 ; exp:10; ok
     } // indent:4 ; exp:4; ok
-
-    FooForClass anonymousClass // indent:4 ; exp:4; ok
-           = new FooForClass() { // indent:11 ; exp:>8; ok
-
-      void fooMethodWithIf(String stringStringStringStringLooooongString, // indent:6 ; exp:6; ok
-          int intIntIntVeryLongNameForIntVariable, boolean // indent:10 ; exp:10; ok
-              fooooooooobooleanBooleanVeryLongName) { // indent:14 ; exp:>10; ok
-
-        for (int i = 1; i < 10; i ++) {} // indent:8 ; exp:8; ok
-
-        for (int i = new SecondForClassWithVeryVeryVeryLongName("Loooooooooooooooooooo" // indent:8 ; exp:8; ok
-            + "oong").getInteger(new FooForClass(), // indent:12 ; exp:12; ok
-              getString(1000000000, "Loooooooooooooooong")); i < 10; i++) {} // indent:14 ; exp:>12; ok
-
-        for (Map.Entry<String, String> entry : new SecondForClassWithVeryVeryVeryLongName("Loo" // indent:8 ; exp:8; ok
-            + "ooooooooooooooooooooong").getMap(new // indent:12 ; exp:12; ok
-            FooForClass(), 10000000, // indent:12 ; exp:12; ok
-            getString(10000, "Loooooooooo" // indent:12 ; exp:12; ok
-            + "ooooong")).entrySet()) {} // indent:12 ; exp:12; ok
-
-        for (Map.Entry<String, String> entry : new SecondForClassWithVeryVeryVeryLongName("Loo" // indent:8 ; exp:8; ok
-              + "ooooooooooooooooooooong").getMap(new // indent:14 ; exp:>12; ok
-               FooForClass(), 10000000, // indent:15 ; exp:>10; ok
-                    getString(10000, "Loooooooooo" // indent:20 ; exp:>12; ok
-                 + "ooooong")).entrySet()) {} // indent:17 ; exp:>12; ok
-            
-        for (String string : new SecondForClassWithVeryVeryVeryLongName(getString(1024 // indent:8 ; exp:8; ok
-            , "Looooooooooooooooooong")). // indent:12 ; exp:12; ok
-            getList(new FooForClass(), 1000, getString(1024, // indent:12 ; exp:12; ok
-            "Loooooooooooooooooooooooooooooooo" // indent:12 ; exp:12; ok
-            + "oooooooooooooooooooooooooooooooooooooooo" // indent:12 ; exp:12; ok
-            + "oooooooooong"))) {} // indent:12 ; exp:12; ok
-
-        for (String string : new SecondForClassWithVeryVeryVeryLongName(getString(1024 // indent:8 ; exp:8; ok
-                 , "Looooooooooooooooooong")). // indent:17 ; exp:>12; ok
-               getList(new FooForClass(), 1000, getString(1024, // indent:15 ; exp:>12; ok
-                     "Loooooooooooooooooooooooooooooooo" // indent:21 ; exp:>12; ok
-                       + "oooooooooooooooooooooooooooooooooooooooo" // indent:23 ; exp:>12; ok
-            + "oooooooooong"))) {} // indent:12 ; exp:12; ok
-      } // indent:6 ; exp:6; ok
-    }; // indent:4 ; exp:4; ok
   } // indent:2 ; exp:2; ok
 }
 

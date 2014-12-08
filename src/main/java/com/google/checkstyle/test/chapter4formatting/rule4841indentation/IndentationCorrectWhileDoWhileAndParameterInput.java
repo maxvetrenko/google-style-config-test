@@ -26,7 +26,7 @@ class FooWhileClass { // indent:0 ; exp:0; ok
            new SecondWhileClassWithVeryVeryVeryLongName("loooooooooong"). // indent:11 ; exp:>8; ok
         getInteger(new FooWhileClass(), "loooooooooooooong")), "loooooooooooong") // indent:8 ; exp:8; ok
               || conditionThird(2048) || conditionFourth(new // indent:14 ; exp:>8; ok
-        SecondWhileClassWithVeryVeryVeryLongName("Looooooooooooooo" // indent:8 ; exp:8; ok
+              SecondWhileClassWithVeryVeryVeryLongName("Looooooooooooooo" // indent:14 ; exp:>8; ok
         + "ooooooooooooong").getBoolean(new FooWhileClass(), false)) || // indent:8 ; exp:8; ok
             conditionFifth(true, new SecondWhileClassWithVeryVeryVeryLongName( // indent:12 ; exp:>8; ok
             getString(2048, "Looo" // indent:12 ; exp:>8; ok

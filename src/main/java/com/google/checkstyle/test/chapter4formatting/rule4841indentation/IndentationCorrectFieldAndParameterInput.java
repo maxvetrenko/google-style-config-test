@@ -76,7 +76,7 @@ class FooFieldClass { // indent:0 ; exp:0; ok
            conditionFifth(true, new SecondFieldClassWithVeryVeryVeryLongName(getString(2048, "Looo" // indent:11 ; exp:>8; ok
                + "ooooooooooooooooooooooooooooooooooooooooooong")).getBoolean( // indent:15 ; exp:>8; ok
             new FooFieldClass(), true)) || conditionSixth(false, new // indent:12 ; exp:>8;
-           SecondFieldClassWithVeryVeryVeryLongName(getString(100000, "Loooooong" // indent:11 ; exp:>8; ok
+            SecondFieldClassWithVeryVeryVeryLongName(getString(100000, "Loooooong" // indent:11 ; exp:>8; ok
                 + "Fooooooo><"))) || conditionNoArg() // indent:16 ; exp:>8; ok
           || conditionNoArg() || // indent:10 ; exp:>8; ok
           conditionNoArg() || conditionNoArg(); // indent:10 ; exp:>8; ok
@@ -93,7 +93,7 @@ class FooFieldClass { // indent:0 ; exp:0; ok
             conditionFifth(true, new SecondFieldClassWithVeryVeryVeryLongName(getString(2048, "Looo" // indent:12 ; exp:>10; ok
                 + "ooooooooooooooooooooooooooooooooooooooooooong")).getBoolean( // indent:16 ; exp:>10; ok
              new FooFieldClass(), true)) || conditionSixth(false, new // indent:13 ; exp:>8;
-            SecondFieldClassWithVeryVeryVeryLongName(getString(100000, "Loooooong" // indent:12 ; exp:>10; ok
+             SecondFieldClassWithVeryVeryVeryLongName(getString(100000, "Loooooong" // indent:12 ; exp:>10; ok
                  + "Fooooooo><"))) || conditionNoArg() // indent:17 ; exp:>10; ok
            || conditionNoArg() || // indent:11 ; exp:>10; ok
            conditionNoArg() || conditionNoArg(); // indent:11 ; exp:>10; ok

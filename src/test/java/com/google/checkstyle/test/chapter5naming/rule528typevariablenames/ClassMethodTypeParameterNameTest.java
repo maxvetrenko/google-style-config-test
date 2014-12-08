@@ -37,7 +37,7 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
             "27:24: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$foo", format),
         };
 
-        String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
+        String filePath = builder.getFilePath("ClassTypeParameterNameInput");
         
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected, warnList);
@@ -59,7 +59,7 @@ public class ClassMethodTypeParameterNameTest extends BaseCheckTestSupport{
         };
 
         
-        String filePath = builder.getFilePath("ClassMethodTypeParameterNameInput");
+        String filePath = builder.getFilePath("MethodTypeParameterNameInput");
         
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected, warnList);

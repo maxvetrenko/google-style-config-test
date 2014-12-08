@@ -42,7 +42,7 @@ enum InputLeftCurlyMethodEnum
         }
         void method5(String aOne,
                      String aTwo)
-        {//warm
+        {//warn
         }
         void method6(String aOne,
                      String aTwo) {//ok
@@ -54,7 +54,7 @@ enum InputLeftCurlyMethodEnum
     },
     
     CONSTANT3("hellohellohellohellohellohellohellohellohellohellohellohellohellohello")
-    {//ok
+    {//warn
     };
 
     private InputLeftCurlyMethodEnum(String value)

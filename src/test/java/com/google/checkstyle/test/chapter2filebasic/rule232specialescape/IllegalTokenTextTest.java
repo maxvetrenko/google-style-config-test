@@ -94,7 +94,7 @@ public class IllegalTokenTextTest extends BaseCheckTestSupport{
             "161:29: Avoid using corresponding octal or Unicode escape.",
             "162:29: Avoid using corresponding octal or Unicode escape.",
         };
-        
+
         Configuration checkConfig = builder.getCheckConfig("IllegalTokenText");
         String filePath = builder.getFilePath("IllegalTokenTextInput");
         
