@@ -42,8 +42,7 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
             "14: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "15: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "16: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
-            "18: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
-            "21: " + getCheckMessage(clazz, msgSeparator, "org.apache.*"),
+            "21: " + getCheckMessage(clazz, msgSeparator, "org.apache.commons.collections.ArrayStack"),
         };
         
         Configuration checkConfig = builder.getCheckConfig("CustomImportOrder");
@@ -79,7 +78,6 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
         
         final String[] expected = {
                 "4: " + getCheckMessage(clazz, msgLex, "java.awt.Button.ABORT"),
-                "7: " + getCheckMessage(clazz, msgOrder, "THIRD_PARTY_PACKAGE"),
                 "8: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "9: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "10: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),

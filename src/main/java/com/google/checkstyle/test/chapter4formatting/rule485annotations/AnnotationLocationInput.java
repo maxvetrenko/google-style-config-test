@@ -86,8 +86,8 @@ class InputCorrectAnnotationIndentation
     
 }
 
-   @MyAnnotation1 //warn
-@MyAnnotation2
+@MyAnnotation1
+ @MyAnnotation2 //warn
 class Foo {}
 
 @interface MyAnnotation1 {}

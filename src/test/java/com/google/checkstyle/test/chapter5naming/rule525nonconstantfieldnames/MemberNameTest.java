@@ -45,7 +45,7 @@ public class MemberNameTest extends BaseCheckTestSupport{
             "24:19: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPro$tected", format),
             "25:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mPackage$", format),
         };
-        
+
         String filePath = builder.getFilePath("MemberNameInput_Basic");
         
         Integer[] warnList = builder.getLinesWithWarn(filePath);
@@ -88,19 +88,8 @@ public class MemberNameTest extends BaseCheckTestSupport{
             "127:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
             "129:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
             "131:25: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
-            "146:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad$Static", format),
-            "148:10: " + getCheckMessage(checkConfig.getMessages(), msgKey, "sum_Created", format),
-            "151:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "bad_Member", format),
-            "153:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m", format),
-            "155:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m_M", format),
-            "158:11: " + getCheckMessage(checkConfig.getMessages(), msgKey, "m$nts", format),
-            "162:9: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest1", format),
-            "164:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2", format),
-            "166:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "$mTest2", format),
-            "168:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTes$t2", format),
-            "170:16: " + getCheckMessage(checkConfig.getMessages(), msgKey, "mTest2$", format),
         };
-        
+
         String filePath = builder.getFilePath("MemberNameInput_Simple");
         
         Integer[] warnList = builder.getLinesWithWarn(filePath);

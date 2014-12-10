@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -139,10 +140,11 @@ public abstract class BaseCheckTestSupport
             final String expected = aMessageFileName + ":" + aExpected[i];
             String actual = lnr.readLine();
             assertEquals("error message " + i, expected, actual);
-            Integer integer = aWarnsExpected[i];
             String parseInt = actual.substring(actual.indexOf(":") + 1);
             parseInt = parseInt.substring(0, parseInt.indexOf(":"));
-            assertEquals("error message " + i, (long) integer, (long) Integer.parseInt(parseInt));
+            int lineNumber = Integer.parseInt(parseInt);
+			Integer integer = Arrays.asList(aWarnsExpected).contains(lineNumber) ? lineNumber : 0;
+            assertEquals("error message " + i, (long) integer, (long) lineNumber);
         }
 
         assertEquals("unexpected output: " + lnr.readLine(),

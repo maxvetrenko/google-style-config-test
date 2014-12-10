@@ -7,7 +7,7 @@ package com.google.checkstyle.test.chapter4formatting.rule462horizontalwhitespac
 class InputWhitespace
 {
     /** warn **/
-    private int mVar1=1; // warn
+    private int mVar1= 1; // warn
     /** warn **/
     private int mVar2 =1; // warn
     /** Should be ok **/
@@ -18,8 +18,8 @@ class InputWhitespace
     {
         final int a = 1;
         int b= 1; // warn
-        b=1; // warn
-        b+=1; // warn
+        b= 1; // warn
+        b +=1; // warn
         b -=- 1 + (+ b); // warn
         b = b ++ + b --; // ok
         b = ++ b - -- b; // ok
@@ -30,9 +30,9 @@ class InputWhitespace
     {
         synchronized(this) { //warn
         }
-        try{ //warn
+        try {//warn
         }
-        catch(RuntimeException e){ //warn
+        catch (RuntimeException e) {//warn
         }
     }
 
@@ -49,7 +49,7 @@ class InputWhitespace
     private void fastExit()
     {
         boolean complicatedStuffNeeded = true;
-        if( !complicatedStuffNeeded ) //warn
+        if( !complicatedStuffNeeded) //warn
         {
             return; // should not complain about missing WS after return
         }
@@ -88,14 +88,14 @@ class InputWhitespace
     /** test questions **/
     private void testQuestions()
     {
-        boolean b = (1 == 2)?true:false; //warn
-        b = (1==2) ? false : true; //warn
+
+        boolean b = (1 ==2) ? false : true; //warn
     }
 
     /** star test **/
     private void starTest()
     {
-        int x = 2 *3* 4; //warn
+        int x = 2 * 3* 4; //warn
     }
 
     /** boolean test **/
@@ -112,11 +112,11 @@ class InputWhitespace
         int a = 4 % 2;
         int b = 4% 2;//warn
         int c = 4 %2;//warn
-        int d = 4%2;//warn
+        int d = 4% 2;//warn
         int e = 4 / 2;
         int f = 4/ 2;//warn
         int g = 4 /2;//warn
-        int h = 4/2;//warn
+
     }
 
     /** @return dot test **/
@@ -147,7 +147,7 @@ class InputWhitespace
         assert(true);//warn
 
         // missing WS around colon
-        assert true:"Whups";//warn
+        assert true: "Whups";//warn
     }
 
     /** another check */

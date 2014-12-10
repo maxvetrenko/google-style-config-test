@@ -83,8 +83,8 @@ public class MultipleVariableDeclarationsInput
 }
 
 class Suppress {
-    @SuppressWarnings("unused")
-    long q1, q2, q3; //warn
+    @SuppressWarnings("unused") //warn
+    long q1, q2, q3;
     
     @SuppressWarnings("unused") long q4, q5, q6;  //warn
 }

@@ -25,10 +25,10 @@ class badCase {
         int i = 0;
         
         String s = "ffffooooString";
-        s.
-            isEmpty(); //warn
+        /*warn*/boolean b = s.
+            isEmpty();
         foo(i
-                ,s);  //warn
+                ,s);
         int[] j;        
     }
     public static String foo(int i, String s) 

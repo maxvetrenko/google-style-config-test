@@ -48,10 +48,10 @@ public class OneStatementPerLineInput {
     }
     if (one != 1) { one++; } else { one--; } //warn
     int n = 10;
-    int q = (n+7)/8; if (one != 1) { one++; } else { one--; } //warn
+
     doLegal(); doLegal(); //warn
     while (one == 1) {one++; two--;} //warn
-    for (int i = 0, j = 0, k = 1; i < 20; i++) {  one = i; two = i;} //warn
+    for (int i = 0, j = 0, k = 1; i < 20; i++) {  one = i; } //warn
   }
   
   /**
@@ -93,10 +93,10 @@ public class OneStatementPerLineInput {
         }
         if (one != 1) { one++; } else { one--; } //warn
         int n = 10;
-        int q = (n+7)/8; if (one != 1) { one++; } else { one--; } //warn
+
         doLegal(); doLegal(); //warn
         while (one == 1) {one++; two--;} //warn
-        for (int i = 0, j = 0, k = 1; i < 20; i++) {  one = i; two = i;} //warn
+        for (int i = 0, j = 0, k = 1; i < 20; i++) {  one = i; } //warn
       }
   }
 }

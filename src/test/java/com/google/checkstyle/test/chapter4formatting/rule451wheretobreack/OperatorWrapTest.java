@@ -108,7 +108,7 @@ public class OperatorWrapTest extends BaseCheckTestSupport{
             "348:17: " + getCheckMessage(clazz, messageKey, "<<="),
         };
 
-        String filePath = builder.getFilePath("OperatorWrapInput");
+        String filePath = builder.getFilePath("OperatorWrapAssignInput");
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(newCheckConfig, filePath, expected, warnList);
     }

@@ -23,7 +23,7 @@ public class AnnotationLocationTest extends BaseCheckTestSupport{
     }
 
     @Test
-    public void modifierOrderTest() throws IOException, Exception {
+    public void annotationTest() throws IOException, Exception {
         
         Class<AnnotationLocationCheck> clazz = AnnotationLocationCheck.class;
         String msgLocation = "annotation.location";
@@ -34,16 +34,15 @@ public class AnnotationLocationTest extends BaseCheckTestSupport{
         final String[] expected = {
             "3: " + getCheckMessage(clazz, msgLocationAlone, "MyAnnotation1"),
             "20: " + getCheckMessage(clazz, msgLocation, "MyAnnotation1", "8", "4"),
-            "23: " + getCheckMessage(clazz, msgLocationAlone, "MyAnnotation2"),
-            "23: " + getCheckMessage(clazz, msgLocationAlone, "MyAnnotationWithParam"),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
-            "3: " + getCheckMessage(clazz, msgLocation),
+            "27: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "7", "4"),
+            "31: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "8", "4"),
+            "32: " + getCheckMessage(clazz, msgLocation, "MyAnnotation3", "6", "4"),
+            "33: " + getCheckMessage(clazz, msgLocation, "MyAnnotation4", "10", "4"),
+            "54: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "12", "8"),
+            "58: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "12", "8"),
+            "78: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "11", "8"),
+            "81: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "10", "8"),
+            "90: " + getCheckMessage(clazz, msgLocation, "MyAnnotation2", "1", "0"),
         };
 
         String filePath = builder.getFilePath("AnnotationLocationInput");

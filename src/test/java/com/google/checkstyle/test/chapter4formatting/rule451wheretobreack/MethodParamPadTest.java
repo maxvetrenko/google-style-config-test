@@ -33,7 +33,7 @@ public class MethodParamPadTest extends BaseCheckTestSupport{
             "130:9: " + getCheckMessage(clazz, messageKey, "("),
         };
         Configuration checkConfig = builder.getCheckConfig("MethodParamPad");
-        String filePath = builder.getFilePath("OperatorWrapInput");
+        String filePath = builder.getFilePath("MethodParamPadInput");
 
         Integer[] warnList = builder.getLinesWithWarn(filePath);
         verify(checkConfig, filePath, expected, warnList);
