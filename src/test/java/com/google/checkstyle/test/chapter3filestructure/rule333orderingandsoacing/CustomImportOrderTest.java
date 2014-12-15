@@ -62,7 +62,7 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
             "9: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "10: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
             "11: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
-            "14: " + getCheckMessage(clazz, msgSeparator, "com.*"),
+            "14: " + getCheckMessage(clazz, msgSeparator, "com.sun.xml.internal.xsom.impl.scd.Iterators"),
             "16: " + getCheckMessage(clazz, msgOrder, "SPECIAL_IMPORTS"),
         };
 
@@ -82,7 +82,7 @@ public class CustomImportOrderTest extends BaseCheckTestSupport{
                 "9: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "10: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
                 "11: " + getCheckMessage(clazz, msgOrder, "STANDARD_JAVA_PACKAGE"),
-                "14: " + getCheckMessage(clazz, msgSeparator, "com.*"),
+                "14: " + getCheckMessage(clazz, msgSeparator, "com.sun.xml.internal.xsom.impl.scd.Iterators"),
                 "16: " + getCheckMessage(clazz, msgOrder, "SPECIAL_IMPORTS"),
         };
 

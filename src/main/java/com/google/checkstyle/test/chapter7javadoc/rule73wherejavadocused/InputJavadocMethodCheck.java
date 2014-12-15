@@ -1,4 +1,4 @@
-package com.google.checkstyle.test.chapter7javadoc.rule731selfexplanatory;
+package com.google.checkstyle.test.chapter7javadoc.rule73wherejavadocused;
 
 /**
  * The following is a bad tag.

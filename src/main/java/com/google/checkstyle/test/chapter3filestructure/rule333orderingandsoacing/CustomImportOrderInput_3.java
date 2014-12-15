@@ -10,11 +10,11 @@ import java.util.*; //warn
 import java.util.concurrent.AbstractExecutorService; //warn
 import java.util.concurrent.*; //warn
 
-import com.google.checkstyle.*;
-import com.*; //warn
+import com.google.checkstyle.test.chapter2filebasic.rule21filename.*;
+import com.sun.xml.internal.xsom.impl.scd.Iterators; //warn
 
-import com.google.common.*; //warn
-import org.apache.*;
+import com.google.common.reflect.*; //warn
+import org.apache.commons.beanutils.expression.*;
 
 public class CustomImportOrderInput_3 {
 }
